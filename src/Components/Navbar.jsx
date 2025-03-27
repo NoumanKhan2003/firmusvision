@@ -48,7 +48,7 @@ const Navbar = () => {
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
-      <Box sx={{ display: "flex",justifyContent:"center" , pt:"1rem"}}>
+      <Box sx={{ display: "flex", justifyContent: "center", pt: "1rem" }}>
         <Typography
           variant="h5"
           fontWeight="bold"
@@ -66,7 +66,7 @@ const Navbar = () => {
           Vision
         </Typography>
       </Box>
-      <Divider sx={{ bgcolor: "grey", width: "100%" }}/>
+      <Divider sx={{ bgcolor: "grey", width: "100%" }} />
 
       <List>
         {menuItems.map((item) => (
@@ -85,9 +85,11 @@ const Navbar = () => {
     <Box
       sx={{
         display: "flex",
-        mx: "2rem",
+        px: {md:"2rem",xs:"1rem"},
         justifyContent: "space-between",
         alignItems: "center",
+        backgroundColor: "#282828",
+        color:"white"
       }}
     >
       {/* Logo */}
@@ -104,7 +106,7 @@ const Navbar = () => {
           variant="h5"
           fontWeight="bold"
           fontSize="2.5rem"
-          color="black"
+          color="white"
         >
           Vision
         </Typography>
@@ -121,16 +123,16 @@ const Navbar = () => {
             "Services",
             "Contact",
           ].map((item) => (
-            <NavItem key={item} sx={{ fontWeight: "bold", fontSize: "1.3rem" }}>
+            <NavItem key={item} sx={{ fontWeight: "bold", fontSize: "1.4rem" }}>
               {item}
             </NavItem>
           ))}
         </NavList>
       </Box>
 
-      <Box sx={{ display: { xs: "block", md: "none" } }}>
-        <Button onClick={toggleDrawer(true)}>
-          <MenuIcon color="inherit" />
+      <Box sx={{ display: { xs: "block", md: "none" }, }}>
+        <Button onClick={toggleDrawer(true)} sx={{pr:0}}>
+          <MenuIcon color="warning" sx={{ fontSize: "2rem" }}  />
         </Button>
       </Box>
 
@@ -143,7 +145,7 @@ const Navbar = () => {
 
 const NavList = styled("ul")({
   display: "flex",
-  gap: 20,
+  gap: 25,
   listStyle: "none",
   margin: 0,
   padding: 0,
@@ -153,6 +155,7 @@ const NavItem = styled("li")({
   position: "relative",
   cursor: "pointer",
   paddingBottom: "5px",
+  transition: "transform 0.3s ease-in-out",
   "&::after": {
     content: '""',
     position: "absolute",
@@ -160,8 +163,11 @@ const NavItem = styled("li")({
     bottom: 0,
     width: "0%",
     height: "2px",
-    backgroundColor: "black",
-    transition: "width 0.3s ease-in-out",
+    backgroundColor: "orange",
+    transition: "width 0.4s ease-in-out",
+  },
+  "&:hover": {
+    transform: "scale(1.2)", // Scale the text on hover
   },
   "&:hover::after": {
     width: "100%",
