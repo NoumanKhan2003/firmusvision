@@ -1,10 +1,11 @@
 import React, { useRef } from "react";
 import heroImage from "../Assets/img1.jpg";
-import { Box, Button, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, Divider, Typography, useMediaQuery } from "@mui/material";
 import MoreIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import { motion, useInView } from "framer-motion";
 import whoWeAreImg from "../Assets/img2.jpg";
 import clients from "../Assets/ClientsData";
+import indiaMap from "../Assets/network.png";
 const HomePage = () => {
   const isSmallScreen = useMediaQuery("(max-width:600px)");
   const ref1 = useRef(null);
@@ -444,6 +445,17 @@ const HomePage = () => {
                 />
               </Box>
             ))}
+          </Box>
+        </Box>
+      </section>
+      <section>
+        <Box sx={{ minHeight: "100vh" ,display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center",bgcolor:"#bbfdff",pb:"3rem"}}>
+          <Typography variant="h3" sx={{ fontSize: "4rem",fontWeight:"bold",pt:"1rem" }}>
+            OUR NETWORK
+          </Typography>
+          <Divider sx={{ borderBottomWidth: "3px", borderColor: "black", width: "40%",mb:"4rem" }} />
+          <Box sx={{height:"auto",width:"80%"}}>
+          <img src={indiaMap} />
           </Box>
         </Box>
       </section>
