@@ -4,11 +4,15 @@ import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 import MoreIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import { motion, useInView } from "framer-motion";
 import whoWeAreImg from "../Assets/img2.jpg";
+import clients from "../Assets/ClientsData";
 const HomePage = () => {
   const isSmallScreen = useMediaQuery("(max-width:600px)");
-  const ref = useRef(null);
-  const marginValue = isSmallScreen ? "-50px" : "-100px";
-  const isInView = useInView(ref, { margin: marginValue, once: false });
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const marginValue = isSmallScreen ? "-100px" : "-100px";
+  const isInView1 = useInView(ref1, { margin: marginValue, once: false });
+  const isInView2 = useInView(ref2, { margin: marginValue, once: false });
+
   return (
     <Box className="main" sx={{ minHeight: "100vh" }}>
       <section>
@@ -261,7 +265,7 @@ const HomePage = () => {
           }}
         >
           <Box
-            ref={ref}
+            ref={ref1}
             className="name div"
             sx={{
               display: "flex",
@@ -278,7 +282,7 @@ const HomePage = () => {
               isSmallScreen ? { opacity: 0, y: 100 } : { opacity: 0, x: -70 }
             }
             animate={
-              isInView
+              isInView1
                 ? { opacity: 1, y: 0, x: 0 }
                 : isSmallScreen
                 ? { opacity: 0, y: 100 }
@@ -309,7 +313,7 @@ const HomePage = () => {
             </Typography>
           </Box>
           <Box
-          ref={ref}
+            ref={ref1}
             className="Intro div"
             sx={{
               width: { md: "40%", xs: "100%" },
@@ -323,7 +327,7 @@ const HomePage = () => {
               isSmallScreen ? { opacity: 0, y: 100 } : { opacity: 0, x: 70 }
             }
             animate={
-              isInView
+              isInView1
                 ? { opacity: 1, y: 0, x: 0 }
                 : isSmallScreen
                 ? { opacity: 0, y: 100 }
@@ -344,9 +348,102 @@ const HomePage = () => {
               positively and effectively in order to build and enhance your
               brand and image.
             </Typography>
-            <Button variant="text" sx={{ color: "orange", fontWeight: "bold" }}>
+            <Button
+              variant="text"
+              sx={{ color: "orange", fontWeight: "bold", mb: 3 }}
+            >
               Read More <MoreIcon sx={{ ml: 1 }} />
             </Button>
+          </Box>
+        </Box>
+      </section>
+      <section>
+        <Box
+          sx={{
+            // bgcolor: "#002440",
+            bgcolor: "#e5e5e5",
+            minHeight: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexDirection: { md: "row", xs: "column" },
+            padding: { md: "0 7rem", xs: "1rem" },
+            pb: "2rem",
+          }}
+        >
+          <Box
+            ref={ref2}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: { md: "40%", xs: "100%" },
+              textAlign: { md: "left", xs: "center" },
+            }}
+            component={motion.div}
+            initial={
+              isSmallScreen ? { opacity: 0, y: -100 } : { opacity: 0, x: -70 }
+            }
+            animate={
+              isInView2
+                ? { opacity: 1, y: 0, x: 0 }
+                : isSmallScreen
+                ? { opacity: 0, y: -100 }
+                : { opacity: 0, x: -70 }
+            }
+            transition={{ duration: 1, ease: "easeInOut" }}
+          >
+            <Typography
+              variant="h3"
+              sx={{
+                fontSize: { md: "4.5rem", xs: "3rem" },
+                color: "black",
+                fontWeight: "bold",
+              }}
+            >
+              Our Clients
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: {
+                md: "repeat(3, 1fr)",
+                xs: "repeat(1, 1fr)",
+              },
+              gap: "1rem",
+              justifyContent: "flex-end",
+              width: { md: "50%", xs: "100%" },
+            }}
+            component={isSmallScreen ? "div" : motion.div}
+            initial={!isSmallScreen ? { opacity: 0, x: 70 } : undefined}
+            animate={
+              !isSmallScreen && isInView2 ? { opacity: 1, x: 0 } : undefined
+            }
+            transition={
+              !isSmallScreen ? { duration: 1, ease: "easeInOut" } : undefined
+            }
+          >
+            {clients.slice(0, 6).map((client, index) => (
+              <Box
+                key={index}
+                sx={{
+                  maxHeight: { md: "17rem", xs: "unset" },
+                  maxWidth: { md: "17rem", xs: "80%" },
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  margin: "auto",
+                }}
+              >
+                <img
+                  src={client.logo}
+                  height="100%"
+                  width="100%"
+                  style={{ mixBlendMode: "darken" }}
+                />
+              </Box>
+            ))}
           </Box>
         </Box>
       </section>
