@@ -5,7 +5,6 @@ import img3 from "../Assets/cl3.jpg";
 import img4 from "../Assets/cl4.jpg";
 import img5 from "../Assets/cl5.jpg";
 import img6 from "../Assets/cl6.jpg";
-import img7 from "../Assets/cl7.jpg";
 
 const clients = [
   { logo: img1 },
@@ -14,6 +13,5 @@ const clients = [
   { logo: img4 },
   { logo: img5 },
   { logo: img6 },
-  { logo: img7 },
 ];
 export default clients;

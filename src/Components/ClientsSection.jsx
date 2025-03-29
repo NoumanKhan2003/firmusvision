@@ -3,6 +3,7 @@ import clients from "../Assets/ClientsData";
 import clientHeroImg from "../Assets/clientHeroImg.jpg";
 import { Box, Button, Divider, Typography, useMediaQuery } from "@mui/material";
 import { motion, useInView } from "framer-motion";
+import MoreIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 
 const ClientsSection = () => {
   const isSmallScreen = useMediaQuery("(max-width:600px)");
@@ -51,8 +52,8 @@ const ClientsSection = () => {
           <Divider
             sx={{
               borderBottomWidth: "3px",
-              borderColor: "black",
-              width: "80%",
+              borderColor: "orange",
+              width: "20%",
               textAlign: "center",
               margin: "auto",
               mb: "2rem",
@@ -86,8 +87,8 @@ const ClientsSection = () => {
             xs: "repeat(1, 1fr)",
           },
           gap: "1rem",
-          justifyContent: "flex-end",
-          width: { md: "50%", xs: "100%" },
+          justifyContent: "center",
+          width: { md: "70%", xs: "100%" },
         }}
         component={isSmallScreen ? "div" : motion.div}
         initial={!isSmallScreen ? { opacity: 0, x: 70 } : undefined}
@@ -117,6 +118,14 @@ const ClientsSection = () => {
             />
           </Box>
         ))}
+        <Button
+          variant="text"
+          color="warning"
+          size="large"
+          sx={{ display: "flex", justifyContent: "center", fontSize: "1rem", mt:{md:"4rem",xs:"0"} }}
+        >
+          View All Clients <MoreIcon/>
+        </Button>
       </Box>
     </Box>
   );
