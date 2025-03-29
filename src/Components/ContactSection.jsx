@@ -1,116 +1,188 @@
 import React from "react";
-import officeImg from "../Assets/office.jpg";
-import { Box, Button, Divider, Typography } from "@mui/material";
-import MoreIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  IconButton,
+  Divider,
+} from "@mui/material";
+import {
+  Email,
+  Phone,
+  LocationOn,
+  LinkedIn,
+  Instagram,
+} from "@mui/icons-material";
 
-const ContactSection = () => {
+const ContactUs = () => {
   return (
     <Box
       sx={{
-        position: "relative",
-        backgroundImage: `url(${officeImg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        minHeight: "100vh",
         display: "flex",
-        flexDirection: "column",
+        flexDirection: { xs: "column", md: "row" },
+        justifyContent: "space-between",
         alignItems: "center",
-        padding: "2rem",
-        color: "white",
+        backgroundColor: "#000",
+        color: "#fff",
+        p: 4,
       }}
     >
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0, 128, 0, 0.7)",
-          zIndex: 1,
-        }}
-      />
+      {/* Left Section - Contact Info */}
+      <Box sx={{ maxWidth: 400 }}>
+        <Typography
+          variant="h6"
+          sx={{
+            color: "orange",
+            mb: 1,
+            fontSize: "3rem",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Divider
+            sx={{ width: 70, height: 2, borderColor: "orange", mr: 1 }}
+          />{" "}
+          Contact Us
+        </Typography>
+        <Typography variant="h3" fontWeight="bold" sx={{ mb: 4 }}>
+          Let’s Get in Touch
+        </Typography>
 
+        {/* Email */}
+        <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+          <Email sx={{ color: "orange", mr: 2 }} />
+          <Box>
+            <Typography fontWeight="bold">Email Address</Typography>
+            <Typography>info@firmusvision.com</Typography>
+          </Box>
+        </Box>
+
+        {/* Phone */}
+        <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+          <Phone sx={{ color: "orange", mr: 2 }} />
+          <Box>
+            <Typography fontWeight="bold">Call Us</Typography>
+            <Typography>+91 9999999999</Typography>
+          </Box>
+        </Box>
+
+        {/* Address */}
+        <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+          <LocationOn sx={{ color: "orange", mr: 2 }} />
+          <Box>
+            <Typography fontWeight="bold">Address</Typography>
+            <Typography>
+              Plot No-D 107, Vyapar Marg, Sector-2, Noida, UP-201301
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+
+      {/* Right Section - Contact Form */}
       <Box
+        component="form"
         sx={{
-          position: "relative",
-          zIndex: 2,
-          textAlign: "center",
-          maxWidth: "600px",
+          display: "flex",
+          flexDirection: "column",
+          width: { xs: "100%", md: "50%" },
+          backgroundColor: "#111",
+          p: 3,
+          borderRadius: 2,
         }}
       >
-        <Typography
-          variant="h3"
-          sx={{
-            fontWeight: "bold",
-            mb: 10,
-            fontSize: "3.5rem",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          Contact Us
-          <Divider
-            sx={{
-              borderBottomWidth: "5px",
-              borderColor: "black",
-              width: "40%",
-              mb: "4rem",
+        <Typography variant="h6" sx={{ mb: 2, textAlign: "center" }}>
+          Send Message
+        </Typography>
+
+        <Box sx={{ display: "flex", gap: 2 }}>
+          <TextField
+            fullWidth
+            variant="outlined"
+            label="First Name"
+            slotProps={{
+              inputLabel: { style: { color: "#fff" } },
             }}
+            sx={{ input: { color: "#fff" }, fieldset: { borderColor: "#444" } }}
           />
-        </Typography>
+          <TextField
+            fullWidth
+            variant="outlined"
+            label="Last Name"
+            slotProps={{
+              inputLabel: { style: { color: "#fff" } },
+            }}
+            sx={{ input: { color: "#fff" }, fieldset: { borderColor: "#444" } }}
+          />
+        </Box>
 
-        <Typography variant="body1" sx={{ fontSize: "1.5rem" }}>
-          303, Star Infinity Tower, Plot No.-14, Sector-14, Kaushambi,
-          Ghaziabad-Uttar Pradesh
-        </Typography>
-        <Typography variant="body1" sx={{ mt: 1, fontSize: "2rem" }}>
-          Pincode-201010
-        </Typography>
-        <Typography variant="h6" sx={{ mt: 3, fontSize: "1.5rem" }}>
-          <strong>Contact : </strong> info@firmusvision.com
-        </Typography>
-        <Typography
-          variant="h4"
-          sx={{ mt: 3, color: "black", fontWeight: "bold" }}
-        >
-          If you want to talk to us, we want to hear from you
-        </Typography>
-        <Button
+        <TextField
+          fullWidth
           variant="outlined"
-          size="large"
+          label="Email Address"
+          slotProps={{
+            inputLabel: { style: { color: "#fff" } },
+          }}
           sx={{
-            fontSize: "1.2rem",
-            color: "black",
-            fontWeight: "bold",
-            bgcolor: "white",
-            border: "2px solid black",
-            transition: "all 0.3s ease-in-out",
-            display: "flex",
-            alignItems: "center",
-            margin: "auto",
-            mt: "1rem",
+            mt: 2,
+            input: { color: "white" },
+            fieldset: { borderColor: "#444" },
+          }}
+        />
 
-            "&:hover": {
-              bgcolor: "black",
-              color: "white",
-              transform: "scale(1.05)",
-              boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
-            },
+        <TextField
+          fullWidth
+          variant="outlined"
+          label="Phone No"
+          slotProps={{
+            inputLabel: { style: { color: "#fff" } },
+          }}
+          sx={{
+            mt: 2,
+            input: { color: "#fff" },
+            fieldset: { borderColor: "#444" },
+          }}
+        />
 
-            "&:active": {
-              transform: "scale(0.98)",
+        <TextField
+          fullWidth
+          variant="outlined"
+          label="Message"
+          multiline
+          rows={4}
+          slotProps={{
+            inputLabel: { style: { color: "#fff" } },
+            input: { style: { color: "#fff" } },
+          }}
+          sx={{
+            mt: 2,
+            textarea: { color: "#fff" },
+            fieldset: { borderColor: "#444" },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "#444",
+              },
+              "&:hover fieldset": {
+                borderColor: "#666",
+              },
             },
           }}
+        />
+
+        <Button
+          fullWidth
+          variant="contained"
+          sx={{
+            mt: 2,
+            backgroundColor: "orange",
+            "&:hover": { backgroundColor: "#b30000" },
+          }}
         >
-          Contact us
-          <MoreIcon />
+          Send Message
         </Button>
       </Box>
     </Box>
   );
 };
 
-export default ContactSection;
+export default ContactUs;
