@@ -23,7 +23,7 @@ const ClientsSection = () => {
     >
       {/* Left Side - Title & Hero Image */}
       <Box
-        ref={ref2}
+        ref={ref}
         sx={{
           display: "flex",
           flexDirection: "column",

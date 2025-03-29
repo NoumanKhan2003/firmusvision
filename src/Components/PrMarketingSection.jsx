@@ -1,42 +1,50 @@
 import { Box, Typography, Button } from "@mui/material";
-import img1 from "../Assets/campaign.jpg";
+import img1 from "../Assets/campaign.jpg"; // Your image path
 
 const PRMarketingSection = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#1E1E1E",
+        backgroundColor: "#090909",
         minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        padding: "4rem 2rem",
+        padding: { xs: "0rem 0rem", md: "0rem 6rem" },
+        pb: { xs: "3rem", md: "3rem" },
       }}
     >
       <Box
         sx={{
+          width: "100%",
+          maxWidth: "1900px",
+          position: "relative",
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
-          alignItems: "center",
-          gap: "2rem",
-          maxWidth: "1200px",
-          width: "100%",
+          alignItems: { md: "self-start", xs: "center" },
+          mt: "3rem",
         }}
       >
-        {/* Left - Image */}
+        {/* Image Background */}
         <Box
-          component="img"
-          src={img1} 
-          alt="Meeting"
           sx={{
-            width: { xs: "100%", md: "55%" },
+            width: { md: "80%", xs: "90%" },
             height: "auto",
-            borderRadius: "8px",
-            boxShadow: "3px 3px 15px rgba(255, 255, 255, 0.1)",
+            display: "flex",
+            justifyContent: "center",
           }}
-        />
+        >
+          <img
+            src={img1}
+            alt="Meeting"
+            style={{
+              width: "100%",
+              boxShadow: "3px 3px 15px rgba(255, 255, 255, 0.1)",
+            }}
+          />
+        </Box>
 
-        {/* Right - Content */}
+        {/* Text Content Box */}
         <Box
           sx={{
             backgroundColor: "#000",
@@ -44,14 +52,14 @@ const PRMarketingSection = () => {
             padding: "2.5rem",
             borderRadius: "8px",
             boxShadow: "5px 5px 15px rgba(255, 255, 255, 0.1)",
-            width: { xs: "100%", md: "50%" },
+            width: { xs: "70%", md: "60%" },
+            maxWidth: "500px",
+            marginTop: { xs: "1rem", md: "4rem" }, // Moves up on larger screens
+            marginLeft: { md: "-12rem" }, // Moves left to overlay image
+            textAlign: { xs: "left", md: "left" },
           }}
         >
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            sx={{ fontSize: { xs: "1.8rem", md: "2rem" } }}
-          >
+          <Typography variant="h4" fontWeight="bold">
             Integrated PR & Marketing Agency
           </Typography>
           <Box
@@ -67,7 +75,7 @@ const PRMarketingSection = () => {
             variant="body1"
             sx={{ fontSize: "1rem", lineHeight: "1.6" }}
           >
-            Welcome to Branding Area, your partner in strategic communication
+            Welcome to Firmus Vision, your partner in strategic communication
             excellence. We specialize in crafting compelling narratives,
             building media relationships, and delivering measurable results.
           </Typography>
