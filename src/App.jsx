@@ -20,10 +20,10 @@ function App() {
           <Route path="/network" element={<NetworkPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/contact" element={<ContactPage />} />
-
         </Routes>
+        <Footer/>
+
       </BrowserRouter>
-      <Footer/>
     </>
   );
 }

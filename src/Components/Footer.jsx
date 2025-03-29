@@ -4,11 +4,12 @@ import {
   Container,
   Stack,
   Typography,
-  Link,
   Divider,
   useTheme,
+  Link as MuiLink,
 } from "@mui/material";
 import { Facebook, Twitter, LinkedIn, Instagram } from "@mui/icons-material";
+import { Link as RouterLink } from "react-router-dom";
 
 const Footer = () => {
   const theme = useTheme();
@@ -49,34 +50,52 @@ const Footer = () => {
                 Vision
               </Typography>
             </Box>
-            <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 }}>
+            <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 ,fontSize:15}}>
               Our dedication to crafting strategic communication plans,
               fostering positive media relationships, and delivering measurable
               outcomes.
             </Typography>
             <Stack direction="row" spacing={2}>
               {[
-                { Icon: Facebook, name: "facebook" },
-                { Icon: Twitter, name: "twitter" },
-                { Icon: LinkedIn, name: "linkedin" },
-                { Icon: Instagram, name: "instagram" },
-              ].map(({ Icon, name }, index) => (
-                <Link
-                  key={index}
-                  href="#"
-                  color="inherit"
+                {
+                  Icon: Facebook,
+                  name: "facebook",
+                  url: "https://facebook.com",
+                },
+                { Icon: Twitter, name: "twitter", url: "https://twitter.com" },
+                {
+                  Icon: LinkedIn,
+                  name: "linkedin",
+                  url: "https://linkedin.com",
+                },
+                {
+                  Icon: Instagram,
+                  name: "instagram",
+                  url: "https://instagram.com",
+                },
+              ].map(({ Icon, name, url }) => (
+                <MuiLink
+                  key={name}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   sx={{
                     color: "text.secondary",
+                    textDecoration: "none",
+                    
                     "&:hover": {
-                      color: name === "instagram" ? "#E1306C" : "primary.main",
+                      color:
+                        name === "instagram"
+                          ? "#E1306C"
+                          : theme.palette.primary.main,
                       transform: "scale(1.2)",
                     },
                     transition: "all 0.3s ease",
                     display: "inline-flex",
                   }}
                 >
-                  <Icon />
-                </Link>
+                  <Icon fontSize="large" />
+                </MuiLink>
               ))}
             </Stack>
           </Box>
@@ -91,34 +110,33 @@ const Footer = () => {
               <Typography
                 variant="subtitle1"
                 gutterBottom
-                sx={{ fontWeight: 600,fontSize:20 }}
+                sx={{ fontWeight: 600, fontSize: 30 }}
               >
-                Quick Links
+                QuickLinks
               </Typography>
               <Stack component="nav" spacing={1}>
                 {[
-                  "About us",
-                  "Services",
-                  "Clients",
-                  "Our Network",
-                  "Contact Us",
+                  { text: "About us", path: "/about" },
+                  { text: "Services", path: "/services" },
+                  { text: "Clients", path: "/clients" },
+                  { text: "Our Network", path: "/network" },
+                  { text: "Contact Us", path: "/contact" },
                 ].map((item) => (
-                  <Link
-                    key={item}
-                    href="#"
-                    variant="body2"
+                  <MuiLink
+                    key={item.text}
+                    component={RouterLink}
+                    to={item.path}
                     sx={{
                       color: "text.secondary",
                       textDecoration: "none",
-                      fontSize:15,
+                      fontSize: 20,
                       "&:hover": {
                         color: "primary.main",
-                        textDecoration: "none",
                       },
                     }}
                   >
-                    {item}
-                  </Link>
+                    {item.text}
+                  </MuiLink>
                 ))}
               </Stack>
             </Box>
@@ -128,40 +146,40 @@ const Footer = () => {
               <Typography
                 variant="subtitle1"
                 gutterBottom
-                sx={{ fontWeight: 600,fontSize:20 }}
+                sx={{ fontWeight: 600, fontSize: 30 }}
               >
                 Contact Us
               </Typography>
               <Stack spacing={1}>
-                <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                <Typography variant="body2" sx={{ color: "text.secondary",fontSize:20 }}>
                   Plot No-D 107, Vyapar Marg, Sector-2 Noida, UP-201301
                 </Typography>
-                <Link
-                  href="mailto:info@firmus vision.com"
-                  variant="body2"
+                <MuiLink
+                  href="mailto:info@firmusvision.com"
                   sx={{
                     color: "text.secondary",
+                    textDecoration: "none",
+                    fontSize:20,
                     "&:hover": {
                       color: "primary.main",
-                      textDecoration: "none",
                     },
                   }}
                 >
                   info@firmusvision.com
-                </Link>
-                <Link
+                </MuiLink>
+                <MuiLink
                   href="tel:+91999999999"
-                  variant="body2"
                   sx={{
                     color: "text.secondary",
+                    textDecoration: "none",
+                    fontSize:20,
                     "&:hover": {
                       color: "primary.main",
-                      textDecoration: "none",
                     },
                   }}
                 >
                   +91 9999999999
-                </Link>
+                </MuiLink>
               </Stack>
             </Box>
           </Stack>
@@ -180,16 +198,19 @@ const Footer = () => {
           </Typography>
           <Typography variant="body2" sx={{ color: "text.secondary" }}>
             Designed and Developed by{" "}
-            <Link
-              href="#"
+            <MuiLink
+              href="http://www.linkedin.com/in/nouman-khan-95923a256"
               sx={{
                 color: "primary.main",
                 textDecoration: "none",
                 fontWeight: "bold",
+                "&:hover": {
+                  textDecoration: "none",
+                },
               }}
             >
               Nouman Khan
-            </Link>
+            </MuiLink>
           </Typography>
         </Stack>
       </Container>
