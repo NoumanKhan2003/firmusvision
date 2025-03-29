@@ -1,30 +1,49 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
-import { Box, IconButton, Typography } from "@mui/material";
-
+import {
+  Box,
+  IconButton,
+  Container,
+  Typography,
+  Stack,
+  Button,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
+import styled from "styled-components";
+import ViewsSection from "../Components/ViewsSection.jsx";
+import ContactSection from "../Components/ContactSection.jsx";
 const quotes = [
   {
     title: "We are Credible",
     text: "At the core of Media Mantra Group's credibility is a very strong leadership team with over 100 plus years of experience in communications consulting. With a deep understanding of the media landscape, communication trends, and consumer behavior, the firm exudes professionalism in every facet of its operations, ensuring that clients receive top-notch strategic counsel and execution.",
+    image:
+      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
   },
   {
     title: "We Value Integrity",
     text: "Our team operates with the highest level of integrity, ensuring that our clients' best interests are always at the forefront. Transparency, trust, and ethics guide every decision we make.",
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
   },
   {
     title: "Our Commitment is Unmatched",
     text: "We are committed to delivering excellence and measurable results. Our strategic approach is built on deep industry knowledge and a passion for success.",
+    image:
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
   },
 ];
 
 const AboutPage = () => {
   const [index, setIndex] = useState(0);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % quotes.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -35,7 +54,120 @@ const AboutPage = () => {
     setIndex((prevIndex) => (prevIndex + 1) % quotes.length);
 
   return (
-    <Box className="main div" sx={{ minHeight: "100vh" }}>
+    <Box sx={{ minHeight: "100vh" }}>
+      <section>
+        <Box
+          id="about"
+          sx={{
+            py: 8,
+            backgroundColor: theme.palette.background.paper,
+          }}
+        >
+          <Container maxWidth="lg">
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: isMobile ? "column" : "row",
+                alignItems: "center",
+                gap: 4,
+              }}
+            >
+              {/* Image Section */}
+              <Box
+                sx={{
+                  flex: 1,
+                  minWidth: isMobile ? "100%" : "300px",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <Box
+                  component="img"
+                  src="src\Assets\prImage.jpg" // Replace with your image path
+                  alt="Firmus Vision Team"
+                  sx={{
+                    maxWidth: "100%",
+                    height: "auto",
+                    borderRadius: 2,
+                  }}
+                />
+              </Box>
+
+              {/* Content Section */}
+              <Box
+                sx={{
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Typography
+                  variant={isMobile ? "h4" : "h3"}
+                  sx={{
+                    fontWeight: 800,
+                    mb: 3,
+                    textAlign: { xs: "center", md: "unset" },
+                    color: "orange",
+                  }}
+                >
+                  ABOUT US
+                </Typography>
+
+                <Typography
+                  variant={isMobile ? "h6" : "h5"}
+                  sx={{
+                    fontWeight: 600,
+                    mb: 3,
+                    color: theme.palette.text.primary,
+                  }}
+                >
+                  Welcome to Firmus Vision: Crafting Stories, Building Legacies
+                </Typography>
+
+                <Box
+                  sx={{
+                    p: 3,
+                    borderRadius: 2,
+                    backgroundColor:
+                      theme.palette.mode === "dark"
+                        ? "rgba(255,255,255,0.05)"
+                        : "rgba(0,0,0,0.03)",
+                  }}
+                >
+                  <Box sx={{ mb: 2 }}>
+                    <Typography sx={{ lineHeight: 1.8 }}>
+                      At Firmus Vision, we fuse creativity with unwavering
+                      dedication to deliver unparalleled excellence.
+                      Specializing in crafting impactful stories, we navigate
+                      the dynamic media landscape with a deep understanding of
+                      its challenges.
+                    </Typography>
+                  </Box>
+
+                  <Box sx={{ mb: 2 }}>
+                    <Typography sx={{ lineHeight: 1.8 }}>
+                      With an established network of over 300 publications in
+                      India and over 200 abroad, our strategic approach helps
+                      brands build outstanding media relationships grounded in
+                      trust and authenticity.
+                    </Typography>
+                  </Box>
+
+                  <Box>
+                    <Typography sx={{ lineHeight: 1.8 }}>
+                      We provide comprehensive services including social media
+                      management, PR, event management, and much more. At
+                      Publieze, we ensure your stories are not just told, but
+                      resonate profoundly and leave a lasting impression on your
+                      target audience.
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+          </Container>
+        </Box>
+      </section>
       <section>
         <Box
           sx={{
@@ -46,9 +178,7 @@ const AboutPage = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: { xs: "3rem 1rem", md: "5rem 0rem" },
-            pt: { xs: "3rem 1rem", md: "2rem 0rem" } ,
-            textAlign: "left",
+            padding: { xs: "2rem 1rem", md: "4rem 0" },
             overflow: "hidden",
           }}
         >
@@ -67,137 +197,105 @@ const AboutPage = () => {
             }}
           />
 
-          {/* Quote Text */}
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            style={{
-              maxWidth: "70%",
-              position: "relative",
-              zIndex: 1,
-              paddingLeft: "0rem",
-            }}
-          >
-            <Typography
-              variant="h4"
-              fontWeight="bold"
-              mb={2}
-              sx={{ fontSize: { xs: "1.5rem", md: "2.5rem" } }}
+          <Container maxWidth="lg">
+            <Stack
+              direction={isMobile ? "column" : "row"}
+              spacing={4}
+              alignItems="center"
             >
-              {quotes[index].title}
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{ fontSize: { xs: "0.9rem", md: "1.2rem" } }}
-            >
-              {quotes[index].text}
-            </Typography>
-          </motion.div>
+              {/* Image on Left */}
+              <Box
+                sx={{
+                  width: isMobile ? "100%" : "40%",
+                  height: isMobile ? "300px" : "400px",
+                  position: "relative",
+                  borderRadius: "8px",
+                  overflow: "hidden",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+                  zIndex: 1,
+                }}
+              >
+                <motion.img
+                  key={`image-${index}`}
+                  src={quotes[index].image}
+                  alt={quotes[index].title}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    position: "absolute",
+                  }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                />
+              </Box>
 
-          {/* Navigation Buttons */}
-          <IconButton
-            sx={{
-              position: "absolute",
-              bottom: "10%",
-              right: { md: "8.5%", xs: "17%" },
-              backgroundColor: "white",
-              color: "#E87E1C",
-              "&:hover": { backgroundColor: "rgba(255,255,255,0.8)" },
-              boxShadow: "2px 2px 8px rgba(0,0,0,0.2)",
-              zIndex: 2,
-            }}
-            onClick={prevSlide}
-          >
-            <ChevronLeft />
-          </IconButton>
-          <IconButton
-            sx={{
-              position: "absolute",
-              bottom: "10%",
-              right: "5%",
-              backgroundColor: "rgba(255,255,255,0.3)",
-              color: "white",
-              "&:hover": { backgroundColor: "rgba(255,255,255,0.5)" },
-              boxShadow: "2px 2px 8px rgba(0,0,0,0.2)",
-              zIndex: 2,
-            }}
-            onClick={nextSlide}
-          >
-            <ChevronRight />
-          </IconButton>
+              {/* Quote Text on Right */}
+              <Box
+                sx={{
+                  width: isMobile ? "100%" : "55%",
+                  position: "relative",
+                  zIndex: 1,
+                }}
+              >
+                <motion.div
+                  key={`text-${index}`}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                >
+                  <Typography
+                    variant={isMobile ? "h5" : "h4"}
+                    fontWeight="bold"
+                    mb={2}
+                  >
+                    {quotes[index].title}
+                  </Typography>
+                  <Typography variant={isMobile ? "body1" : "h6"}>
+                    {quotes[index].text}
+                  </Typography>
+                </motion.div>
+
+                {/* Navigation Buttons */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: 2,
+                    mt: 4,
+                  }}
+                >
+                  <IconButton
+                    sx={{
+                      backgroundColor: "white",
+                      color: "#E87E1C",
+                      "&:hover": { backgroundColor: "rgba(255,255,255,0.8)" },
+                      boxShadow: "2px 2px 8px rgba(0,0,0,0.2)",
+                    }}
+                    onClick={prevSlide}
+                  >
+                    <ChevronLeft />
+                  </IconButton>
+                  <IconButton
+                    sx={{
+                      backgroundColor: "rgba(255,255,255,0.3)",
+                      color: "white",
+                      "&:hover": { backgroundColor: "rgba(255,255,255,0.5)" },
+                      boxShadow: "2px 2px 8px rgba(0,0,0,0.2)",
+                    }}
+                    onClick={nextSlide}
+                  >
+                    <ChevronRight />
+                  </IconButton>
+                </Box>
+              </Box>
+            </Stack>
+          </Container>
         </Box>
       </section>
-      <section>
-        <Box
-          sx={{
-            position: "relative",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            minHeight: "60vh",
-            padding: { xs: "3rem 1.5rem", md: "4rem 6rem" },
-            backgroundColor: "#1E5373",
-            color: "white",
-            textAlign: "left",
-            overflow: "hidden",
-          }}
-        >
-          {/* Semi-Circle Background */}
-          <Box
-            sx={{
-              position: "absolute",
-              top: "0",
-              right: "-1%",
-              width: "70%",
-              height: "100%",
-              borderTopLeftRadius: "50%",
-              borderBottomLeftRadius: "50%",
-              backgroundColor: "#4682B4",
-              zIndex: 0,
-            }}
-          />
-
-          {/* Content Section */}
-          <Box
-            sx={{
-              maxWidth: "60%",
-              zIndex: 1,
-            }}
-          >
-            <Typography
-              variant="h3"
-              fontWeight="bold"
-              sx={{ fontSize: { xs: "1.8rem", md: "2.5rem" } }}
-            >
-              Who <br /> Are We?
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{ fontSize: { xs: "1rem", md: "1.2rem" }, marginTop: "1rem" }}
-            >
-              Since its inception in 2012, Media Mantra Group has experienced
-              impressive expansion through client and journalist referrals. As a
-              result, it has become one of India’s leading communication and PR
-              agencies. The firm currently flaunts an outstanding and satisfied
-              client list, driven and competent team members, and a stellar
-              corporate trajectory.
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{ fontSize: { xs: "1rem", md: "1.2rem" }, marginTop: "1rem" }}
-            >
-              Through creativity and persistent work, Media Mantra is fiercely
-              focused on making a real-time measurable change in client
-              businesses. We offer to design and successfully implement a
-              strategy to position your company as a knowledge and commercial
-              leader, giving you an advantage over competitors in the market.
-            </Typography>
-          </Box>
-        </Box>
-      </section>
+      <ViewsSection />
+      <ContactSection />
     </Box>
   );
 };
