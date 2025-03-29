@@ -4,6 +4,7 @@ import HomePage from "./Pages/HomePage.jsx";
 import Navbar from "./Components/Navbar.jsx";
 import Footer from "./Components/Footer.jsx";
 import AboutPage from "./Pages/AboutPage.jsx";
+import ClientPage from "./Pages/ClientPage.jsx";
 function App() {
   return (
     <>
@@ -12,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/clients" element={<AboutPage />} />
+          <Route path="/clients" element={<ClientPage />} />
           <Route path="/network" element={<AboutPage />} />
           <Route path="/services" element={<AboutPage />} />
           <Route path="/contact" element={<AboutPage />} />
