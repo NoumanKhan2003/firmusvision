@@ -1,26 +1,31 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import MenuIcon from "@mui/icons-material/Menu";
-import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
-import PeopleIcon from "@mui/icons-material/People";
-import PublicIcon from "@mui/icons-material/Public";
-import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
-import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
-import { Divider, Typography } from "@mui/material";
-import { styled } from "@mui/system";
+import { Link as RouterLink, useLocation } from "react-router-dom";
+import {
+  Box,
+  Drawer,
+  Button,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Divider,
+  Typography,
+  styled,
+} from "@mui/material";
+import {
+  Menu as MenuIcon,
+  Home as HomeIcon,
+  Info as InfoIcon,
+  People as PeopleIcon,
+  Public as PublicIcon,
+  HomeRepairService as ServicesIcon,
+  PermContactCalendar as ContactIcon,
+} from "@mui/icons-material";
 
 const Navbar = () => {
-  const [state, setState] = React.useState({
-    right: false,
-  });
+  const [state, setState] = React.useState({ right: false });
+  const location = useLocation();
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -33,47 +38,127 @@ const Navbar = () => {
   };
 
   const menuItems = [
-    { text: "Home", icon: <HomeIcon /> },
-    { text: "About Us", icon: <InfoIcon /> },
-    { text: "Our Clients", icon: <PeopleIcon /> },
-    { text: "Our Network", icon: <PublicIcon /> },
-    { text: "Services", icon: <HomeRepairServiceIcon /> },
-    { text: "Contact", icon: <PermContactCalendarIcon /> },
+    { text: "Home", icon: <HomeIcon />, path: "/" },
+    { text: "About Us", icon: <InfoIcon />, path: "/about" },
+    { text: "Clients", icon: <PeopleIcon />, path: "/clients" },
+    { text: "Network", icon: <PublicIcon />, path: "/network" },
+    { text: "Services", icon: <ServicesIcon />, path: "/services" },
+    { text: "Contact", icon: <ContactIcon />, path: "/contact" },
   ];
 
-  const list = (
+  // Desktop Navigation List
+  const DesktopNav = () => (
+    <Box component="nav" sx={{ display: { xs: "none", md: "block" } }}>
+      <List
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          gap: 1,
+          whiteSpace: "nowrap",
+        }}
+      >
+        {menuItems.map((item) => (
+          <ListItem key={item.text} disablePadding>
+            <ListItemButton
+              component={RouterLink}
+              to={item.path}
+              selected={location.pathname === item.path}
+              sx={{
+                fontWeight: "bold",
+                fontSize: "1.2rem",
+                color: "inherit",
+                position: "relative",
+                px: 2,
+                py: 1,
+                textTransform: "uppercase",
+                letterSpacing: "0.5px",
+                "&.Mui-selected": {
+                  color: "orange",
+                  backgroundColor: "transparent",
+                  "&::after": {
+                    transform: "scaleX(1)",
+                  },
+                },
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  left: "16px",
+                  bottom: "8px",
+                  width: "calc(100% - 32px)",
+                  height: "2px",
+                  backgroundColor: "orange",
+                  transform: "scaleX(0)",
+                  transformOrigin: "left",
+                  transition: "transform 0.3s ease",
+                },
+                "&:hover::after": {
+                  transform: "scaleX(1)",
+                },
+              }}
+            >
+              <ListItemText
+                primary={item.text}
+                sx={{
+                  fontWeight: "bold",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
+  // Mobile Drawer List
+  const MobileDrawer = () => (
     <Box
-      sx={{ width: 250 }}
+      sx={{
+        width: 250,
+        backgroundColor: "#f5f5f5",
+        height: "100%",
+      }}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
-      <Box sx={{ display: "flex", justifyContent: "center", pt: "1rem" }}>
-        <Typography
-          variant="h5"
-          fontWeight="bold"
-          fontSize="2rem"
-          color="orange"
-        >
+      <Box sx={{ display: "flex", justifyContent: "center", pt: 2, pb: 1 }}>
+        <Typography variant="h5" fontWeight="bold" color="orange">
           Firmus
         </Typography>
-        <Typography
-          variant="h5"
-          fontWeight="bold"
-          fontSize="2rem"
-          color="black"
-        >
+        <Typography variant="h5" fontWeight="bold" color="black">
           Vision
         </Typography>
       </Box>
-      <Divider sx={{ bgcolor: "grey", width: "100%" }} />
-
+      <Divider sx={{ bgcolor: "black", mb: 1 }} />
       <List>
         {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding>
-            <ListItemButton>
+            <ListItemButton
+              component={RouterLink}
+              to={item.path}
+              selected={location.pathname === item.path}
+              sx={{
+                "&.Mui-selected": {
+                  backgroundColor: "rgba(255, 165, 0, 0.1)",
+                  borderLeft: "4px solid orange",
+                  "& .MuiListItemIcon-root, & .MuiTypography-root": {
+                    color: "orange",
+                    fontWeight: "bold",
+                  },
+                },
+              }}
+            >
               <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
+              <ListItemText
+                primary={item.text}
+                sx={{
+                  fontWeight:
+                    location.pathname === item.path ? "bold" : "normal",
+                  color: location.pathname === item.path ? "orange" : "inherit",
+                }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -85,19 +170,28 @@ const Navbar = () => {
     <Box
       sx={{
         display: "flex",
-        px: {md:"2rem",xs:"1rem"},
+        px: { md: "1rem", xs: "1rem" },
         justifyContent: "space-between",
         alignItems: "center",
         backgroundColor: "#282828",
-        color:"white"
+        color: "white",
+        py: 1,
       }}
     >
-      {/* Logo */}
-      <Box sx={{ display: "flex" }}>
+      {/* Logo with Link */}
+      <Box
+        component={RouterLink}
+        to="/"
+        sx={{
+          display: "flex",
+          textDecoration: "none",
+          alignItems: "center",
+        }}
+      >
         <Typography
           variant="h5"
           fontWeight="bold"
-          fontSize="2.5rem"
+          fontSize="3rem"
           color="orange"
         >
           Firmus
@@ -105,73 +199,42 @@ const Navbar = () => {
         <Typography
           variant="h5"
           fontWeight="bold"
-          fontSize="2.5rem"
+          fontSize="3rem"
           color="white"
         >
           Vision
         </Typography>
       </Box>
 
-      {/* Laptop width */}
-      <Box sx={{ display: { xs: "none", md: "block" } }}>
-        <NavList>
-          {[
-            "Home",
-            "About Us",
-            "Clients",
-            "Our Network",
-            "Services",
-            "Contact",
-          ].map((item) => (
-            <NavItem key={item} sx={{ fontWeight: "bold", fontSize: "1.4rem" }}>
-              {item}
-            </NavItem>
-          ))}
-        </NavList>
-      </Box>
+      <DesktopNav />
 
-      <Box sx={{ display: { xs: "block", md: "none" }, }}>
-        <Button onClick={toggleDrawer(true)} sx={{pr:0}}>
-          <MenuIcon color="warning" sx={{ fontSize: "2rem" }}  />
-        </Button>
-      </Box>
+      {/* Mobile Menu Button */}
+      <Button
+        onClick={toggleDrawer(true)}
+        sx={{
+          display: { xs: "block", md: "none" },
+          p: 0,
+          minWidth: "auto",
+        }}
+      >
+        <MenuIcon color="warning" sx={{ fontSize: "2rem" }} />
+      </Button>
 
-      <Drawer anchor="right" open={state.right} onClose={toggleDrawer(false)}>
-        {list}
+      {/* Mobile Drawer */}
+      <Drawer
+        anchor="right"
+        open={state.right}
+        onClose={toggleDrawer(false)}
+        sx={{
+          "& .MuiDrawer-paper": {
+            backgroundColor: "#f5f5f5",
+          },
+        }}
+      >
+        <MobileDrawer />
       </Drawer>
     </Box>
   );
 };
-
-const NavList = styled("ul")({
-  display: "flex",
-  gap: 25,
-  listStyle: "none",
-  margin: 0,
-  padding: 0,
-});
-
-const NavItem = styled("li")({
-  position: "relative",
-  cursor: "pointer",
-  paddingBottom: "5px",
-  transition: "transform 0.3s ease-in-out",
-  "&::after": {
-    content: '""',
-    position: "absolute",
-    left: 0,
-    bottom: 0,
-    width: "0%",
-    height: "2px",
-    backgroundColor: "orange",
-    transition: "width 0.4s ease-in-out",
-  },
-  "&:hover": {
-    transform: "scale(1.2)", // Scale the text on hover
-  },
-  "&:hover::after": {
-    width: "100%",
-  },
-});
 
 export default Navbar;

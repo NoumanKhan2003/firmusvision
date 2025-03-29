@@ -11,8 +11,8 @@ import ContactPage from "./Pages/ContactPage.jsx";
 function App() {
   return (
     <>
-      <Navbar />
       <BrowserRouter>
+      <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
