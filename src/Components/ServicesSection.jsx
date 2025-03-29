@@ -70,7 +70,7 @@ const ServicesSection = () => {
                 {service.title}
               </Typography>
               <Typography variant="body2" color="text.secondary" mt={1}>
-                {service.description}
+                {service.shortDescription}
               </Typography>
               <Button
                 variant="text"

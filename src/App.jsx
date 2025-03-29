@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar.jsx";
 import Footer from "./Components/Footer.jsx";
 import AboutPage from "./Pages/AboutPage.jsx";
 import ClientPage from "./Pages/ClientPage.jsx";
+import ServicesPage from "./Pages/ServicePage.jsx";
 function App() {
   return (
     <>
@@ -15,7 +16,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/clients" element={<ClientPage />} />
           <Route path="/network" element={<AboutPage />} />
-          <Route path="/services" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
           <Route path="/contact" element={<AboutPage />} />
 
         </Routes>
