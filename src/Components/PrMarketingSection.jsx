@@ -1,7 +1,10 @@
 import { Box, Typography, Button } from "@mui/material";
 import img1 from "../Assets/campaign.jpg"; // Your image path
+import { useNavigate } from "react-router-dom";
 
 const PRMarketingSection = () => {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -96,6 +99,7 @@ const PRMarketingSection = () => {
               fontWeight: "bold",
               fontSize: "1rem",
             }}
+            onClick={() => navigate("/about")}
           >
             Read More ➝
           </Button>

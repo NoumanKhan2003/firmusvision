@@ -2,9 +2,12 @@ import React from "react";
 import { Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import WhyChooseUsData from "../Assets/WhyChooseUsData.js"
+import { useNavigate } from "react-router-dom";
+import { nav } from "framer-motion/client";
 
 const WhyChooseUs = () => {
   const isSmallScreen = useMediaQuery("(max-width: 900px)");
+  const navigate = useNavigate();
 
   return (
     <Box
@@ -51,6 +54,7 @@ const WhyChooseUs = () => {
           <Button
             variant="text"
             sx={{ mt: 3, color: "black", fontWeight: "bold" }}
+            onClick={()=>navigate("/about")}
           >
             See More →
           </Button>

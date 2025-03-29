@@ -2,9 +2,11 @@ import React from "react";
 import { Box, Button, Typography, Divider, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import servicesData from "../Assets/ServicesData.js";
+import { useNavigate } from "react-router-dom";
 
 const ServicesSection = () => {
   const isSmallScreen = useMediaQuery("(max-width: 900px)");
+  const navigate = useNavigate();
 
   return (
     <Box sx={{ padding: { md: "1rem", xs: "2rem" }, background: "#f9f9f9" }}>
@@ -75,6 +77,7 @@ const ServicesSection = () => {
               <Button
                 variant="text"
                 sx={{ mt: 2, color: "orange", fontWeight: "bold" }}
+                onClick={()=>navigate("/services")}
               >
                 Read More →
               </Button>
@@ -94,6 +97,7 @@ const ServicesSection = () => {
             width: { md: "15rem", xs: "80%" },
             mb: "2rem",
           }}
+          onClick={()=>navigate("/services")}
         >
           View All Servies
         </Button>

@@ -4,12 +4,15 @@ import clientHeroImg from "../Assets/clientHeroImg.jpg";
 import { Box, Button, Divider, Typography, useMediaQuery } from "@mui/material";
 import { motion, useInView } from "framer-motion";
 import MoreIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import { useNavigate } from "react-router-dom";
 
 const ClientsSection = () => {
   const isSmallScreen = useMediaQuery("(max-width:600px)");
   const ref = useRef(null);
   const marginValue = isSmallScreen ? "-50px" : "-100px";
   const isInView = useInView(ref, { margin: marginValue, once: false });
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -123,6 +126,7 @@ const ClientsSection = () => {
           color="warning"
           size="large"
           sx={{ display: "flex", justifyContent: "center", fontSize: "1rem", mt:{md:"4rem",xs:"0"} }}
+          onClick={()=>navigate("/clients")}
         >
           View All Clients <MoreIcon/>
         </Button>
