@@ -83,9 +83,11 @@ const NetworkCoverage = () => {
       cancelAnimationFrame(animationFrameId);
     };
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Box>
-
     <Container maxWidth="lg" sx={{ py: 6}}>
       {/* Main Heading */}
       <Typography

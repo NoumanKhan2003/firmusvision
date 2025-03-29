@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Typography,
-  Container,
   useMediaQuery,
-  Divider,
 } from "@mui/material";
 import clientpic from "../Assets/clientpage.jpg";
 import servicesData from "../Assets/ServicesData";
 
 const ServicesPage = () => {
   const isMobile = useMediaQuery("(max-width:900px)");
+   useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   return (
     <Box sx={{ backgroundColor: "#f8f9fa", pb: 10 }}>
       {/* Hero Section */}

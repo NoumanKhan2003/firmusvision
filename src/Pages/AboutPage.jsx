@@ -52,6 +52,10 @@ const AboutPage = () => {
 
   const nextSlide = () =>
     setIndex((prevIndex) => (prevIndex + 1) % quotes.length);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Box sx={{ minHeight: "100vh" }}>

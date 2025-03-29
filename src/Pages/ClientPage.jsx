@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Typography,
@@ -16,7 +16,9 @@ const ClientsPage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.down("md"));
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Box sx={{ backgroundColor: theme.palette.background.paper }}>
       {/* Hero Section */}
@@ -134,8 +136,7 @@ const ClientsPage = () => {
           ))}
         </Box>
       </Container>
-      <ContactSection/>
-
+      <ContactSection />
     </Box>
   );
 };
