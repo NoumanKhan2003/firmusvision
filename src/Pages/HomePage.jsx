@@ -5,6 +5,7 @@ import ClientsSection from "../Components/ClientsSection";
 import ContactSection from "../Components/ContactSection";
 import ServicesSection from "../Components/ServicesSection";
 import WhyChooseUsSection from "../Components/WhyChooseUsSection";
+import ViewsSection from "../Components/ViewsSection";
 
 const HomePage = () => {
   return (
@@ -14,6 +15,7 @@ const HomePage = () => {
       <ClientsSection />
       <ServicesSection/>
       <WhyChooseUsSection/>
+      <ViewsSection/>
       <ContactSection />
     </div>
   );
