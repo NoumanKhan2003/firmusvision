@@ -117,11 +117,11 @@ const ContactUs = () => {
               }}
             >
               <Divider
-                sx={{ width: 70, height: 2, borderColor: "orange", mr: 1 }}
-              />{" "}
+                sx={{ width: 70, height: 2, borderColor: "orange", mr: 1,display:{md:"block",xs:"none"} }}
+              />
               Contact Us
             </Typography>
-            <Typography variant="h3" fontWeight="bold" sx={{ mb: 4 }}>
+            <Typography variant="h3" fontWeight="bold" sx={{ mb: 4 ,fontSize:35}}>
               Let’s Get in Touch
             </Typography>
 
@@ -167,7 +167,7 @@ const ContactUs = () => {
               borderRadius: 2,
             }}
           >
-            <Typography variant="h6" sx={{ mb: 2, textAlign: "center" }}>
+            <Typography variant="h6" sx={{ mb: 2, textAlign: "center",color:"orange",fontSize:30,border:"2px solid orange" }}>
               Send Message
             </Typography>
 
@@ -186,7 +186,7 @@ const ContactUs = () => {
                   fieldset: { borderColor: "#444" },
                 }}
                 onChange={handleChange}
-                required
+                
               />
               <TextField
                 name="lastName"
@@ -221,7 +221,7 @@ const ContactUs = () => {
                 fieldset: { borderColor: "#444" },
               }}
               onChange={handleChange}
-              required
+              
             />
 
             <TextField
@@ -240,7 +240,7 @@ const ContactUs = () => {
                 fieldset: { borderColor: "#444" },
               }}
               onChange={handleChange}
-              required
+              
             />
 
             <TextField
@@ -269,7 +269,7 @@ const ContactUs = () => {
                 },
               }}
               onChange={handleChange}
-              required
+              
             />
 
             <Button

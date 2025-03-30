@@ -50,7 +50,10 @@ const Footer = () => {
                 Vision
               </Typography>
             </Box>
-            <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 ,fontSize:15}}>
+            <Typography
+              variant="body2"
+              sx={{ color: "text.secondary", mb: 2, fontSize: 15 }}
+            >
               Our dedication to crafting strategic communication plans,
               fostering positive media relationships, and delivering measurable
               outcomes.
@@ -82,7 +85,7 @@ const Footer = () => {
                   sx={{
                     color: "text.secondary",
                     textDecoration: "none",
-                    
+
                     "&:hover": {
                       color:
                         name === "instagram"
@@ -110,11 +113,11 @@ const Footer = () => {
               <Typography
                 variant="subtitle1"
                 gutterBottom
-                sx={{ fontWeight: 600, fontSize: 30 }}
+                sx={{ fontWeight: 600, fontSize: 25 }}
               >
                 QuickLinks
               </Typography>
-              <Stack component="nav" spacing={1}>
+              <Stack component="nav" spacing={0.5}>
                 {[
                   { text: "About us", path: "/about" },
                   { text: "Services", path: "/services" },
@@ -129,7 +132,7 @@ const Footer = () => {
                     sx={{
                       color: "text.secondary",
                       textDecoration: "none",
-                      fontSize: 20,
+                      fontSize: 18,
                       "&:hover": {
                         color: "primary.main",
                       },
@@ -146,20 +149,23 @@ const Footer = () => {
               <Typography
                 variant="subtitle1"
                 gutterBottom
-                sx={{ fontWeight: 600, fontSize: 30 }}
+                sx={{ fontWeight: 600, fontSize: 25 }}
               >
                 Contact Us
               </Typography>
               <Stack spacing={1}>
-                <Typography variant="body2" sx={{ color: "text.secondary",fontSize:20 }}>
-                  Plot No-D 107, Vyapar Marg, Sector-2 Noida, UP-201301
+                <Typography
+                  variant="body2"
+                  sx={{ color: "text.secondary", fontSize: 17 }}
+                >
+                  Plot No-D 107, Vyapar Marg, Sector-2 Noida, UP-181301
                 </Typography>
                 <MuiLink
                   href="mailto:info@firmusvision.com"
                   sx={{
                     color: "text.secondary",
                     textDecoration: "none",
-                    fontSize:20,
+                    fontSize: 18,
                     "&:hover": {
                       color: "primary.main",
                     },
@@ -172,7 +178,7 @@ const Footer = () => {
                   sx={{
                     color: "text.secondary",
                     textDecoration: "none",
-                    fontSize:20,
+                    fontSize: 18,
                     "&:hover": {
                       color: "primary.main",
                     },
@@ -185,13 +191,13 @@ const Footer = () => {
           </Stack>
         </Stack>
 
-        <Divider sx={{ my: 4 }} />
+        <Divider sx={{ my: 1 }} />
 
         <Stack
           direction={{ xs: "column-reverse", sm: "row" }}
-          justifyContent="space-between"
-          alignItems="center"
-          spacing={2}
+          justifyContent="center"
+          spacing={1}
+          textAlign={"center"}
         >
           <Typography variant="body2" sx={{ color: "text.secondary" }}>
             © {new Date().getFullYear()} firmus vision. All rights reserved.

@@ -115,8 +115,8 @@ const Navbar = () => {
   const MobileDrawer = () => (
     <Box
       sx={{
-        width: 250,
-        backgroundColor: "#f5f5f5",
+        width: 280,
+        backgroundColor: "black",
         height: "100%",
       }}
       role="presentation"
@@ -124,14 +124,14 @@ const Navbar = () => {
       onKeyDown={toggleDrawer(false)}
     >
       <Box sx={{ display: "flex", justifyContent: "center", pt: 2, pb: 1 }}>
-        <Typography variant="h5" fontWeight="bold" color="orange">
+        <Typography variant="h4" fontWeight="bold" color="orange">
           Firmus
         </Typography>
-        <Typography variant="h5" fontWeight="bold" color="black">
+        <Typography variant="h4" fontWeight="bold" color="white">
           Vision
         </Typography>
       </Box>
-      <Divider sx={{ bgcolor: "black", mb: 1 }} />
+      <Divider sx={{ bgcolor: "white", mb: 1 }} />
       <List>
         {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding>
@@ -150,13 +150,16 @@ const Navbar = () => {
                 },
               }}
             >
-              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemIcon sx={{ color: "white" }}>{item.icon}</ListItemIcon>
               <ListItemText
                 primary={item.text}
                 sx={{
-                  fontWeight:
-                    location.pathname === item.path ? "bold" : "normal",
-                  color: location.pathname === item.path ? "orange" : "inherit",
+                  "& .MuiListItemText-primary": {
+                    fontSize: "1.3rem", 
+                    fontWeight:
+                      location.pathname === item.path ? "bold" : "normal",
+                    color: location.pathname === item.path ? "orange" : "white",
+                  },
                 }}
               />
             </ListItemButton>
@@ -173,7 +176,7 @@ const Navbar = () => {
         px: { md: "1rem", xs: "1rem" },
         justifyContent: "space-between",
         alignItems: "center",
-        backgroundColor: "#282828",
+        backgroundColor: "black",
         color: "white",
         py: 1,
       }}
@@ -191,7 +194,7 @@ const Navbar = () => {
         <Typography
           variant="h5"
           fontWeight="bold"
-          fontSize="3rem"
+          fontSize="2.5rem"
           color="orange"
         >
           Firmus
@@ -199,7 +202,7 @@ const Navbar = () => {
         <Typography
           variant="h5"
           fontWeight="bold"
-          fontSize="3rem"
+          fontSize="2.5rem"
           color="white"
         >
           Vision
