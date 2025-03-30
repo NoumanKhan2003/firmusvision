@@ -18,7 +18,7 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: "black",
         color: theme.palette.text.primary,
         py: 2,
         borderTop: `1px solid ${theme.palette.divider}`,
@@ -45,14 +45,14 @@ const Footer = () => {
                 variant="h5"
                 fontWeight="bold"
                 fontSize="3rem"
-                color="black"
+                color="white"
               >
                 Vision
               </Typography>
             </Box>
             <Typography
               variant="body2"
-              sx={{ color: "text.secondary", mb: 2, fontSize: 15 }}
+              sx={{ color: "text.secondary", mb: 2, fontSize: 15,color:"white" }}
             >
               Our dedication to crafting strategic communication plans,
               fostering positive media relationships, and delivering measurable
@@ -83,7 +83,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   sx={{
-                    color: "text.secondary",
+                    color: "white",
                     textDecoration: "none",
 
                     "&:hover": {
@@ -113,7 +113,7 @@ const Footer = () => {
               <Typography
                 variant="subtitle1"
                 gutterBottom
-                sx={{ fontWeight: 600, fontSize: 25 }}
+                sx={{ fontWeight: 600, fontSize: 25,color:"white"  }}
               >
                 QuickLinks
               </Typography>
@@ -130,7 +130,7 @@ const Footer = () => {
                     component={RouterLink}
                     to={item.path}
                     sx={{
-                      color: "text.secondary",
+                      color: "white",
                       textDecoration: "none",
                       fontSize: 18,
                       "&:hover": {
@@ -149,21 +149,21 @@ const Footer = () => {
               <Typography
                 variant="subtitle1"
                 gutterBottom
-                sx={{ fontWeight: 600, fontSize: 25 }}
+                sx={{ fontWeight: 600, fontSize: 25,color:"white"  }}
               >
                 Contact Us
               </Typography>
               <Stack spacing={1}>
                 <Typography
                   variant="body2"
-                  sx={{ color: "text.secondary", fontSize: 17 }}
+                  sx={{ color: "text.secondary", fontSize: 17,color:"white"  }}
                 >
                   Plot No-D 107, Vyapar Marg, Sector-2 Noida, UP-181301
                 </Typography>
                 <MuiLink
                   href="mailto:info@firmusvision.com"
                   sx={{
-                    color: "text.secondary",
+                    color: "white",
                     textDecoration: "none",
                     fontSize: 18,
                     "&:hover": {
@@ -176,7 +176,7 @@ const Footer = () => {
                 <MuiLink
                   href="tel:+91999999999"
                   sx={{
-                    color: "text.secondary",
+                    color: "white",
                     textDecoration: "none",
                     fontSize: 18,
                     "&:hover": {
@@ -195,15 +195,15 @@ const Footer = () => {
 
         <Stack
           direction={{ xs: "column-reverse", sm: "row" }}
-          justifyContent="center"
+          justifyContent="space-between"
           spacing={1}
-          textAlign={"center"}
+          // textAlign={"center"}
         >
-          <Typography variant="body2" sx={{ color: "text.secondary" }}>
+          <Typography variant="body2" sx={{ color: "white"}}>
             © {new Date().getFullYear()} firmus vision. All rights reserved.
           </Typography>
-          <Typography variant="body2" sx={{ color: "text.secondary" }}>
-            Designed and Developed by{" "}
+          <Typography variant="body2" sx={{ color: "white" }}>
+            Made with ❤️ by{" "}
             <MuiLink
               href="http://www.linkedin.com/in/nouman-khan-95923a256"
               sx={{
