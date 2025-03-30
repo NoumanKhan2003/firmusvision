@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
 import queriesRoute from "./routes/queriesRoute.js";
+import pingRoute from "./routes/pingRoute.js";
 
 const app = express();
 dotenv.config();
@@ -21,5 +22,6 @@ mongoose
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use("/", pingRoute);
 app.use("/queries", queriesRoute);
 app.listen(process.env.PORT || 3000);
