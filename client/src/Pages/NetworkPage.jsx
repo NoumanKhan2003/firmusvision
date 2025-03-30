@@ -1,312 +1,107 @@
-import React, { useState, useEffect, useRef } from "react";
-import {
-  Box,
-  Typography,
-  Container,
-  Paper,
-  useTheme,
-  useMediaQuery,
-} from "@mui/material";
-import regions from "../Assets/RegionsData";
-import ContactSection from "../Components/ContactSection";
-import indiaMap from '../Assets/indiamap.png'
+import React, { useState } from "react";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import NetworkData from "../Assets/NetworkData.js";
+import ContactSection from "../Components/ContactSection.jsx";
+import { Box } from "@mui/material";
 
 const NetworkCoverage = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const statsRef = useRef(null);
+  const [expanded, setExpanded] = useState(null);
 
-  const [countValues, setCountValues] = useState({
-    cities: 0,
-    partners: 0,
-    years: 0,
-  });
-
-  const animationDuration = 3000;
-  const targetValues = {
-    cities: 50,
-    partners: 1000,
-    support: "24/7",
-    years: 10,
+  const handleToggle = (state) => {
+    setExpanded(expanded === state ? null : state);
   };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animateCounts();
-          } else {
-            setCountValues({
-              cities: 0,
-              partners: 0,
-              years: 0,
-            });
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-  
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
-  
-    return () => {
-      if (statsRef.current) {
-        observer.unobserve(statsRef.current);
-      }
-    };
-  }, []);
-
-  const animateCounts = () => {
-    const startTime = Date.now();
-    let animationFrameId;
-  
-    const animate = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / animationDuration, 1);
-  
-      setCountValues({
-        cities: Math.floor(progress * targetValues.cities),
-        partners: Math.floor(progress * targetValues.partners),
-        years: Math.floor(progress * targetValues.years),
-      });
-  
-      if (progress < 1) {
-        animationFrameId = requestAnimationFrame(animate);
-      }
-    };
-  
-    animationFrameId = requestAnimationFrame(animate);
-  
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-  };
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   return (
     <Box>
-    <Container maxWidth="lg" sx={{ py: 6}}>
-      {/* Main Heading */}
-      <Typography
-        variant="h3"
-        align="center"
-        sx={{
-          fontWeight: "bold",
-          mb: 6,
-          color: "orange",
-          fontSize: isMobile ? "3rem" : "2.8rem",
+      <div
+        style={{
+          padding: "30px",
+          backgroundColor: "#121212",
+          color: "#ffffff",
+          minHeight: "100vh",
         }}
       >
-        Our Network Across India
-      </Typography>
-
-      {/* Map and Regions Container */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: isMobile ? "column" : "row",
-          alignItems: "center",
-          gap: 4,
-          mb: 6,
-        }}
-      >
-        {/* India Map Placeholder */}
-        <Box
-          sx={{
-            flex: 1,
-            minHeight: "400px",
+        <h1 style={{ textAlign: "center", marginTop: "8px", fontSize: "3rem" }}>
+          Our Nationwide Network
+        </h1>
+        <div
+          style={{
             display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "#f0f4f8",
-            borderRadius: "12px",
-            boxShadow: theme.shadows[3],
-            overflow: "hidden",
-          }}
-        >
-          <Box
-            component="img"
-            src={indiaMap}
-            alt="India Map Showing Coverage"
-            sx={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
-          />
-        </Box>
-
-        {/* Regions List */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 3,
-            width: "50%",
             flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "20px",
+            marginTop: "0",
           }}
         >
-          {Object.entries(regions).map(([region, cities]) => (
-            <Paper
+          {Object.entries(NetworkData).map(([region, states]) => (
+            <div
               key={region}
-              elevation={3}
-              sx={{
-                p: 5,
+              style={{
+                backgroundColor: "#1e1e1e",
+                padding: "20px",
                 borderRadius: "8px",
-                borderLeft: `4px solid orange`,
-                minWidth:{md:"10rem",xs:"15rem"},
+                width: "45%",
+                minWidth: "270px",
               }}
             >
-              <Typography
-                variant="h5"
-                sx={{
-                  fontWeight: 600,
-                  mb: 2,
-                  color: "orange",
+              <h3
+                style={{
+                  textAlign: "center",
+                  marginTop: "10px",
+                  fontSize: "1.5rem",
                 }}
               >
                 {region} Region
-              </Typography>
-              <Box
-                component="ul"
-                sx={{
-                  pl: 0,
-                  listStyleType: "none",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 1,
-                }}
-              >
-                {cities.map((city) => (
-                  <Box
-                    component="li"
-                    key={city}
-                    sx={{ display: "flex", alignItems: "center" }}
+              </h3>
+              {Object.entries(states).map(([state, cities]) => (
+                <div key={state} style={{ marginBottom: "10px" }}>
+                  <div
+                    onClick={() => handleToggle(state)}
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      cursor: "pointer",
+                      padding: "10px",
+                      backgroundColor: "#333",
+                      borderRadius: "4px",
+                    }}
                   >
-                    <Box
-                      sx={{
-                        width: "8px",
-                        height: "8px",
-                        backgroundColor: "orange",
-                        borderRadius: "50%",
-                        mr: 1.5,
+                    <span>{state}</span>
+                    <ExpandMoreIcon
+                      style={{
+                        transform:
+                          expanded === state
+                            ? "rotate(180deg)"
+                            : "rotate(0deg)",
+                        transition: "transform 0.3s ease",
                       }}
                     />
-                    <Typography variant="body1">{city}</Typography>
-                  </Box>
-                ))}
-              </Box>
-            </Paper>
+                  </div>
+                  {expanded === state && (
+                    <ul
+                      style={{
+                        listStyle: "none",
+                        padding: "10px",
+                        backgroundColor: "#222",
+                        borderRadius: "4px",
+                        marginTop: "5px",
+                      }}
+                    >
+                      {cities.map((city) => (
+                        <li key={city} style={{ padding: "5px 0" }}>
+                          {city}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
           ))}
-        </Box>
-      </Box>
-
-      {/* Stats Section */}
-      <Box
-  id="stats-section"
-  ref={statsRef}  // Add this ref
-  sx={{
-    display: "flex",
-    flexDirection: isMobile ? "column" : "row",
-    gap: 3,
-    mt: 4,
-  }}
->
-        <Paper
-          sx={{
-            flex: 1,
-            p: 3,
-            textAlign: "center",
-            borderRadius: "8px",
-            minWidth: isMobile ? "70%" : "auto",
-          }}
-        >
-          <Typography
-            variant="h4"
-            sx={{
-              fontWeight: 700,
-              color: "orange",
-              mb: 1,
-            }}
-          >
-            {countValues.cities}+
-          </Typography>
-          <Typography variant="subtitle1">Cities Covered</Typography>
-        </Paper>
-
-        <Paper
-          sx={{
-            flex: 1,
-            p: 3,
-            textAlign: "center",
-            borderRadius: "8px",
-            minWidth: isMobile ? "70%" : "auto",
-          }}
-        >
-          <Typography
-            variant="h4"
-            sx={{
-              fontWeight: 700,
-              color: "orange",
-              mb: 1,
-            }}
-          >
-            {countValues.partners}+
-          </Typography>
-          <Typography variant="subtitle1">Media Partners</Typography>
-        </Paper>
-
-        <Paper
-          sx={{
-            flex: 1,
-            p: 3,
-            textAlign: "center",
-            borderRadius: "8px",
-            minWidth: isMobile ? "70%" : "auto",
-          }}
-        >
-          <Typography
-            variant="h4"
-            sx={{
-              fontWeight: 700,
-              color: "orange",
-              mb: 1,
-            }}
-          >
-            24/7
-          </Typography>
-          <Typography variant="subtitle1">Support</Typography>
-        </Paper>
-
-        <Paper
-          sx={{
-            flex: 1,
-            p: 3,
-            textAlign: "center",
-            borderRadius: "8px",
-            minWidth: isMobile ? "70%" : "auto",
-          }}
-        >
-          <Typography
-            variant="h4"
-            sx={{
-              fontWeight: 700,
-              color: "orange",
-              mb: 1,
-            }}
-          >
-            {countValues.years}+
-          </Typography>
-          <Typography variant="subtitle1">Years Experience</Typography>
-        </Paper>
-      </Box>
-    </Container>
-    <ContactSection/>
-    </Box>
+        </div>
+      </div>
+      <ContactSection />
+    </Box >
   );
 };
 
