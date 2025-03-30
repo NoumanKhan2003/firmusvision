@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import regions from "../Assets/RegionsData";
 import ContactSection from "../Components/ContactSection";
+import indiaMap from '../Assets/indiamap.png'
 
 const NetworkCoverage = () => {
   const theme = useTheme();
@@ -129,7 +130,7 @@ const NetworkCoverage = () => {
         >
           <Box
             component="img"
-            src="src\Assets\indiamap.png" 
+            src={indiaMap}
             alt="India Map Showing Coverage"
             sx={{
               width: "100%",

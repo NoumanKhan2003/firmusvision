@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import WhyChooseUsData from "../Assets/WhyChooseUsData.js"
 import { useNavigate } from "react-router-dom";
 import { nav } from "framer-motion/client";
-
+import prImage from "../Assets/prImage.jpg"
 const WhyChooseUs = () => {
   const isSmallScreen = useMediaQuery("(max-width: 900px)");
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ const WhyChooseUs = () => {
           </Button>
           <Box sx={{ mt: 2, ml: { md: 8, xs: 0 } }}>
             <img
-              src="src\Assets\prImage.jpg"
+              src={prImage}
               alt="Team Illustration"
               style={{ width: "100%", maxWidth: "300px" }}
             />

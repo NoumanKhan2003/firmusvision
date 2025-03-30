@@ -14,6 +14,7 @@ import {
 import styled from "styled-components";
 import ViewsSection from "../Components/ViewsSection.jsx";
 import ContactSection from "../Components/ContactSection.jsx";
+import prImage from "../Assets/prImage.jpg"
 const quotes = [
   {
     title: "We are Credible",
@@ -87,7 +88,7 @@ const AboutPage = () => {
               >
                 <Box
                   component="img"
-                  src="src\Assets\prImage.jpg" // Replace with your image path
+                  src={prImage} 
                   alt="Firmus Vision Team"
                   sx={{
                     maxWidth: "100%",
