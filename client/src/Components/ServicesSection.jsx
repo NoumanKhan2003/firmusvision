@@ -9,7 +9,7 @@ const ServicesSection = () => {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ padding: { md: "1rem", xs: "2rem" }, background: "#f9f9f9" }}>
+    <Box sx={{ padding: { md: "1rem", xs: "2rem" }, background: "black" }}>
       {/* Title */}
       <Box
         textAlign="center"
@@ -54,13 +54,13 @@ const ServicesSection = () => {
               flexDirection: isSmallScreen ? "column" : "row",
               alignItems: "center",
               width: { md: "45%", xs: "100%" },
-              background: "#fff",
-              boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+              bgcolor:"black",
+              boxShadow: "0 4px 10px rgba(65, 65, 65, 0.7)",
               borderRadius: "10px",
               overflow: "hidden",
             }}
           >
-            <Box sx={{ flex: "1" }}>
+            <Box sx={{ flex: "1",ml:{md:2,xs:0} }}>
               <img
                 src={service.image}
                 alt={service.title}
@@ -68,10 +68,10 @@ const ServicesSection = () => {
               />
             </Box>
             <Box sx={{ flex: "1", padding: "1.5rem" }}>
-              <Typography variant="h5" fontWeight="bold" color="black">
+              <Typography variant="h5" fontWeight="bold" color="white">
                 {service.title}
               </Typography>
-              <Typography variant="body2" color="text.secondary" mt={1}>
+              <Typography variant="body2" color="white" mt={1}>
                 {service.shortDescription}
               </Typography>
               <Button
@@ -93,7 +93,7 @@ const ServicesSection = () => {
           sx={{
             borderColor: "orange",
             color: "orange",
-            "&:hover": { background: "orange", color: "white" },
+            "&:hover": { background: "orange", color: "black" },
             width: { md: "15rem", xs: "80%" },
             mb: "2rem",
           }}
