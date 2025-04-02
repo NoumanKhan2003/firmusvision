@@ -6,6 +6,7 @@ import ContactSection from "../Components/ContactSection";
 import ServicesSection from "../Components/ServicesSection";
 import WhyChooseUsSection from "../Components/WhyChooseUsSection";
 import ViewsSection from "../Components/ViewsSection";
+import WorkSection from "../Components/WorkSection";
 
 const HomePage = () => {
    useEffect(() => {
@@ -19,6 +20,7 @@ const HomePage = () => {
       <ServicesSection/>
       <WhyChooseUsSection/>
       <ViewsSection/>
+      <WorkSection/>
       <ContactSection />
     </div>
   );
