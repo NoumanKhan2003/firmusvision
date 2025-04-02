@@ -13,5 +13,9 @@ const clients = [
   { logo: img4 },
   { logo: img5 },
   { logo: img6 },
+  { logo: img5 },
+  { logo: img6 },
+  { logo: img5 },
+  { logo: img6 },
 ];
 export default clients;

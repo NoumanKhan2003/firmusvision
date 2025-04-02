@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import clients from "../Assets/ClientsData";
-import clientHeroImg from "../Assets/clientHeroImg.jpg";
 import { Box, Button, Divider, Typography, useMediaQuery } from "@mui/material";
 import { motion, useInView } from "framer-motion";
 import MoreIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
@@ -9,9 +8,15 @@ import { useNavigate } from "react-router-dom";
 const ClientsSection = () => {
   const isSmallScreen = useMediaQuery("(max-width:600px)");
   const ref = useRef(null);
-  const marginValue = isSmallScreen ? "-50px" : "-100px";
+  const marginValue = isSmallScreen ? "-50px" : "-10px";
   const isInView = useInView(ref, { margin: marginValue, once: false });
   const navigate = useNavigate();
+
+  const firstEightClients = clients.slice(0, 8);
+  const groupedClients = [
+    firstEightClients.slice(0, 4),
+    firstEightClients.slice(4, 8),
+  ];
 
   return (
     <Box
@@ -19,118 +24,119 @@ const ClientsSection = () => {
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
-        flexDirection: { md: "row", xs: "column" },
-        padding: { md: "0 3rem", xs: "1rem" },
-        pb: "2rem",
+        justifyContent: "center",
+        flexDirection: "column",
+        padding: { md: "4rem 3rem", xs: "2rem 1rem" },
+        backgroundColor: "#f9f9f9",
       }}
     >
-      {/* Left Side - Title & Hero Image */}
+      {/* Title Section with bottom-to-top animation */}
       <Box
         ref={ref}
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          width: { md: "50%", xs: "100%" },
-          textAlign: { md: "left", xs: "center" },
-          alignItems: { xs: "center", md: "flex-start" },
+          width: "100%",
+          textAlign: "center",
+          mb: { md: "4rem", xs: "2rem" },
         }}
         component={motion.div}
-        initial={
-          isSmallScreen ? { opacity: 0, y: -100 } : { opacity: 0, x: -70 }
-        }
-        animate={isInView ? { opacity: 1, y: 0, x: 0 } : undefined}
-        transition={{ duration: 1, ease: "easeInOut" }}
+        initial={{ opacity: 0, y: 100 }}
+        animate={isInView ? { opacity: 1, y: 0 } : undefined}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        {/* Heading */}
         <Typography
           variant="h3"
           sx={{
-            fontSize: { md: "4.5rem", xs: "3rem" },
+            fontSize: { md: "3.5rem", xs: "2.5rem" },
             color: "black",
             fontWeight: "bold",
+            mb: 1,
           }}
         >
-          Our Clients
-          <Divider
-            sx={{
-              borderBottomWidth: "3px",
-              borderColor: "orange",
-              width: "20%",
-              textAlign: "center",
-              margin: "auto",
-              mb: "2rem",
-            }}
-          />
+          <span style={{ color: "orange" }}>Some Of Our</span> Amazing Clients
         </Typography>
-
-        {/* Hero Image */}
-        <Box
+        <Divider
           sx={{
-            width: { md: "100%", xs: "80%" },
-            maxWidth: "400px",
-            mt: 2,
-            ml: 0,
+            borderBottomWidth: "3px",
+            borderColor: "orange",
+            width: "100px",
+            margin: "auto",
+            textAlign: "center",
           }}
-        >
-          <img
-            src={clientHeroImg}
-            alt="Our Clients"
-            style={{ width: "100%", height: "auto", borderRadius: "10px" }}
-          />
-        </Box>
+        />
       </Box>
 
-      {/* Right Side - Clients Logo Grid */}
+      {/* Clients Grid - 4 per row (static/no animation) */}
       <Box
         sx={{
-          display: "grid",
-          gridTemplateColumns: {
-            md: "repeat(3, 1fr)",
-            xs: "repeat(1, 1fr)",
-          },
-          gap: "1rem",
-          justifyContent: "center",
-          width: { md: "70%", xs: "100%" },
+          display: "flex",
+          flexDirection: "column",
+          gap: { md: "2rem", xs: "2rem" },
+          width: "100%",
         }}
-        component={isSmallScreen ? "div" : motion.div}
-        initial={!isSmallScreen ? { opacity: 0, x: 70 } : undefined}
-        animate={!isSmallScreen && isInView ? { opacity: 1, x: 0 } : undefined}
-        transition={
-          !isSmallScreen ? { duration: 1, ease: "easeInOut" } : undefined
-        }
       >
-        {clients.slice(0, 6).map((client, index) => (
+        {groupedClients.map((row, rowIndex) => (
           <Box
-            key={index}
+            key={rowIndex}
             sx={{
-              maxHeight: { md: "17rem", xs: "unset" },
-              maxWidth: { md: "17rem", xs: "80%" },
               display: "flex",
+              flexWrap: "wrap",
               justifyContent: "center",
               alignItems: "center",
-              margin: "auto",
+              gap: { md: "3rem", xs: "1.5rem" },
             }}
           >
-            <img
-              src={client.logo}
-              alt={`Client ${index + 1}`}
-              height="100%"
-              width="100%"
-              style={{ mixBlendMode: "darken" }}
-            />
+            {row.map((client, index) => (
+              <Box
+                key={index}
+                sx={{
+                  height: { md: "120px", xs: "100px" },
+                  width: { md: "200px", xs: "160px" },
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: "1rem",
+                  backgroundColor: "white",
+                  borderRadius: "8px",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                }}
+              >
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  style={{
+                    maxHeight: "80%",
+                    maxWidth: "80%",
+                    objectFit: "contain",
+                  }}
+                />
+              </Box>
+            ))}
           </Box>
         ))}
-        <Button
-          variant="text"
-          color="warning"
-          size="large"
-          sx={{ display: "flex", justifyContent: "center", fontSize: "1rem", mt:{md:"4rem",xs:"0"} }}
-          onClick={()=>navigate("/clients")}
-        >
-          View All Clients <MoreIcon/>
-        </Button>
       </Box>
+
+      {/* View All Button */}
+      <Button
+        variant="outlined"
+        color="warning"
+        size="large"
+        sx={{
+          mt: { md: "4rem", xs: "2rem" },
+          px: 4,
+          py: 1.5,
+          fontSize: "1rem",
+          fontWeight: "bold",
+          borderWidth: "2px",
+          borderRadius: "8px",
+          "&:hover": {
+            borderWidth: "2px",
+            backgroundColor: "rgba(255, 165, 0, 0.1)",
+          },
+        }}
+        onClick={() => navigate("/clients")}
+      >
+        View All Clients <MoreIcon sx={{ ml: 1 }} />
+      </Button>
     </Box>
   );
 };
