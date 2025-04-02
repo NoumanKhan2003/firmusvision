@@ -1,5 +1,5 @@
 import { Box, Typography, Button } from "@mui/material";
-import img1 from "../Assets/campaign.jpg"; // Your image path
+import img1 from "../Assets/campaign.jpg";
 import { useNavigate } from "react-router-dom";
 
 const PRMarketingSection = () => {
@@ -9,32 +9,35 @@ const PRMarketingSection = () => {
     <Box
       sx={{
         backgroundColor: "#090909",
-        minHeight: "100vh",
+        minHeight: { xs: "auto", md: "100vh" },
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        padding: { xs: "0rem 0rem", md: "0rem 6rem" },
-        pb: { xs: "3rem", md: "3rem" },
+        padding: { xs: "2rem 1rem", md: "0rem 6rem" },
+        py: { xs: "3rem", md: "2rem" },
       }}
     >
       <Box
         sx={{
           width: "100%",
           maxWidth: "1900px",
-          position: "relative",
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
-          alignItems: { md: "self-start", xs: "center" },
-          mt: "3rem",
+          alignItems: { xs: "center", md: "stretch" },
+          justifyContent: "center",
+          gap: { xs: "2rem", md: "4rem" },
         }}
       >
-        {/* Image Background */}
+        {/* Image Section - Responsive */}
         <Box
           sx={{
-            width: { md: "80%", xs: "90%" },
-            height: "auto",
+            width: { xs: "100%", md: "50%" },
+            height: { xs: "300px", md: "auto" },
+            minHeight: { xs: "300px", md: "400px" },
             display: "flex",
-            justifyContent: "center",
+            order: { xs: 1, md: 1 },
+            overflow: "hidden",
+            borderRadius: { xs: "8px", md: "0" },
           }}
         >
           <img
@@ -42,27 +45,33 @@ const PRMarketingSection = () => {
             alt="Meeting"
             style={{
               width: "100%",
+              height: "100%",
+              objectFit: "cover",
               boxShadow: "3px 3px 15px rgba(255, 255, 255, 0.1)",
             }}
           />
         </Box>
 
-        {/* Text Content Box */}
+        {/* Text Content Section - Responsive */}
         <Box
           sx={{
             backgroundColor: "#000",
             color: "white",
-            padding: "2.5rem",
+            padding: { xs: "1.5rem", md: "2.5rem" },
             borderRadius: "8px",
             boxShadow: "5px 5px 15px rgba(255, 255, 255, 0.1)",
-            width: { xs: "70%", md: "60%" },
-            maxWidth: "500px",
-            marginTop: { xs: "1rem", md: "4rem" }, // Moves up on larger screens
-            marginLeft: { md: "-12rem" }, // Moves left to overlay image
-            textAlign: { xs: "left", md: "left" },
+            width: { xs: "80%", md: "40%" },
+            maxWidth: { xs: "100%", md: "500px" },
+            textAlign: { xs: "center", md: "left" },
+            order: { xs: 2, md: 2 },
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            height: { xs: "auto", md: "auto" },
+            minHeight: { xs: "auto", md: "400px" },
           }}
         >
-          <Typography variant="h4" fontWeight="bold">
+          <Typography variant="h4" fontWeight="bold" sx={{ fontSize: { xs: "1.5rem", md: "2rem" } }}>
             Integrated PR & Marketing Agency
           </Typography>
           <Box
@@ -70,13 +79,16 @@ const PRMarketingSection = () => {
               width: "50px",
               height: "3px",
               backgroundColor: "#007bff",
-              marginTop: "8px",
-              marginBottom: "16px",
+              margin: { xs: "8px auto", md: "8px 0 16px 0" },
             }}
           />
           <Typography
             variant="body1"
-            sx={{ fontSize: "1rem", lineHeight: "1.6" }}
+            sx={{ 
+              fontSize: { xs: "0.9rem", md: "1rem" }, 
+              lineHeight: "1.6",
+              textAlign: { xs: "center", md: "left" }
+            }}
           >
             Welcome to Firmus Vision, your partner in strategic communication
             excellence. We specialize in crafting compelling narratives,
@@ -84,7 +96,12 @@ const PRMarketingSection = () => {
           </Typography>
           <Typography
             variant="body1"
-            sx={{ marginTop: "1rem", fontSize: "1rem", lineHeight: "1.6" }}
+            sx={{ 
+              marginTop: "1rem", 
+              fontSize: { xs: "0.9rem", md: "1rem" }, 
+              lineHeight: "1.6",
+              textAlign: { xs: "center", md: "left" }
+            }}
           >
             Our team of industry experts customizes PR solutions that align
             seamlessly with your unique goals. With global reach and local
@@ -94,10 +111,12 @@ const PRMarketingSection = () => {
             variant="text"
             sx={{
               color: "#007bff",
-              marginTop: "1rem",
+              marginTop: "1.5rem",
               textTransform: "none",
               fontWeight: "bold",
-              fontSize: "1rem",
+              fontSize: { xs: "0.9rem", md: "1rem" },
+              alignSelf: { xs: "center", md: "flex-start" },
+              px: 0,
             }}
             onClick={() => navigate("/about")}
           >
