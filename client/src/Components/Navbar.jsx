@@ -43,7 +43,7 @@ const Navbar = () => {
     { text: "Clients", icon: <PeopleIcon />, path: "/clients" },
     { text: "Network", icon: <PublicIcon />, path: "/network" },
     { text: "Services", icon: <ServicesIcon />, path: "/services" },
-    { text: "Contact", icon: <ContactIcon />, path: "/contact" },
+    { text: "Contact Us", icon: <ContactIcon />, path: "/contact" },
   ];
 
   // Desktop Navigation List
@@ -66,21 +66,29 @@ const Navbar = () => {
               sx={{
                 fontWeight: "bold",
                 fontSize: "1.2rem",
-                color: "inherit",
+                color: item.text === "Contact Us" ? "black" : "inherit",
                 position: "relative",
                 px: 2,
                 py: 1,
                 textTransform: "uppercase",
                 letterSpacing: "0.5px",
-                "&.Mui-selected": {
-                  color: "orange",
-                  backgroundColor: "transparent",
-                  "&::after": {
+                backgroundColor: item.text === "Contact Us" ? "orange" : "transparent",
+                borderRadius: item.text === "Contact Us" ? "4px" : 0,
+                "&:hover": {
+                  backgroundColor: item.text === "Contact Us" ? "orange" : "transparent",
+                  "&::after": item.text !== "Contact Us" ? {
                     transform: "scaleX(1)",
-                  },
+                  } : {},
+                },
+                "&.Mui-selected": {
+                  color: item.text !== "Contact Us" ? "orange" : "black",
+                  backgroundColor: item.text === "Contact Us" ? "orange" : "transparent",
+                  "&::after": item.text !== "Contact Us" ? {
+                    transform: "scaleX(1)",
+                  } : {},
                 },
                 "&::after": {
-                  content: '""',
+                  content: item.text !== "Contact Us" ? '""' : "none",
                   position: "absolute",
                   left: "16px",
                   bottom: "8px",
@@ -90,9 +98,6 @@ const Navbar = () => {
                   transform: "scaleX(0)",
                   transformOrigin: "left",
                   transition: "transform 0.3s ease",
-                },
-                "&:hover::after": {
-                  transform: "scaleX(1)",
                 },
               }}
             >
@@ -111,7 +116,7 @@ const Navbar = () => {
     </Box>
   );
 
-  // Mobile Drawer List
+  // Mobile Drawer List - Keep exactly the same as original
   const MobileDrawer = () => (
     <Box
       sx={{
@@ -181,7 +186,7 @@ const Navbar = () => {
         py: 1,
       }}
     >
-      {/* Logo with Link */}
+      {/* Logo with Link - Keep exactly the same as original */}
       <Box
         component={RouterLink}
         to="/"
@@ -211,7 +216,7 @@ const Navbar = () => {
 
       <DesktopNav />
 
-      {/* Mobile Menu Button */}
+      {/* Mobile Menu Button - Keep exactly the same as original */}
       <Button
         onClick={toggleDrawer(true)}
         sx={{
@@ -223,7 +228,7 @@ const Navbar = () => {
         <MenuIcon color="warning" sx={{ fontSize: "2rem" }} />
       </Button>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer - Keep exactly the same as original */}
       <Drawer
         anchor="right"
         open={state.right}
