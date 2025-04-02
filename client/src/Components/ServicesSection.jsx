@@ -5,22 +5,34 @@ import servicesData from "../Assets/ServicesData.js";
 import { useNavigate } from "react-router-dom";
 
 const ServicesSection = () => {
-  const isSmallScreen = useMediaQuery("(max-width: 900px)");
+  const isMobile = useMediaQuery("(max-width:900px)");
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ padding: { md: "1rem", xs: "2rem" }, background: "black" }}>
+    <Box
+      sx={{
+        padding: { md: "2rem 3rem", xs: "2rem 1rem" },
+        minHeight: "100vh",
+      }}
+    >
       {/* Title */}
       <Box
         textAlign="center"
-        mb={4}
+        mb={6}
         component={motion.div}
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <Typography variant="h3" sx={{ fontWeight: "bold", color: "orange" }}>
-          Our Services
+        <Typography
+          variant="h3"
+          sx={{
+            fontWeight: "bold",
+            color: "black",
+            fontSize: { md: "3.5rem", xs: "2.5rem" },
+          }}
+        >
+          <span style={{ color: "orange" }}>Our</span> Services
         </Typography>
         <Divider
           sx={{
@@ -28,78 +40,124 @@ const ServicesSection = () => {
             borderBottomWidth: "3px",
             borderColor: "orange",
             margin: "auto",
-            mt: 0,
+            mt: 1,
           }}
         />
       </Box>
 
       {/* Services Grid */}
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "2rem",
-          justifyContent: "center",
-        }}
-      >
-        {servicesData.map((service, index) => (
+      <Box sx={{ maxWidth: "1200px", margin: "0 auto" }}>
+        {servicesData.slice(0, 3).map((service, index) => (
           <Box
             key={index}
             component={motion.div}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
             sx={{
               display: "flex",
-              flexDirection: isSmallScreen ? "column" : "row",
+              flexDirection: isMobile
+                ? "column"
+                : index % 2 === 0
+                ? "row"
+                : "row-reverse",
               alignItems: "center",
-              width: { md: "45%", xs: "100%" },
-              bgcolor:"black",
-              boxShadow: "0 4px 10px rgba(65, 65, 65, 0.7)",
-              borderRadius: "10px",
-              overflow: "hidden",
+              gap: { md: 6, xs: 0 },
+              mb: 10,
+              "&:last-child": { mb: 0 },
+              px: { md: 4, xs: 0 },
+              pb: 1,
             }}
           >
-            <Box sx={{ flex: "1",ml:{md:2,xs:0} }}>
-              <img
+            {/* Image Box */}
+            <Box
+              sx={{
+                flex: 1,
+                width: isMobile ? "100%" : "45%",
+                height: isMobile ? "300px" : "400px",
+                borderRadius: 2,
+                overflow: "hidden",
+              }}
+            >
+              <Box
+                component="img"
                 src={service.image}
                 alt={service.title}
-                style={{ width: "100%", height: "auto", objectFit: "cover" }}
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  transition: "transform 0.5s ease",
+                  borderBottomRightRadius: { md: "6rem", xs: "0" },
+                  borderTopLeftRadius: { md: "6rem", xs: "0" },
+                  "&:hover": {
+                    transform: "scale(1.03)",
+                  },
+                }}
               />
             </Box>
-            <Box sx={{ flex: "1", padding: "1.5rem" }}>
-              <Typography variant="h5" fontWeight="bold" color="white">
+
+            {/* Content Box */}
+            <Box
+              sx={{
+                flex: 1,
+                width: isMobile ? "90%" : "45%",
+                textAlign: isMobile ? "center" : "left",
+                bgcolor: "black",
+                px: { md: 5, xs: 2 },
+                py: { md: 4, xs: 4 },
+                borderBottomRightRadius: { md: "4rem", xs: "0" },
+                borderTopLeftRadius: { md: "4rem", xs: "0" },
+              }}
+            >
+              <Typography
+                variant="h4"
+                sx={{
+                  fontWeight: 700,
+                  color: "orange",
+                  mb: 2,
+                  fontSize: { md: "2rem", xs: "1.75rem" },
+                }}
+              >
                 {service.title}
               </Typography>
-              <Typography variant="body2" color="white" mt={1}>
-                {service.shortDescription}
-              </Typography>
-              <Button
-                variant="text"
-                sx={{ mt: 2, color: "orange", fontWeight: "bold" }}
-                onClick={()=>navigate("/services")}
+              <Typography
+                variant="body1"
+                sx={{
+                  lineHeight: 1.8,
+                  fontSize: { md: "1.1rem", xs: "1rem" },
+                  color: "white",
+                }}
               >
-                Read More →
-              </Button>
+                {service.longDescription}
+              </Typography>
             </Box>
           </Box>
         ))}
       </Box>
 
       {/* View All Button */}
-      <Box textAlign="center" mt={4}>
+      <Box textAlign="center" mt={6}>
         <Button
           variant="outlined"
           sx={{
             borderColor: "orange",
             color: "orange",
-            "&:hover": { background: "orange", color: "black" },
+            "&:hover": {
+              background: "orange",
+              color: "black",
+              borderColor: "orange",
+            },
             width: { md: "15rem", xs: "80%" },
-            mb: "2rem",
+            py: 1.5,
+            fontSize: "1rem",
+            fontWeight: "bold",
+            borderWidth: "2px",
+            borderRadius: "8px",
           }}
-          onClick={()=>navigate("/services")}
+          onClick={() => navigate("/services")}
         >
-          View All Servies
+          View All Services
         </Button>
       </Box>
     </Box>

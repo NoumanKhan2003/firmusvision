@@ -1,4 +1,4 @@
- import img from './prImage.jpg';
+ import img from './simg1.jpg';
 
 const servicesData= [
   {
