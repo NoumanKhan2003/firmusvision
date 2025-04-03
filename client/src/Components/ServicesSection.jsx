@@ -3,6 +3,7 @@ import { Box, Button, Typography, Divider, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import servicesData from "../Assets/ServicesData.js";
 import { useNavigate } from "react-router-dom";
+import MoreIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 
 const ServicesSection = () => {
   const isMobile = useMediaQuery("(max-width:900px)");
@@ -13,6 +14,7 @@ const ServicesSection = () => {
       sx={{
         padding: { md: "2rem 3rem", xs: "2rem 1rem" },
         minHeight: "100vh",
+        mb:{md:2,xs:3}
       }}
     >
       {/* Title */}
@@ -37,10 +39,10 @@ const ServicesSection = () => {
         <Divider
           sx={{
             width: "80px",
-            borderBottomWidth: "3px",
+            borderBottomWidth: "5px",
             borderColor: "orange",
             margin: "auto",
-            mt: 1,
+            mt: 0,
           }}
         />
       </Box>
@@ -137,7 +139,7 @@ const ServicesSection = () => {
       </Box>
 
       {/* View All Button */}
-      <Box textAlign="center" mt={6}>
+      <Box textAlign="center" mt={2}>
         <Button
           variant="outlined"
           sx={{
@@ -147,6 +149,8 @@ const ServicesSection = () => {
               background: "orange",
               color: "black",
               borderColor: "orange",
+              borderColor: "black",
+
             },
             width: { md: "15rem", xs: "80%" },
             py: 1.5,
@@ -157,7 +161,7 @@ const ServicesSection = () => {
           }}
           onClick={() => navigate("/services")}
         >
-          View All Services
+          View All Services<MoreIcon sx={{ ml: 1 }}/>
         </Button>
       </Box>
     </Box>

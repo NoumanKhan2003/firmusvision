@@ -49,14 +49,14 @@ const ClientsSection = () => {
             fontSize: { md: "3.5rem", xs: "2.5rem" },
             color: "black",
             fontWeight: "bold",
-            mb: 1,
+            mb: 0,
           }}
         >
           <span style={{ color: "orange" }}>Some Of Our</span> Amazing Clients
         </Typography>
         <Divider
           sx={{
-            borderBottomWidth: "3px",
+            borderBottomWidth: "5px",
             borderColor: "orange",
             width: "100px",
             margin: "auto",
@@ -97,7 +97,7 @@ const ClientsSection = () => {
                   padding: "1rem",
                   backgroundColor: "white",
                   borderRadius: "8px",
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                  // boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                 }}
               >
                 <img

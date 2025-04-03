@@ -54,7 +54,7 @@ const OurWorksSection = () => {
             textTransform: "uppercase",
           }}
         >
-          OUR WORKS
+         <span style={{color:"orange"}}>OUR</span>  WORKS
         </Typography>
         <Box
           sx={{
@@ -166,7 +166,7 @@ const OurWorksSection = () => {
                 variant="h4"
                 sx={{
                     width:"100%",
-                    fontSize:"1.4rem"
+                    fontSize:"1.4rem",
                 }}
               >
                 ({study.title})
@@ -177,7 +177,7 @@ const OurWorksSection = () => {
       </Box>
 
       {/* View More Button */}
-      <Box textAlign="center" mt={6}>
+      {/* <Box textAlign="center" mt={6}>
         <Button
           variant="outlined"
           sx={{
@@ -198,7 +198,7 @@ const OurWorksSection = () => {
         >
           View More Works
         </Button>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

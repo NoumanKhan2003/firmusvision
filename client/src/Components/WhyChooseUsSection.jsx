@@ -27,7 +27,7 @@ const WhyChooseUs = () => {
           ml: 0,
         }}
       >
-        Why Choose Us
+        Why <span style={{color:"orange"}}>Choose Us</span>
       </Typography>
 
       {/* Content Wrapper */}
@@ -53,7 +53,7 @@ const WhyChooseUs = () => {
           </Box>
           <Button
             variant="text"
-            sx={{ mt: 3, color: "black", fontWeight: "bold" }}
+            sx={{ mt: 3, color: "orangeRed", fontWeight: "bold" }}
             onClick={()=>navigate("/about")}
           >
             See More →
