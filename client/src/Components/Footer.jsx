@@ -23,7 +23,7 @@ import logo from "../Assets/logo firmus.png";
 const Footer = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const currentYear = new Date().getFullYear();
 
   return (
     <Box
@@ -189,7 +189,11 @@ const Footer = () => {
               textAlign: { xs: "center", md: "left" },
             }}
           >
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
+            <Typography
+              variant="h6"
+              gutterBottom
+              sx={{ fontWeight: "bold", color: "orange" }}
+            >
               About Us
             </Typography>
             <Typography variant="body2" sx={{ fontSize: "1rem" }}>
@@ -206,15 +210,94 @@ const Footer = () => {
               px: { xs: 2, md: 0 },
             }}
           >
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
+            <Typography
+              variant="h6"
+              gutterBottom
+              sx={{ fontWeight: "bold", color: "orange" }}
+            >
               Our Services
             </Typography>
             <Stack spacing={1}>
-              <Typography variant="body2">Media Relations</Typography>
-              <Typography variant="body2">Content Creation</Typography>
-              <Typography variant="body2">Crisis Management</Typography>
-              <Typography variant="body2">Event PR</Typography>
-              <Typography variant="body2">Digital PR</Typography>
+              <Link
+                href="/services"
+                sx={{
+                  transition: "transform 0.2s ease",
+                  display: "inline-block",
+                  textDecoration: "none",
+                  color: "white",
+                  "&:hover": {
+                    transform: "translateX(5px)",
+                    color: "orange",
+                    textDecoration: "underline",
+                  },
+                }}
+              >
+                <Typography variant="body2">Media Relations</Typography>
+              </Link>
+              <Link
+                href="/services"
+                sx={{
+                  transition: "transform 0.2s ease",
+                  display: "inline-block",
+                  textDecoration: "none",
+                  color: "white",
+                  "&:hover": {
+                    transform: "translateX(5px)",
+                    color: "orange",
+                    textDecoration: "underline",
+                  },
+                }}
+              >
+                <Typography variant="body2">Content Creation</Typography>
+              </Link>
+              <Link
+                href="/services"
+                sx={{
+                  transition: "transform 0.2s ease",
+                  display: "inline-block",
+                  textDecoration: "none",
+                  color: "white",
+                  "&:hover": {
+                    transform: "translateX(5px)",
+                    color: "orange",
+                    textDecoration: "underline",
+                  },
+                }}
+              >
+                <Typography variant="body2">Crisis Management</Typography>
+              </Link>
+              <Link
+                href="/services"
+                sx={{
+                  transition: "transform 0.2s ease",
+                  display: "inline-block",
+                  textDecoration: "none",
+                  color: "white",
+                  "&:hover": {
+                    transform: "translateX(5px)",
+                    color: "orange",
+                    textDecoration: "underline",
+                  },
+                }}
+              >
+                <Typography variant="body2">Event PR</Typography>
+              </Link>
+              <Link
+                href="/services"
+                sx={{
+                  transition: "transform 0.2s ease",
+                  display: "inline-block",
+                  textDecoration: "none",
+                  color: "white",
+                  "&:hover": {
+                    transform: "translateX(5px)",
+                    color: "orange",
+                    textDecoration: "underline",
+                  },
+                }}
+              >
+                <Typography variant="body2">Digital PR</Typography>
+              </Link>
             </Stack>
           </Box>
 
@@ -225,12 +308,61 @@ const Footer = () => {
               px: { xs: 2, md: 0 },
             }}
           >
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
+            <Typography
+              variant="h6"
+              gutterBottom
+              sx={{ fontWeight: "bold", color: "orange" }}
+            >
               Site Links
             </Typography>
             <Stack spacing={1}>
               <Link
-                href="#"
+                href="/"
+                color="inherit"
+                underline="hover"
+                sx={{
+                  transition: "transform 0.2s ease",
+                  display: "inline-block",
+                  "&:hover": {
+                    transform: "translateX(5px)",
+                    color: "orange",
+                  },
+                }}
+              >
+                Home
+              </Link>
+              <Link
+                href="/about"
+                color="inherit"
+                underline="hover"
+                sx={{
+                  transition: "transform 0.2s ease",
+                  display: "inline-block",
+                  "&:hover": {
+                    transform: "translateX(5px)",
+                    color: "orange",
+                  },
+                }}
+              >
+                About Us
+              </Link>
+              <Link
+                href="/clients"
+                color="inherit"
+                underline="hover"
+                sx={{
+                  transition: "transform 0.2s ease",
+                  display: "inline-block",
+                  "&:hover": {
+                    transform: "translateX(5px)",
+                    color: "orange",
+                  },
+                }}
+              >
+                Clients
+              </Link>
+              <Link
+                href="/services"
                 color="inherit"
                 underline="hover"
                 sx={{
@@ -244,8 +376,9 @@ const Footer = () => {
               >
                 Services
               </Link>
+
               <Link
-                href="#"
+                href="/contact"
                 color="inherit"
                 underline="hover"
                 sx={{
@@ -257,52 +390,7 @@ const Footer = () => {
                   },
                 }}
               >
-                Our Work
-              </Link>
-              <Link
-                href="#"
-                color="inherit"
-                underline="hover"
-                sx={{
-                  transition: "transform 0.2s ease",
-                  display: "inline-block",
-                  "&:hover": {
-                    transform: "translateX(5px)",
-                    color: "orange",
-                  },
-                }}
-              >
-                Testimonials
-              </Link>
-              <Link
-                href="#"
-                color="inherit"
-                underline="hover"
-                sx={{
-                  transition: "transform 0.2s ease",
-                  display: "inline-block",
-                  "&:hover": {
-                    transform: "translateX(5px)",
-                    color: "orange",
-                  },
-                }}
-              >
-                About
-              </Link>
-              <Link
-                href="#"
-                color="inherit"
-                underline="hover"
-                sx={{
-                  transition: "transform 0.2s ease",
-                  display: "inline-block",
-                  "&:hover": {
-                    transform: "translateX(5px)",
-                    color: "orange",
-                  },
-                }}
-              >
-                Contact
+                Contact Us
               </Link>
             </Stack>
           </Box>
@@ -314,7 +402,11 @@ const Footer = () => {
               px: { xs: 2, md: 0 },
             }}
           >
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
+            <Typography
+              variant="h6"
+              gutterBottom
+              sx={{ fontWeight: "bold", color: "orange" }}
+            >
               Follow Us
             </Typography>
             <Stack spacing={1}>
@@ -427,7 +519,7 @@ const Footer = () => {
             alignItems: "center",
             width: "100%",
             mt: 2,
-            flexDirection:{md:"row",xs:"column"}
+            flexDirection: { md: "row", xs: "column" },
           }}
         >
           <Typography
@@ -436,13 +528,13 @@ const Footer = () => {
               fontSize: { xs: "0.75rem", sm: "0.875rem" },
             }}
           >
-            © Column Inches 2024. All Rights Reserved.
+            © Column Inches {currentYear}. All Rights Reserved.
           </Typography>
           <Typography
             variant="body2"
             sx={{
               fontSize: { xs: "0.75rem", sm: "0.875rem" },
-              pt:{xs:1}
+              pt: { xs: 1 },
             }}
           >
             Made with ❤️ by Nouman Khan
