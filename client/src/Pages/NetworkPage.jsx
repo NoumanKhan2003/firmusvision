@@ -100,7 +100,6 @@ const NetworkCoverage = () => {
           ))}
         </div>
       </div>
-      <ContactSection />
     </Box >
   );
 };

@@ -136,7 +136,6 @@ const ClientsPage = () => {
           ))}
         </Box>
       </Container>
-      <ContactSection />
     </Box>
   );
 };

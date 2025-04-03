@@ -11,7 +11,6 @@ import {
   ListItemText,
   Divider,
   Typography,
-  styled,
 } from "@mui/material";
 import {
   Menu as MenuIcon,
@@ -43,12 +42,11 @@ const Navbar = () => {
     { text: "Clients", icon: <PeopleIcon />, path: "/clients" },
     { text: "Network", icon: <PublicIcon />, path: "/network" },
     { text: "Services", icon: <ServicesIcon />, path: "/services" },
-    { text: "Contact Us", icon: <ContactIcon />, path: "/contact" },
   ];
 
   // Desktop Navigation List
   const DesktopNav = () => (
-    <Box component="nav" sx={{ display: { xs: "none", md: "block" } }}>
+    <Box component="nav" sx={{ display: { xs: "none", md: "none",lg:"block" } }}>
       <List
         sx={{
           display: "flex",
@@ -66,26 +64,29 @@ const Navbar = () => {
               sx={{
                 fontWeight: "bold",
                 fontSize: "1.2rem",
-                color: item.text === "Contact Us" ? "black" : "inherit",
-                position: "relative",
-                px: 2,
-                py: 1,
                 textTransform: "uppercase",
                 letterSpacing: "0.5px",
-                backgroundColor: item.text === "Contact Us" ? "orange" : "transparent",
-                borderRadius: item.text === "Contact Us" ? "4px" : 0,
+                color: "white",
                 "&:hover": {
-                  backgroundColor: item.text === "Contact Us" ? "orange" : "transparent",
-                  "&::after": item.text !== "Contact Us" ? {
-                    transform: "scaleX(1)",
-                  } : {},
+                  backgroundColor:
+                    item.text === "Contact Us" ? "orange" : "transparent",
+                  "&::after":
+                    item.text !== "Contact Us"
+                      ? {
+                          transform: "scaleX(1)",
+                        }
+                      : {},
                 },
                 "&.Mui-selected": {
                   color: item.text !== "Contact Us" ? "orange" : "black",
-                  backgroundColor: item.text === "Contact Us" ? "orange" : "transparent",
-                  "&::after": item.text !== "Contact Us" ? {
-                    transform: "scaleX(1)",
-                  } : {},
+                  backgroundColor:
+                    item.text === "Contact Us" ? "orange" : "transparent",
+                  "&::after":
+                    item.text !== "Contact Us"
+                      ? {
+                          transform: "scaleX(1)",
+                        }
+                      : {},
                 },
                 "&::after": {
                   content: item.text !== "Contact Us" ? '""' : "none",
@@ -101,14 +102,7 @@ const Navbar = () => {
                 },
               }}
             >
-              <ListItemText
-                primary={item.text}
-                sx={{
-                  fontWeight: "bold",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                }}
-              />
+              <ListItemText primary={item.text} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -116,7 +110,7 @@ const Navbar = () => {
     </Box>
   );
 
-  // Mobile Drawer List - Keep exactly the same as original
+  // Mobile Drawer List
   const MobileDrawer = () => (
     <Box
       sx={{
@@ -138,38 +132,45 @@ const Navbar = () => {
       </Box>
       <Divider sx={{ bgcolor: "white", mb: 1 }} />
       <List>
-        {menuItems.map((item) => (
-          <ListItem key={item.text} disablePadding>
-            <ListItemButton
-              component={RouterLink}
-              to={item.path}
-              selected={location.pathname === item.path}
-              sx={{
-                "&.Mui-selected": {
-                  backgroundColor: "rgba(255, 165, 0, 0.1)",
-                  borderLeft: "4px solid orange",
-                  "& .MuiListItemIcon-root, & .MuiTypography-root": {
-                    color: "orange",
-                    fontWeight: "bold",
-                  },
-                },
-              }}
-            >
-              <ListItemIcon sx={{ color: "white" }}>{item.icon}</ListItemIcon>
-              <ListItemText
-                primary={item.text}
+        {menuItems
+          .concat({
+            text: "Contact Us",
+            icon: <ContactIcon />,
+            path: "/contact",
+          })
+          .map((item) => (
+            <ListItem key={item.text} disablePadding>
+              <ListItemButton
+                component={RouterLink}
+                to={item.path}
+                selected={location.pathname === item.path}
                 sx={{
-                  "& .MuiListItemText-primary": {
-                    fontSize: "1.3rem", 
-                    fontWeight:
-                      location.pathname === item.path ? "bold" : "normal",
-                    color: location.pathname === item.path ? "orange" : "white",
+                  "&.Mui-selected": {
+                    backgroundColor: "rgba(255, 165, 0, 0.1)",
+                    borderLeft: "4px solid orange",
+                    "& .MuiListItemIcon-root, & .MuiTypography-root": {
+                      color: "orange",
+                      fontWeight: "bold",
+                    },
                   },
                 }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
+              >
+                <ListItemIcon sx={{ color: "white" }}>{item.icon}</ListItemIcon>
+                <ListItemText
+                  primary={item.text}
+                  sx={{
+                    "& .MuiListItemText-primary": {
+                      fontSize: "1.3rem",
+                      fontWeight:
+                        location.pathname === item.path ? "bold" : "normal",
+                      color:
+                        location.pathname === item.path ? "orange" : "white",
+                    },
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
       </List>
     </Box>
   );
@@ -186,7 +187,7 @@ const Navbar = () => {
         py: 1,
       }}
     >
-      {/* Logo with Link - Keep exactly the same as original */}
+      {/* Logo with Link */}
       <Box
         component={RouterLink}
         to="/"
@@ -216,11 +217,35 @@ const Navbar = () => {
 
       <DesktopNav />
 
-      {/* Mobile Menu Button - Keep exactly the same as original */}
+      {/* Contact Us Button (Desktop) */}
+      <Box sx={{ display: { xs: "none", md: "none", lg: "block" } }}>
+        <Button
+          component={RouterLink}
+          to="/contact"
+          variant="contained"
+          sx={{
+            backgroundColor: "red",
+            color: "white",
+            fontWeight: "bold",
+            borderTopLeftRadius: "3rem",
+            borderBottomRightRadius: "3rem",
+            px: "2rem",
+            transition: "transform 0.3s",
+            "&:hover": {
+              backgroundColor: "#e70630",
+              transform: "scale(1.1)",
+            },
+          }}
+        >
+          Contact Us
+        </Button>
+      </Box>
+
+      {/* Mobile Menu Button */}
       <Button
         onClick={toggleDrawer(true)}
         sx={{
-          display: { xs: "block", md: "none" },
+          display: { xs: "block", md: "block", lg: "none" },
           p: 0,
           minWidth: "auto",
         }}
@@ -228,7 +253,7 @@ const Navbar = () => {
         <MenuIcon color="warning" sx={{ fontSize: "2rem" }} />
       </Button>
 
-      {/* Mobile Drawer - Keep exactly the same as original */}
+      {/* Mobile Drawer */}
       <Drawer
         anchor="right"
         open={state.right}

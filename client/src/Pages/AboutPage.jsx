@@ -17,7 +17,7 @@ import { LinkedIn } from "@mui/icons-material";
 import CounterSection from "../Components/ViewsSection";
 import ContactUs from "../Components/ContactSection";
 import founderImg from "../Assets/simg1.jpg";
-
+import aboutImg from "../Assets/bg1.jpeg"
 const quotes = [
   {
     title: "We are Credible",
@@ -72,7 +72,7 @@ const AboutPage = () => {
           alignItems: "center",
           justifyContent: "center",
           backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1522071820081-009f0129c71c)",
+            `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${aboutImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "white",
@@ -446,9 +446,7 @@ const AboutPage = () => {
           </Box>
         </Container>
       </Box>
-      {/* Views and Contact Sections */}
       <CounterSection />
-      <ContactUs />
     </Box>
   );
 };

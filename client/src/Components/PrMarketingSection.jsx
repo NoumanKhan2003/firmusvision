@@ -72,7 +72,7 @@ const PRMarketingSection = () => {
           }}
         >
           <Typography variant="h4" fontWeight="bold" sx={{ fontSize: { xs: "1.5rem", md: "2rem" } }}>
-            Integrated PR & Marketing Agency
+            WHO WE ARE
           </Typography>
           <Box
             sx={{
