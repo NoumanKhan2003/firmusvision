@@ -1,5 +1,5 @@
 import { Box, Typography, Button } from "@mui/material";
-import img1 from "../Assets/campaign.jpg";
+import img1 from "../Assets/img2.jpg";
 import { useNavigate } from "react-router-dom";
 
 const PRMarketingSection = () => {

@@ -7,8 +7,6 @@ import {
   Container,
 } from "@mui/material";
 import { motion } from "framer-motion";
-
-import clientpic from "../Assets/clientpage.jpg";
 import servicesData from "../Assets/ServicesData";
 
 const ServicesPage = () => {
@@ -17,67 +15,7 @@ const ServicesPage = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <Box sx={{ backgroundColor: "#f8f9fa", pb: 10 }}>
-      {/* What We Do Section */}
-      <Box sx={{ py: 8, backgroundColor: "white" }}>
-        <Container maxWidth="lg">
-          <Box sx={{ textAlign: "center", mb: 4 }}>
-            <Typography
-              variant="h3"
-              component="h1"
-              sx={{
-                fontWeight: 700,
-                color: "black",
-                mb: 1,
-                fontSize: isMobile ? "2rem" : "3rem",
-              }}
-            >
-              What Can
-            </Typography>
-            <Typography
-              variant="h3"
-              component="h2"
-              sx={{
-                fontWeight: 700,
-                color: "orange",
-                mb: 1,
-                fontSize: isMobile ? "2rem" : "3rem",
-              }}
-            >
-              We Do For You
-            </Typography>
-            <Divider
-              sx={{
-                width: "100px",
-                height: "4px",
-                backgroundColor: "orange",
-                margin: "0 auto",
-                mb: 2,
-                mt: 0,
-              }}
-            />
-          </Box>
-          <Typography
-            variant="body1"
-            sx={{
-              lineHeight: 1.8,
-              fontSize: isMobile ? "1rem" : "1.1rem",
-              color: "text.primary",
-              textAlign: "center",
-              maxWidth: "800px",
-              margin: "0 auto",
-            }}
-          >
-            Column Inches is a full-service PR agency in Delhi, driven by women.
-            With a deep understanding of media and marketing communications, we
-            leverage our vast expertise in creating brand value for clients
-            across sectors. Specializing in PR and Media Relations, Digital
-            Media Promotion, Crisis Communication, Brand Promotion, Startup PR,
-            Event PR, and Influencer Marketing, we help clients navigate the
-            ever-changing media landscape.
-          </Typography>
-        </Container>
-      </Box>
+    <Box sx={{ backgroundColor: "#f8f9fa", pb: 10 }}>     
       <Box
         textAlign="center"
         mb={6}
@@ -92,6 +30,7 @@ const ServicesPage = () => {
             fontWeight: "bold",
             color: "black",
             fontSize: { md: "3.5rem", xs: "2.5rem" },
+            mt:4
           }}
         >
           <span style={{ color: "orange" }}>Our</span> Services
@@ -99,7 +38,7 @@ const ServicesPage = () => {
         <Divider
           sx={{
             width: "80px",
-            borderBottomWidth: "3px",
+            borderBottomWidth: "5px",
             borderColor: "orange",
             margin: "auto",
             mt: 0,

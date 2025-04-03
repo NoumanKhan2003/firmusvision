@@ -7,24 +7,24 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import ClientsData from "../Assets/ClientsData.js";
-import clientpic from "../Assets/clientpage.jpg";
+import clientpic from "../Assets/img4.jpg";
 import MoreIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import LessIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
-import ContactSection from "../Components/ContactSection.jsx";
 
 const ClientsPage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.down("md"));
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <Box sx={{ backgroundColor: theme.palette.background.paper }}>
-      {/* Hero Section */}
       <Box
         sx={{
-          height: isMobile ? "200px" : "300px",
+          height: isMobile ? "180px" : "300px",
           backgroundImage: `url(${clientpic})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -41,11 +41,11 @@ const ClientsPage = () => {
             bottom: 0,
             backgroundColor: "rgba(0,0,0,0.4)",
           },
-          mb: 6,
+          mb: isMobile ? 3 : 6,
         }}
       >
         <Typography
-          variant={isMobile ? "h3" : "h2"}
+          variant={isMobile ? "h5" : "h2"}
           sx={{
             color: "orange",
             fontWeight: 700,
@@ -60,23 +60,33 @@ const ClientsPage = () => {
         </Typography>
       </Box>
 
-      {/* Client Logos Grid */}
-      <Container maxWidth="lg" sx={{ mb: 10 }}>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <LessIcon sx={{ fontSize: "3rem" }} />
+      <Container maxWidth="lg" sx={{ mb: 6, px: isMobile ? 1 : 4 }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexWrap: "wrap",
+            mb: 4,
+            mx: 0,
+            textAlign: "center",
+          }}
+        >
+          <LessIcon sx={{ fontSize: isMobile ? "1.8rem" : "3rem" }} />
           <Typography
-            variant="h4"
+            variant={isMobile ? "h6" : "h4"}
             sx={{
-              textAlign: "center",
-              mb: 6,
               fontWeight: 600,
               color: "orange",
+              fontFamily: "'Playfair Display', serif",
+              mx: { md: 2, xs: 0 },
             }}
           >
             Trusted by Industry Leaders
           </Typography>
-          <MoreIcon sx={{ fontSize: "3rem" }} />
+          <MoreIcon sx={{ fontSize: isMobile ? "1.8rem" : "3rem" }} />
         </Box>
+
         <Box
           sx={{
             display: "grid",
@@ -85,9 +95,10 @@ const ClientsPage = () => {
               : isTablet
               ? "repeat(3, 1fr)"
               : "repeat(4, 1fr)",
-            gap: 4,
+            gap: isMobile ? 1 : 3,
             alignItems: "center",
             justifyItems: "center",
+            px: isMobile ? 0 : 1,
           }}
         >
           {ClientsData.map((client) => (
@@ -98,9 +109,10 @@ const ClientsPage = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                width: "100%",
+                width: isMobile ? "80%" : "100%",
                 height: "100%",
-                p: 2,
+                p: isMobile ? 1 : 2,
+                textAlign: "center",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
                 "&:hover": {
                   transform: "scale(1.05)",
@@ -108,27 +120,21 @@ const ClientsPage = () => {
                 },
               }}
             >
-              <Box
-                component="img"
-                src={client.logo}
-                alt={client.name}
-                sx={{
-                  maxWidth: "100%",
-                  maxHeight: "80px",
-                  objectFit: "contain",
-                  filter:
-                    theme.palette.mode === "dark" ? "brightness(0.9)" : "none",
-                  mb: 1,
-                }}
-              />
               <Typography
-                variant="body1"
+                variant={isMobile ? "body2" : isTablet ? "h6" : "h5"}
                 sx={{
+                  fontWeight: "bold",
+                  color: "black",
+                  fontFamily: "'Playfair Display', serif",
+                  letterSpacing: "0.5px",
+                  textTransform: "uppercase",
+                  whiteSpace: isMobile ? "normal" : "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  maxWidth: isMobile ? "100%" : "90%",
                   textAlign: "center",
-                  mt: 1,
-                  fontWeight: 500,
-                  color: theme.palette.text.secondary,
                 }}
+                title={client.name}
               >
                 {client.name}
               </Typography>

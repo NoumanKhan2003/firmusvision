@@ -28,6 +28,7 @@ const ClientsSection = () => {
         flexDirection: "column",
         padding: { md: "4rem 3rem", xs: "2rem 1rem" },
         backgroundColor: "#f9f9f9",
+        fontFamily: "'Poppins', sans-serif",
       }}
     >
       {/* Title Section with bottom-to-top animation */}
@@ -49,6 +50,7 @@ const ClientsSection = () => {
             fontSize: { md: "3.5rem", xs: "2.5rem" },
             color: "black",
             fontWeight: "bold",
+            fontFamily: "'Playfair Display', serif",
             mb: 0,
           }}
         >
@@ -65,7 +67,7 @@ const ClientsSection = () => {
         />
       </Box>
 
-      {/* Clients Grid - 4 per row (static/no animation) */}
+      {/* Clients Grid - 4 per row (Company Names in Black) */}
       <Box
         sx={{
           display: "flex",
@@ -97,18 +99,22 @@ const ClientsSection = () => {
                   padding: "1rem",
                   backgroundColor: "white",
                   borderRadius: "8px",
-                  // boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                 }}
               >
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  style={{
-                    maxHeight: "80%",
-                    maxWidth: "80%",
-                    objectFit: "contain",
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: "bold",
+                    fontSize: { md: "2rem", xs: "1.2rem" },
+                    color: "black",
+                    textTransform: "uppercase",
+                    textAlign: "center",
+                    letterSpacing: "1.5px",
+                    fontFamily: "'Playfair Display', serif",
                   }}
-                />
+                >
+                  {client.name}
+                </Typography>
               </Box>
             ))}
           </Box>
@@ -128,6 +134,7 @@ const ClientsSection = () => {
           fontWeight: "bold",
           borderWidth: "2px",
           borderRadius: "8px",
+          fontFamily: "'Poppins', sans-serif",
           "&:hover": {
             borderWidth: "2px",
             backgroundColor: "rgba(255, 165, 0, 0.1)",

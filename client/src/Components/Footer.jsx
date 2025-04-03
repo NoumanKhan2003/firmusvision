@@ -17,7 +17,7 @@ import {
   Email,
   LocationOn,
 } from "@mui/icons-material";
-import bgImg from "../Assets/img11.jpg";
+import bgImg from "../Assets/bg3.jpg";
 import logo from "../Assets/logo firmus.png";
 
 const Footer = () => {

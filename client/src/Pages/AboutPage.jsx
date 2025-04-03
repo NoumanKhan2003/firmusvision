@@ -16,7 +16,7 @@ import {
 import { LinkedIn } from "@mui/icons-material";
 import CounterSection from "../Components/ViewsSection";
 import ContactUs from "../Components/ContactSection";
-import founderImg from "../Assets/simg1.jpg";
+import founderImg from "../Assets/img6.jpg";
 import aboutImg from "../Assets/bg1.jpeg"
 const quotes = [
   {
@@ -125,9 +125,7 @@ const AboutPage = () => {
             <Box
               sx={{
                 flex: 1,
-                borderRadius: 2,
                 overflow: "hidden",
-                boxShadow: 3,
               }}
             >
               <Box
@@ -146,7 +144,7 @@ const AboutPage = () => {
                 component="h2"
                 sx={{ fontWeight: "bold", mb: 3, fontSize: "3rem" }}
               >
-                WHO WE ARE?
+                WHO WE <span style={{color:"orange"}}>ARE?</span>
               </Typography>
               <Typography variant="body1" sx={{ mb: 2 }}>
                 Column Inches is a full-service PR agency in Delhi, driven by

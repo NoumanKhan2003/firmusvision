@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import heroImage from "../Assets/img1.jpg";
 import { motion } from "framer-motion";
 
@@ -8,84 +8,105 @@ const LandingSection = () => {
     <Box
       sx={{
         minHeight: "100vh",
-        backgroundImage: `linear-gradient(rgba(107, 107, 107, 0.6), rgba(0, 0, 0, 0.6)), url(${heroImage})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${heroImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: { xs: "center", md: "unset" },
+        px: { xs: 2, sm: 4, md: 10 },
+        textAlign: "center",
       }}
     >
       <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.6)",
-          zIndex: 1,
-        }}
-      />
-
-      <Box
-        sx={{
-          position: "absolute",
-          top: { md: "40%", xs: "30%" },
-          right: "5%",
-          textAlign: "right",
-          display: "flex",
-          flexDirection: "column",
-          width: { xs: "80%", sm: "60%", md: "30%" },
-          zIndex: 3,
-        }}
         component={motion.div}
-        initial={{ opacity: 0, y: 0 }}
-        animate={{ opacity: 1, y: -130 }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        sx={{
+          maxWidth: { xs: "95%", md: "70%" },
+          color: "white",
+          textAlign: "center",
+        }}
       >
         <Typography
-          variant="h3"
+          variant="h2"
+          fontWeight="bold"
           sx={{
-            color: "white",
-            fontWeight: "bold",
-            fontSize: "2.5rem",
-            cursor: "text",
+            fontSize: { xs: "2.8rem", md: "3.5rem" },
+            whiteSpace: "normal",
+            wordWrap: "break-word",
+            lineHeight: { xs: 1.3, sm: 1.5 },
           }}
         >
-          Crisis & Issue Management
+          India’s Leading <span style={{ color: "orange" }}>PR Agency</span>
+        </Typography>
+
+        <Typography
+          variant="body1"
+          sx={{
+            mt: 2,
+            fontSize: { xs: "1rem", md: "1.2rem" },
+            lineHeight: 1.6,
+            width: "100%",
+            textAlign: "justify",
+            px: { xs: 0, md: 0 },
+          }}
+        >
+          Column Inches is a leading PR agency based in Delhi that helps
+          ambitious brands succeed through strategic media and marketing
+          communications. We leverage our expertise to create brand value,
+          enabling you to win clients, engage stakeholders, and, most
+          importantly, build trust.
         </Typography>
 
         <Box
           sx={{
-            backgroundColor: "orange",
-            width: "2.5rem",
-            height: "2.5rem",
-            borderRadius: "50%",
             display: "flex",
-            justifyContent: "center",
+            flexDirection: { xs: "column", sm: "row" },
+            gap: 2,
+            mt: 4,
             alignItems: "center",
-            marginLeft: "auto",
+            flexWrap: "wrap",
           }}
         >
-          <Typography
-            sx={{ fontSize: { xs: "1.5rem", md: "2rem" }, color: "white" }}
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "red",
+              color: "white",
+              fontWeight: "bold",
+              px: 3,
+              py: 1.2,
+              borderRadius: "0 2rem 0 2rem",
+              textTransform: "none",
+              fontSize: { xs: "0.85rem", sm: "1rem" },
+              width: { xs: "100%", sm: "auto" },
+              "&:hover": { backgroundColor: "darkred" },
+            }}
           >
-            &
-          </Typography>
-        </Box>
+            OUR SERVICES &gt;
+          </Button>
 
-        <Typography
-          variant="h3"
-          sx={{
-            color: "white",
-            fontWeight: "bold",
-            fontSize: "2.5rem",
-            mt: 0,
-            cursor: "text",
-          }}
-        >
-          PR and Media Activities
-        </Typography>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#2c3e50",
+              color: "white",
+              fontWeight: "bold",
+              px: 3,
+              py: 1.2,
+              borderRadius: "0 2rem 0 2rem",
+              textTransform: "none",
+              fontSize: { xs: "0.85rem", sm: "1rem" },
+              width: { xs: "100%", sm: "auto" },
+              "&:hover": { backgroundColor: "#1c2833" },
+            }}
+          >
+            CONTACT US &gt;
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
