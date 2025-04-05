@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Typography, TextField, Button, Divider } from "@mui/material";
-import { Email, Phone, LocationOn } from "@mui/icons-material";
+import { Email, Phone, LocationOn, ImageOutlined } from "@mui/icons-material";
 import {
   handleError,
   handleSuccess,
   handleWarning,
 } from "../Components/handleUtils.js";
 import LoaderComponent from "./Loader.jsx";
+import img from "../Assets/bg4.jpg";
 
 const ContactUs = () => {
   const [loading, setLoading] = useState(false);
@@ -111,17 +112,28 @@ const ContactUs = () => {
               sx={{
                 color: "orange",
                 mb: 1,
-                fontSize: "3rem",
+                fontSize: {xs:"2.5rem",md:"3rem"},
                 display: "flex",
                 alignItems: "center",
+                fontFamily: "'Playfair Display', serif",
               }}
             >
               <Divider
-                sx={{ width: 70, height: 2, borderColor: "orange", mr: 1,display:{md:"block",xs:"none"} }}
+                sx={{
+                  width: 70,
+                  height: 2,
+                  borderColor: "orange",
+                  mr: 1,
+                  display: { md: "block", xs: "none" },
+                }}
               />
-              Contact Us
+              CONTACT US
             </Typography>
-            <Typography variant="h3" fontWeight="bold" sx={{ mb: 4 ,fontSize:35}}>
+            <Typography
+              variant="h3"
+              fontWeight="bold"
+              sx={{ mb: 4, fontSize: 35 }}
+            >
               Let’s Get in Touch
             </Typography>
 
@@ -163,11 +175,22 @@ const ContactUs = () => {
               flexDirection: "column",
               width: { xs: "100%", md: "50%" },
               backgroundColor: "#111",
-              p: 3,
               borderRadius: 2,
+              backgroundImage: `url(${img})`,
+              backgroundSize: "cover",
             }}
           >
-            <Typography variant="h6" sx={{ mb: 2, textAlign: "center",color:"orange",fontSize:30,border:"2px solid orange" }}>
+            <Box sx={{backgroundColor:"rgba(0, 0, 0, 0.6)",p:3}}>
+            <Typography
+              variant="h6"
+              sx={{
+                mb: 2,
+                textAlign: "center",
+                color: "orange",
+                fontSize: 30,
+                border: "2px solid orange",
+              }}
+            >
               Send Message
             </Typography>
 
@@ -186,7 +209,6 @@ const ContactUs = () => {
                   fieldset: { borderColor: "#444" },
                 }}
                 onChange={handleChange}
-                
               />
               <TextField
                 name="lastName"
@@ -221,7 +243,6 @@ const ContactUs = () => {
                 fieldset: { borderColor: "#444" },
               }}
               onChange={handleChange}
-              
             />
 
             <TextField
@@ -240,7 +261,6 @@ const ContactUs = () => {
                 fieldset: { borderColor: "#444" },
               }}
               onChange={handleChange}
-              
             />
 
             <TextField
@@ -269,7 +289,6 @@ const ContactUs = () => {
                 },
               }}
               onChange={handleChange}
-              
             />
 
             <Button
@@ -278,13 +297,14 @@ const ContactUs = () => {
               sx={{
                 mt: 2,
                 backgroundColor: "orange",
-                "&:hover": { backgroundColor: "#b30000" },
+                "&:hover": { backgroundColor: "green" },
               }}
               onClick={handleAddQuery}
             >
               Send Message
             </Button>
           </Box>
+        </Box>
         </Box>
       )}
     </>

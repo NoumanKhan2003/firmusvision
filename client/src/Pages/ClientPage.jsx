@@ -48,12 +48,14 @@ const ClientsPage = () => {
           variant={isMobile ? "h5" : "h2"}
           sx={{
             color: "orange",
-            fontWeight: 700,
+            fontWeight: "bold",
+            fontSize:isMobile ? "2.4rem": "4rem",
             position: "relative",
             zIndex: 1,
             textAlign: "center",
             px: 2,
             textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+            fontFamily: "'Playfair Display', serif",
           }}
         >
           OUR CLIENTS
@@ -72,11 +74,13 @@ const ClientsPage = () => {
             textAlign: "center",
           }}
         >
-          <LessIcon sx={{ fontSize: isMobile ? "1.8rem" : "3rem" }} />
+          <LessIcon
+            sx={{ fontSize: "3rem", display: isMobile ? "none" : "block" }}
+          />
           <Typography
-            variant={isMobile ? "h6" : "h4"}
+            variant={isMobile ? "h5" : "h4"}
             sx={{
-              fontWeight: 600,
+              fontWeight: "bold",
               color: "orange",
               fontFamily: "'Playfair Display', serif",
               mx: { md: 2, xs: 0 },
@@ -84,7 +88,9 @@ const ClientsPage = () => {
           >
             Trusted by Industry Leaders
           </Typography>
-          <MoreIcon sx={{ fontSize: isMobile ? "1.8rem" : "3rem" }} />
+          <MoreIcon
+            sx={{ fontSize: "3rem", display: isMobile ? "none" : "block" }}
+          />
         </Box>
 
         <Box
@@ -128,11 +134,12 @@ const ClientsPage = () => {
                   fontFamily: "'Playfair Display', serif",
                   letterSpacing: "0.5px",
                   textTransform: "uppercase",
-                  whiteSpace: isMobile ? "normal" : "nowrap",
+                  whiteSpace: isMobile ? "normal" : "normal",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   maxWidth: isMobile ? "100%" : "90%",
                   textAlign: "center",
+                  fontSize: isMobile ? "1.2rem" : "1.5rem",
                 }}
                 title={client.name}
               >

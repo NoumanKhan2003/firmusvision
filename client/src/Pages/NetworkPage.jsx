@@ -3,9 +3,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Box,
   TextField,
-  IconButton,
   Typography,
-  InputAdornment,
+  Button,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import NetworkData from "../Assets/NetworkData.js";
@@ -45,7 +44,6 @@ const NetworkCoverage = () => {
           setFoundMessage(`The city (${matchedCity}) is serviceable ✅`);
           found = true;
 
-          // Scroll to the expanded section
           setTimeout(() => {
             sectionRefs.current[state]?.scrollIntoView({
               behavior: "smooth",
@@ -82,36 +80,50 @@ const NetworkCoverage = () => {
         variant="h3"
         align="center"
         gutterBottom
-        sx={{ marginTop: "8px",fontWeight:"bold",fontSize:"3rem" }}
+        sx={{
+          marginTop: "8px",
+          fontWeight: "bold",
+          fontSize: "3rem",
+          fontFamily: "'Playfair Display', serif",
+        }}
       >
-        Our Nationwide <span style={{color:"orange"}}>Network</span> 
+        Our Nationwide <span style={{ color: "orange" }}>Network</span>
       </Typography>
-
       {/* Search Bar */}
       <Box
-        sx={{ display: "flex", justifyContent: "center", marginBottom: "10px" }}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "8px",
+          marginBottom: "10px",
+        }}
       >
         <TextField
           variant="outlined"
           placeholder="Search for a city..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          onKeyDown={handleKeyDown} // Pressing Enter triggers search
+          onKeyDown={handleKeyDown}
           sx={{
             backgroundColor: "#ffffff",
             borderRadius: "5px",
-            width: { xs: "90%", sm: "60%", md: "40%" },
-          }}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton onClick={handleSearch}>
-                  <SearchIcon />
-                </IconButton>
-              </InputAdornment>
-            ),
+            width: "90%",
+            "@media (min-width:600px)": {
+              width: "60%",
+            },
+            "@media (min-width:900px)": {
+              width: "40%",
+            },
           }}
         />
+        <Button
+          variant="contained"
+          onClick={handleSearch}
+          sx={{ minWidth: "40px", height: "56px" }} 
+        >
+          <SearchIcon />
+        </Button>
       </Box>
 
       {/* Success or Not Found Message */}
@@ -130,7 +142,7 @@ const NetworkCoverage = () => {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, // Two per row on larger screens
+          gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
           gap: "20px",
           justifyContent: "center",
         }}
@@ -153,7 +165,7 @@ const NetworkCoverage = () => {
             {/* Semi-transparent box for better text readability */}
             <Box
               sx={{
-                backgroundColor: "rgba(255, 255, 255, 0)", // Only behind text, not affecting the image
+                backgroundColor: "rgba(255, 255, 255, 0)",
                 padding: "15px",
                 borderRadius: "8px",
               }}
@@ -184,7 +196,7 @@ const NetworkCoverage = () => {
                       alignItems: "center",
                       cursor: "pointer",
                       padding: "12px",
-                      backgroundColor: "rgba(79, 79, 79, 0.45)", // Slight transparency for dropdown
+                      backgroundColor: "rgba(79, 79, 79, 0.45)",
                       borderRadius: "8px",
                       fontWeight: "bold",
                     }}
@@ -208,7 +220,7 @@ const NetworkCoverage = () => {
                       sx={{
                         listStyle: "none",
                         padding: "10px",
-                        backgroundColor: "rgba(63, 63, 63, 0.28)", // Transparent dark background
+                        backgroundColor: "rgba(63, 63, 63, 0.28)", 
                         borderRadius: "4px",
                         marginTop: "5px",
                       }}

@@ -148,7 +148,6 @@ const ServicesSection = () => {
             "&:hover": {
               background: "orange",
               color: "black",
-              borderColor: "orange",
               borderColor: "black",
 
             },
