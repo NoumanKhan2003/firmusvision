@@ -35,7 +35,7 @@ const Footer = () => {
     >
       <Box
         sx={{
-          backgroundColor: "rgba(0, 0, 0, 0.7)",
+          backgroundColor: "rgba(0, 0, 0, 0.93)",
           opacity: 0.9,
           color: "white",
           py: 4,
@@ -58,7 +58,7 @@ const Footer = () => {
             sx={{
               height: { md: "100px", xs: "100%" },
               width: { md: "100px", xs: "100%" },
-              display: {xs:"flex",md:"unset"},
+              display: { xs: "flex", md: "unset" },
               justifyContent: "center",
             }}
           >
@@ -66,7 +66,6 @@ const Footer = () => {
               sx={{
                 height: { md: "4.4rem", xs: "5rem" },
                 width: { md: "16rem", xs: "19rem" },
-             
               }}
             >
               <img
@@ -91,7 +90,7 @@ const Footer = () => {
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <IconButton
                 sx={{
-                  color: "orange",
+                  color: "red",
                   bgcolor: "white",
                   borderRadius: "50%",
                   width: 40,
@@ -108,7 +107,7 @@ const Footer = () => {
               </IconButton>
               <Box>
                 <Typography variant="h6">Send Email</Typography>
-                <Typography variant="body2">sanya@columninches.in</Typography>
+                <Typography variant="body2">nouman@khan.in</Typography>
               </Box>
             </Box>
 
@@ -116,7 +115,7 @@ const Footer = () => {
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <IconButton
                 sx={{
-                  color: "orange",
+                  color: "red",
                   bgcolor: "white",
                   borderRadius: "50%",
                   width: 40,
@@ -141,7 +140,7 @@ const Footer = () => {
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <IconButton
                 sx={{
-                  color: "orange",
+                  color: "red",
                   bgcolor: "white",
                   borderRadius: "50%",
                   width: 40,
@@ -203,12 +202,12 @@ const Footer = () => {
             <Typography
               variant="h6"
               gutterBottom
-              sx={{ fontWeight: "bold", color: "orange" }}
+              sx={{ fontWeight: "bold", color: "red" }}
             >
               About Us
             </Typography>
             <Typography variant="body2" sx={{ fontSize: "1rem" }}>
-              Column Inches is a full-service PR agency in Delhi, driven by
+              Firmus Vision is a full-service PR agency in Delhi, driven by
               women. With deep expertise in media and marketing, we create brand
               value across sectors.
             </Typography>
@@ -224,7 +223,7 @@ const Footer = () => {
             <Typography
               variant="h6"
               gutterBottom
-              sx={{ fontWeight: "bold", color: "orange" }}
+              sx={{ fontWeight: "bold", color: "red" }}
             >
               Our Services
             </Typography>
@@ -238,7 +237,7 @@ const Footer = () => {
                   color: "white",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color: "orange",
+                    color: "red",
                     textDecoration: "underline",
                   },
                 }}
@@ -254,7 +253,7 @@ const Footer = () => {
                   color: "white",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color: "orange",
+                    color: "red",
                     textDecoration: "underline",
                   },
                 }}
@@ -270,7 +269,7 @@ const Footer = () => {
                   color: "white",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color: "orange",
+                    color: "red",
                     textDecoration: "underline",
                   },
                 }}
@@ -286,7 +285,7 @@ const Footer = () => {
                   color: "white",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color: "orange",
+                    color: "red",
                     textDecoration: "underline",
                   },
                 }}
@@ -302,7 +301,7 @@ const Footer = () => {
                   color: "white",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color: "orange",
+                    color: "red",
                     textDecoration: "underline",
                   },
                 }}
@@ -322,7 +321,7 @@ const Footer = () => {
             <Typography
               variant="h6"
               gutterBottom
-              sx={{ fontWeight: "bold", color: "orange" }}
+              sx={{ fontWeight: "bold", color: "red" }}
             >
               Site Links
             </Typography>
@@ -336,7 +335,7 @@ const Footer = () => {
                   display: "inline-block",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color: "orange",
+                    color: "red",
                   },
                 }}
               >
@@ -351,7 +350,7 @@ const Footer = () => {
                   display: "inline-block",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color: "orange",
+                    color: "red",
                   },
                 }}
               >
@@ -366,7 +365,7 @@ const Footer = () => {
                   display: "inline-block",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color: "orange",
+                    color: "red",
                   },
                 }}
               >
@@ -381,7 +380,7 @@ const Footer = () => {
                   display: "inline-block",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color: "orange",
+                    color: "red",
                   },
                 }}
               >
@@ -397,7 +396,7 @@ const Footer = () => {
                   display: "inline-block",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color: "orange",
+                    color: "red",
                   },
                 }}
               >
@@ -416,7 +415,7 @@ const Footer = () => {
             <Typography
               variant="h6"
               gutterBottom
-              sx={{ fontWeight: "bold", color: "orange" }}
+              sx={{ fontWeight: "bold", color: "red" }}
             >
               Follow Us
             </Typography>
@@ -539,7 +538,7 @@ const Footer = () => {
               fontSize: { xs: "0.75rem", sm: "0.875rem" },
             }}
           >
-            © Column Inches {currentYear}. All Rights Reserved.
+            © Firmus Vision {currentYear}. All Rights Reserved.
           </Typography>
           <Typography
             variant="body2"
@@ -548,7 +547,10 @@ const Footer = () => {
               pt: { xs: 1 },
             }}
           >
-            Made with ❤️ by Nouman Khan
+            Made with ❤️ by{" "}
+            <Link href="http://www.linkedin.com/in/nouman-khan-95923a256" target="_blank" rel="noopener" sx={{textDecoration:"none" , color:"white"}}>
+              Nouman Khan
+            </Link>
           </Typography>
         </Box>
       </Box>
