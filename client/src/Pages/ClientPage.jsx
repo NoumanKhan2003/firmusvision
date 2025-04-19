@@ -21,11 +21,11 @@ const ClientsPage = () => {
   }, []);
 
   return (
-    <Box sx={{ backgroundColor: theme.palette.background.paper }}>
+    <Box sx={{ backgroundColor:"rgb(0, 0, 0)" }}>
       <Box
         sx={{
           height: isMobile ? "180px" : "300px",
-          backgroundImage: `url(${clientpic})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${clientpic})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "flex",
@@ -47,7 +47,7 @@ const ClientsPage = () => {
         <Typography
           variant={isMobile ? "h5" : "h2"}
           sx={{
-            color: "orange",
+            color: "white",
             fontWeight: "bold",
             fontSize:isMobile ? "2.4rem": "4rem",
             position: "relative",
@@ -58,18 +58,18 @@ const ClientsPage = () => {
             fontFamily: "'Playfair Display', serif",
           }}
         >
-          OUR CLIENTS
+          OUR <span style={{color:"red"}}>CLIENTS</span>
         </Typography>
       </Box>
 
-      <Container maxWidth="lg" sx={{ mb: 6, px: isMobile ? 1 : 4 }}>
+      <Container maxWidth="lg" sx={{ pb: 6, px: isMobile ? 1 : 4 }}>
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             flexWrap: "wrap",
-            mb: 4,
+            pb: 4,
             mx: 0,
             textAlign: "center",
           }}
@@ -81,12 +81,12 @@ const ClientsPage = () => {
             variant={isMobile ? "h5" : "h4"}
             sx={{
               fontWeight: "bold",
-              color: "orange",
+              color: "white",
               fontFamily: "'Playfair Display', serif",
               mx: { md: 2, xs: 0 },
             }}
           >
-            Trusted by Industry Leaders
+            Trusted by <span style={{color:"red"}}>Industry Leaders</span>
           </Typography>
           <MoreIcon
             sx={{ fontSize: "3rem", display: isMobile ? "none" : "block" }}
@@ -120,9 +120,10 @@ const ClientsPage = () => {
                 p: isMobile ? 1 : 2,
                 textAlign: "center",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
+
                 "&:hover": {
                   transform: "scale(1.05)",
-                  boxShadow: theme.shadows[4],
+                  boxShadow: '0px 4px 12px rgba(255, 255, 255, 0.26)'
                 },
               }}
             >
@@ -130,7 +131,7 @@ const ClientsPage = () => {
                 variant={isMobile ? "body2" : isTablet ? "h6" : "h5"}
                 sx={{
                   fontWeight: "bold",
-                  color: "black",
+                  color: "#fed2d2",
                   fontFamily: "'Playfair Display', serif",
                   letterSpacing: "0.5px",
                   textTransform: "uppercase",
