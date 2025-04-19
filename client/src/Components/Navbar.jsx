@@ -73,7 +73,7 @@ const Navbar = () => {
                 color: "white",
                 "&:hover": {
                   backgroundColor:
-                    item.text === "Contact Us" ? "orange" : "transparent",
+                    item.text === "Contact Us" ? "red" : "transparent",
                   "&::after":
                     item.text !== "Contact Us"
                       ? {
@@ -82,9 +82,9 @@ const Navbar = () => {
                       : {},
                 },
                 "&.Mui-selected": {
-                  color: item.text !== "Contact Us" ? "orange" : "black",
+                  color: item.text !== "Contact Us" ? "red" : "black",
                   backgroundColor:
-                    item.text === "Contact Us" ? "orange" : "transparent",
+                    item.text === "Contact Us" ? "red" : "transparent",
                   "&::after":
                     item.text !== "Contact Us"
                       ? {
@@ -99,7 +99,7 @@ const Navbar = () => {
                   bottom: "8px",
                   width: "calc(100% - 32px)",
                   height: "2px",
-                  backgroundColor: "orange",
+                  backgroundColor: "red",
                   transform: "scaleX(0)",
                   transformOrigin: "left",
                   transition: "transform 0.3s ease",
@@ -152,9 +152,9 @@ const Navbar = () => {
                 sx={{
                   "&.Mui-selected": {
                     backgroundColor: "rgba(255, 165, 0, 0.1)",
-                    borderLeft: "4px solid orange",
+                    borderLeft: "4px solid red",
                     "& .MuiListItemIcon-root, & .MuiTypography-root": {
-                      color: "orange",
+                      color: "red",
                       fontWeight: "bold",
                     },
                   },
@@ -169,7 +169,7 @@ const Navbar = () => {
                       fontWeight:
                         location.pathname === item.path ? "bold" : "normal",
                       color:
-                        location.pathname === item.path ? "orange" : "white",
+                        location.pathname === item.path ? "red" : "white",
                     },
                   }}
                 />
