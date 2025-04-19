@@ -6,18 +6,16 @@ import {
   IconButton,
   Container,
   Typography,
-  Stack,
   Button,
   useTheme,
   useMediaQuery,
   Paper,
-  Divider,
 } from "@mui/material";
 import { LinkedIn } from "@mui/icons-material";
 import CounterSection from "../Components/ViewsSection";
-import ContactUs from "../Components/ContactSection";
 import founderImg from "../Assets/img6.jpg";
-import aboutImg from "../Assets/bg1.jpeg"
+import aboutImg from "../Assets/bg1.jpeg";
+
 const quotes = [
   {
     title: "We are Credible",
@@ -71,8 +69,7 @@ const AboutPage = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundImage:
-            `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${aboutImg})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${aboutImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "white",
@@ -92,7 +89,7 @@ const AboutPage = () => {
               textTransform: "uppercase",
             }}
           >
-            Your <span style={{ color: "orange" }}>Idea</span> Partner
+            Your <span style={{ color: "red" }}>Idea</span> Partner
           </Typography>
 
           <Typography
@@ -111,71 +108,21 @@ const AboutPage = () => {
         </Container>
       </Box>
 
-      {/* Who We Are Section */}
-      <Box sx={{ py: 8, backgroundColor: theme.palette.background.paper }}>
-        <Container maxWidth="lg">
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: isMobile ? "column" : "row",
-              gap: 4,
-              alignItems: "center",
-            }}
-          >
-            <Box
-              sx={{
-                flex: 1,
-                overflow: "hidden",
-              }}
-            >
-              <Box
-                component="img"
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="PR Agency Team"
-                sx={{
-                  width: "100%",
-                  height: "auto",
-                }}
-              />
-            </Box>
-            <Box sx={{ flex: 1 }}>
-              <Typography
-                variant="h4"
-                component="h2"
-                sx={{ fontWeight: "bold", mb: 3, fontSize: "3rem" }}
-              >
-                WHO WE <span style={{color:"orange"}}>ARE?</span>
-              </Typography>
-              <Typography variant="body1" sx={{ mb: 2 }}>
-                Column Inches is a full-service PR agency in Delhi, driven by
-                women. With a deep understanding of media and marketing
-                communications, we leverage our vast expertise in creating brand
-                value for clients across sectors.
-              </Typography>
-              <Typography variant="body1" sx={{ mb: 2 }}>
-                Being one of the fastest-growing PR agencies in Gurgaon, we do
-                not believe in one size fits all approach. We hunt for the most
-                relevant ideas to create PR campaigns with maximum impact.
-              </Typography>
-              <Typography variant="body1">
-                Incepted in 2015, we have delivered highly influential campaigns
-                for multiple clients including early-stage and unicorn startups
-                to gain traction.
-              </Typography>
-            </Box>
-          </Box>
-        </Container>
-      </Box>
-
       {/* Industries Section */}
-      <Box sx={{ backgroundColor: "#f5f5f5", py: 8 }}>
+      <Box sx={{ backgroundColor: "rgb(0, 0, 0)", py: 8 }}>
         <Container maxWidth="lg">
           <Typography
             variant="h4"
             component="h3"
-            sx={{ fontWeight: "bold", mb: 4, textAlign: "center" }}
+            sx={{
+              fontWeight: "bold",
+              mb: 4,
+              textAlign: "center",
+              color: "white",
+            }}
           >
-            We've Worked With 150+ Brands Across Industries
+            We've Worked With <span style={{ color: "red" }}>150+ Brands</span>{" "}
+            Across Industries
           </Typography>
           <Box
             sx={{
@@ -204,6 +151,8 @@ const AboutPage = () => {
                   textAlign: "center",
                   minWidth: "120px",
                   flex: "1 0 auto",
+                  bgcolor: "rgba(30, 30, 30, 0.65)",
+                  color: "white",
                 }}
               >
                 <Typography>{industry}</Typography>
@@ -218,7 +167,7 @@ const AboutPage = () => {
         sx={{
           minHeight: "50vh",
           position: "relative",
-          backgroundColor: "#E87E1C",
+          backgroundColor: "rgb(0, 0, 0)",
           color: "white",
           display: "flex",
           alignItems: "center",
@@ -236,7 +185,7 @@ const AboutPage = () => {
             height: "100%",
             borderTopRightRadius: "50%",
             borderBottomRightRadius: "50%",
-            backgroundColor: "rgba(255,255,255,0.2)",
+            backgroundColor: "rgb(30, 30, 30)",
             zIndex: 0,
           }}
         />
@@ -295,10 +244,11 @@ const AboutPage = () => {
                   variant={isMobile ? "h5" : "h4"}
                   fontWeight="bold"
                   mb={2}
+                  color="red"
                 >
                   {quotes[index].title}
                 </Typography>
-                <Typography variant={isMobile ? "body1" : "h6"}>
+                <Typography variant={isMobile ? "body1" : "h6"} color="#8e8e8e">
                   {quotes[index].text}
                 </Typography>
               </motion.div>
@@ -338,7 +288,7 @@ const AboutPage = () => {
         </Container>
       </Box>
 
-      <Box sx={{ py: 8, backgroundColor: theme.palette.background.paper }}>
+      <Box sx={{ py: 8, backgroundColor: "rgb(0, 0, 0)" }}>
         <Container maxWidth="lg">
           <Box
             sx={{
@@ -355,20 +305,21 @@ const AboutPage = () => {
                 sx={{
                   fontWeight: "bold",
                   mb: 3,
-                  color: "black",
+                  color: "white",
                   textTransform: "uppercase",
+                  
                 }}
               >
-                <span style={{ color: "orange" }}> MEET THE</span> FOUNDER
+                <span style={{ color: "red" }}> MEET THE</span> FOUNDER
               </Typography>
-              <Typography variant="body1" sx={{ mb: 2 }}>
+              <Typography variant="body1" sx={{ mb: 2 }} color="#acacac">
                 Nouman Khan has been in the Indian PR industry for a decade. She
                 is the Founder and CEO of Column Inches – a PR agency in Delhi
                 specializing in Corporate Public Relations. She is a seasoned
                 communications professional with expertise in traditional and
                 digital media and formulates highly influential PR strategies.
               </Typography>
-              <Typography variant="body1" sx={{ mb: 2 }}>
+              <Typography variant="body1" sx={{ mb: 2 }} color="#acacac">
                 With an in-depth understanding of the industry, the agency under
                 Nouman Khan's leadership delivers integrated communications
                 programs for clients from across all sectors. Nouman Khan
@@ -376,13 +327,13 @@ const AboutPage = () => {
                 startups and businesses to establish a distinguished identity in
                 the Indian market.
               </Typography>
-              <Typography variant="body1" sx={{ mb: 2 }}>
+              <Typography variant="body1" sx={{ mb: 2 }} color="#acacac">
                 To help clients scale faster, Nouman Khan delivers strategic
                 Public Relations, Media Relations, Digital Media Promotion,
                 Crisis Communication, Brand Promotion, Startup PR, Event PR,
                 Influencer Marketing campaigns.
               </Typography>
-              <Typography variant="body1" sx={{ mb: 2 }}>
+              <Typography variant="body1" sx={{ mb: 2 }} color="#acacac">
                 Nouman Khan has been in the Indian PR industry for a decade. She
                 is the Founder and CEO of Column Inches – a PR agency in Delhi
                 specializing in Corporate Public Relations. She is a seasoned
@@ -411,12 +362,12 @@ const AboutPage = () => {
                 }}
               />
               <Box sx={{ textAlign: "center" }}>
-                <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+                <Typography variant="h4" sx={{ fontWeight: "bold" ,color:"white"}}>
                   Nouman Khan
                 </Typography>
                 <Typography
                   variant="subtitle1"
-                  sx={{ color: "text.secondary", mb: 1 }}
+                  sx={{ color: "grey", mb: 1 }}
                 >
                   Founder and CEO
                 </Typography>
