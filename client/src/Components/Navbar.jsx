@@ -21,6 +21,7 @@ import {
   HomeRepairService as ServicesIcon,
   PermContactCalendar as ContactIcon,
 } from "@mui/icons-material";
+import logo from "../Assets/logoFirmus.jpg";
 
 const Navbar = () => {
   const [state, setState] = React.useState({ right: false });
@@ -46,7 +47,10 @@ const Navbar = () => {
 
   // Desktop Navigation List
   const DesktopNav = () => (
-    <Box component="nav" sx={{ display: { xs: "none", md: "none",lg:"block" } }}>
+    <Box
+      component="nav"
+      sx={{ display: { xs: "none", md: "none", lg: "block" } }}
+    >
       <List
         sx={{
           display: "flex",
@@ -123,12 +127,13 @@ const Navbar = () => {
       onKeyDown={toggleDrawer(false)}
     >
       <Box sx={{ display: "flex", justifyContent: "center", pt: 2, pb: 1 }}>
-        <Typography variant="h4" fontWeight="bold" color="orange">
-          Firmus
-        </Typography>
-        <Typography variant="h4" fontWeight="bold" color="white">
-          Vision
-        </Typography>
+        <Box sx={{ height: "4.4rem", width: "16rem" }}>
+          <img
+            src={logo}
+            alt="FirmusVision"
+            style={{ height: "100%", width: "100%" }}
+          />
+        </Box>{" "}
       </Box>
       <Divider sx={{ bgcolor: "white", mb: 1 }} />
       <List>
@@ -197,22 +202,13 @@ const Navbar = () => {
           alignItems: "center",
         }}
       >
-        <Typography
-          variant="h5"
-          fontWeight="bold"
-          fontSize="2.5rem"
-          color="orange"
-        >
-          Firmus
-        </Typography>
-        <Typography
-          variant="h5"
-          fontWeight="bold"
-          fontSize="2.5rem"
-          color="white"
-        >
-          Vision
-        </Typography>
+        <Box sx={{ height: "4.4rem", width: "16rem" }}>
+          <img
+            src={logo}
+            alt="FirmusVision"
+            style={{ height: "100%", width: "100%" }}
+          />
+        </Box>
       </Box>
 
       <DesktopNav />

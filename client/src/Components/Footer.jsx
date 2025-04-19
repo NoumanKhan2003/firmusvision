@@ -17,8 +17,8 @@ import {
   Email,
   LocationOn,
 } from "@mui/icons-material";
-import bgImg from "../Assets/bg3.jpg";
-import logo from "../Assets/logo firmus.png";
+import bgImg from "../Assets/bg4.jpg";
+import logo from "../Assets/logoFirmus.jpg";
 
 const Footer = () => {
   const theme = useTheme();
@@ -54,16 +54,27 @@ const Footer = () => {
           }}
         >
           {/* Logo Section */}
-          <Box sx={{ height: "100px", width: "100px" }}>
-            <img
-              src={logo}
-              alt="Company Logo"
-              style={{
-                height: "100%",
-                width: "100%",
-                objectFit: "contain",
+          <Box
+            sx={{
+              height: { md: "100px", xs: "100%" },
+              width: { md: "100px", xs: "100%" },
+              display: {xs:"flex",md:"unset"},
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              sx={{
+                height: { md: "4.4rem", xs: "5rem" },
+                width: { md: "16rem", xs: "19rem" },
+             
               }}
-            />
+            >
+              <img
+                src={logo}
+                alt="FirmusVision"
+                style={{ height: "100%", width: "100%" }}
+              />
+            </Box>
           </Box>
 
           {/* upper right section */}
