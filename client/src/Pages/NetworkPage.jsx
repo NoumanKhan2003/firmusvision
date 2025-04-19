@@ -1,10 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Box,
   TextField,
   Typography,
   Button,
+  InputAdornment,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import NetworkData from "../Assets/NetworkData.js";
@@ -13,7 +14,7 @@ import southimg from "../Assets/bg6.jpg";
 import eastimg from "../Assets/bg7.jpg";
 import westimg from "../Assets/bg8.jpg";
 
-// Define region-based background images
+// Background images for each region
 const regionBackgrounds = {
   North: northimg,
   South: southimg,
@@ -26,6 +27,7 @@ const NetworkCoverage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [notFound, setNotFound] = useState(false);
   const [foundMessage, setFoundMessage] = useState("");
+  const [highlightedCity, setHighlightedCity] = useState("");
   const sectionRefs = useRef({});
 
   const handleToggle = (state) => {
@@ -34,7 +36,7 @@ const NetworkCoverage = () => {
 
   const handleSearch = () => {
     let found = false;
-    let query = searchQuery.toLowerCase().trim();
+    const query = searchQuery.toLowerCase().trim();
 
     Object.entries(NetworkData).forEach(([region, states]) => {
       Object.entries(states).forEach(([state, cities]) => {
@@ -42,6 +44,7 @@ const NetworkCoverage = () => {
         if (matchedCity) {
           setExpanded(state);
           setFoundMessage(`The city (${matchedCity}) is serviceable ✅`);
+          setHighlightedCity(matchedCity);
           found = true;
 
           setTimeout(() => {
@@ -56,6 +59,7 @@ const NetworkCoverage = () => {
 
     if (!found) {
       setFoundMessage("");
+      setHighlightedCity("");
     }
     setNotFound(!found);
   };
@@ -66,12 +70,21 @@ const NetworkCoverage = () => {
     }
   };
 
+  useEffect(() => {
+    if (highlightedCity) {
+      const timer = setTimeout(() => {
+        setHighlightedCity("");
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [highlightedCity]);
+
   return (
     <Box
       sx={{
         padding: "30px",
-        backgroundColor: "white",
-        color: "black",
+        backgroundColor: "#0d0d0d",
+        color: "#f0f0f0",
         minHeight: "100vh",
       }}
     >
@@ -85,10 +98,12 @@ const NetworkCoverage = () => {
           fontWeight: "bold",
           fontSize: "3rem",
           fontFamily: "'Playfair Display', serif",
+          color: "#fff",
         }}
       >
-        Our Nationwide <span style={{ color: "orange" }}>Network</span>
+        Our Nationwide <span style={{ color: "red" }}>Network</span>
       </Typography>
+
       {/* Search Bar */}
       <Box
         sx={{
@@ -96,7 +111,7 @@ const NetworkCoverage = () => {
           justifyContent: "center",
           alignItems: "center",
           gap: "8px",
-          marginBottom: "10px",
+          marginBottom: "20px",
         }}
       >
         <TextField
@@ -106,9 +121,27 @@ const NetworkCoverage = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
           onKeyDown={handleKeyDown}
           sx={{
-            backgroundColor: "#ffffff",
-            borderRadius: "5px",
+            input: {
+              color: "#fff",
+              backgroundColor: "#121212",
+            },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "#555",
+              },
+              "&:hover fieldset": {
+                borderColor: "#888",
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "#aaa",
+              },
+            },
+            "& input::placeholder": {
+              color: "#bbb",
+              opacity: 1,
+            },
             width: "90%",
+            borderRadius: "5px",
             "@media (min-width:600px)": {
               width: "60%",
             },
@@ -120,31 +153,37 @@ const NetworkCoverage = () => {
         <Button
           variant="contained"
           onClick={handleSearch}
-          sx={{ minWidth: "40px", height: "56px" }} 
+          sx={{
+            minWidth: "40px",
+            height: "56px",
+            backgroundColor: "#222",
+            "&:hover": {
+              backgroundColor: "#444",
+            },
+          }}
         >
-          <SearchIcon />
+          <SearchIcon sx={{ color: "#fff" }} />
         </Button>
       </Box>
 
-      {/* Success or Not Found Message */}
+      {/* Feedback Messages */}
       {foundMessage && (
-        <Typography align="center" color="green" sx={{ marginBottom: "10px" }}>
+        <Typography align="center" color="lightgreen" sx={{ mb: 2 }}>
           {foundMessage}
         </Typography>
       )}
       {notFound && (
-        <Typography align="center" color="red" sx={{ marginBottom: "15px" }}>
+        <Typography align="center" color="red" sx={{ mb: 2 }}>
           This City is Not Serviceable ❌
         </Typography>
       )}
 
-      {/* Region Boxes */}
+      {/* Region Sections */}
       <Box
         sx={{
           display: "grid",
           gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
           gap: "20px",
-          justifyContent: "center",
         }}
       >
         {Object.entries(NetworkData).map(([region, states]) => (
@@ -152,93 +191,87 @@ const NetworkCoverage = () => {
             key={region}
             sx={{
               position: "relative",
-              minHeight: "250px",
-              padding: "30px",
-              color: "#fff",
-              overflow: "hidden",
               borderRadius: "10px",
-              backgroundImage: `url(${regionBackgrounds[region]})`,
+              overflow: "hidden",
+              minHeight: "250px",
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${regionBackgrounds[region]})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
+              padding: "30px",
+              color: "#fff",
             }}
           >
-            {/* Semi-transparent box for better text readability */}
-            <Box
-              sx={{
-                backgroundColor: "rgba(255, 255, 255, 0)",
-                padding: "15px",
-                borderRadius: "8px",
-              }}
+            <Typography
+              variant="h5"
+              align="center"
+              gutterBottom
+              sx={{ color: "white", fontWeight: "bold" }}
             >
-              <Typography
-                variant="h5"
-                align="center"
-                gutterBottom
-                sx={{
-                  fontWeight: "bold",
-                  color: "orange",
-                }}
-              >
-                {region} Region
-              </Typography>
+              {region} Region
+            </Typography>
 
-              {Object.entries(states).map(([state, cities]) => (
+            {Object.entries(states).map(([state, cities]) => (
+              <Box
+                key={state}
+                sx={{ marginBottom: "10px" }}
+                ref={(el) => (sectionRefs.current[state] = el)}
+              >
                 <Box
-                  key={state}
-                  sx={{ marginBottom: "10px" }}
-                  ref={(el) => (sectionRefs.current[state] = el)}
+                  onClick={() => handleToggle(state)}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    cursor: "pointer",
+                    padding: "12px",
+                    backgroundColor: "rgba(79, 79, 79, 0.45)",
+                    borderRadius: "8px",
+                    fontWeight: "bold",
+                  }}
                 >
-                  <Box
-                    onClick={() => handleToggle(state)}
+                  <Typography>{state}</Typography>
+                  <ExpandMoreIcon
                     sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      cursor: "pointer",
-                      padding: "12px",
-                      backgroundColor: "rgba(79, 79, 79, 0.45)",
-                      borderRadius: "8px",
-                      fontWeight: "bold",
+                      transform:
+                        expanded === state ? "rotate(180deg)" : "rotate(0deg)",
+                      transition: "transform 0.3s ease",
+                    }}
+                  />
+                </Box>
+
+                {expanded === state && (
+                  <Box
+                    component="ul"
+                    sx={{
+                      listStyle: "none",
+                      padding: "10px",
+                      backgroundColor: "rgba(63, 63, 63, 0.28)",
+                      borderRadius: "4px",
+                      marginTop: "5px",
                     }}
                   >
-                    <Typography>{state}</Typography>
-                    <ExpandMoreIcon
-                      sx={{
-                        transform:
-                          expanded === state
-                            ? "rotate(180deg)"
-                            : "rotate(0deg)",
-                        transition: "transform 0.3s ease",
-                      }}
-                    />
+                    {cities.map((city) => (
+                      <Typography
+                        component="li"
+                        key={city}
+                        sx={{
+                          padding: "5px 0",
+                          fontWeight:
+                            city === highlightedCity ? "bold" : "normal",
+                          color:
+                            city === highlightedCity ? "yellow" : "inherit",
+                          backgroundColor: "transparent",
+                          borderRadius: "4px",
+                          transition: "all 0.3s ease",
+                        }}
+                      >
+                        {city}
+                      </Typography>
+                    ))}
                   </Box>
-
-                  {/* Expand City List */}
-                  {expanded === state && (
-                    <Box
-                      component="ul"
-                      sx={{
-                        listStyle: "none",
-                        padding: "10px",
-                        backgroundColor: "rgba(63, 63, 63, 0.28)", 
-                        borderRadius: "4px",
-                        marginTop: "5px",
-                      }}
-                    >
-                      {cities.map((city) => (
-                        <Typography
-                          component="li"
-                          key={city}
-                          sx={{ padding: "5px 0" }}
-                        >
-                          {city}
-                        </Typography>
-                      ))}
-                    </Box>
-                  )}
-                </Box>
-              ))}
-            </Box>
+                )}
+              </Box>
+            ))}
           </Box>
         ))}
       </Box>
