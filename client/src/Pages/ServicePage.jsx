@@ -15,7 +15,7 @@ const ServicesPage = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <Box sx={{ backgroundColor: "#f8f9fa", pb: 10 }}>     
+    <Box sx={{ backgroundColor: "black", pb: 10 }}>     
       <Box
         textAlign="center"
         mb={6}
@@ -28,18 +28,18 @@ const ServicesPage = () => {
           variant="h3"
           sx={{
             fontWeight: "bold",
-            color: "black",
+            color: "white",
             fontSize: { md: "3.5rem", xs: "2.5rem" },
-            mt:4
+            pt:4
           }}
         >
-          <span style={{ color: "orange" }}>Our</span> Services
+          <span style={{ color: "red" }}>Our</span> Services
         </Typography>
         <Divider
           sx={{
             width: "80px",
             borderBottomWidth: "5px",
-            borderColor: "orange",
+            borderColor: "red",
             margin: "auto",
             mt: 0,
           }}
@@ -108,7 +108,7 @@ const ServicesPage = () => {
                   flex: 1,
                   width: isMobile ? "90%" : "45%",
                   textAlign: isMobile ? "center" : "left",
-                  bgcolor: "black",
+                  bgcolor: "rgba(22, 22, 22, 0.85)",
                   px: { md: 5, xs: 2 },
                   py: { md: 4, xs: 4 },
                   borderBottomRightRadius: { md: "4rem", xs: "0" },
@@ -119,7 +119,7 @@ const ServicesPage = () => {
                   variant="h4"
                   sx={{
                     fontWeight: 700,
-                    color: "orange",
+                    color: "red",
                     mb: 2,
                     fontSize: { md: "2rem", xs: "1.75rem" },
                   }}
