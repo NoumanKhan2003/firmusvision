@@ -110,7 +110,7 @@ const ContactUs = () => {
             <Typography
               variant="h6"
               sx={{
-                color: "orange",
+                color: "red",
                 mb: 1,
                 fontSize: {xs:"2.5rem",md:"3rem"},
                 display: "flex",
@@ -122,7 +122,7 @@ const ContactUs = () => {
                 sx={{
                   width: 70,
                   height: 2,
-                  borderColor: "orange",
+                  borderColor: "red",
                   mr: 1,
                   display: { md: "block", xs: "none" },
                 }}
@@ -139,7 +139,7 @@ const ContactUs = () => {
 
             {/* Email */}
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-              <Email sx={{ color: "orange", mr: 2 }} />
+              <Email sx={{ color: "red", mr: 2 }} />
               <Box>
                 <Typography fontWeight="bold">Email Address</Typography>
                 <Typography>info@firmusvision.com</Typography>
@@ -148,7 +148,7 @@ const ContactUs = () => {
 
             {/* Phone */}
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-              <Phone sx={{ color: "orange", mr: 2 }} />
+              <Phone sx={{ color: "red", mr: 2 }} />
               <Box>
                 <Typography fontWeight="bold">Call Us</Typography>
                 <Typography>+91 9999999999</Typography>
@@ -157,7 +157,7 @@ const ContactUs = () => {
 
             {/* Address */}
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-              <LocationOn sx={{ color: "orange", mr: 2 }} />
+              <LocationOn sx={{ color: "red", mr: 2 }} />
               <Box>
                 <Typography fontWeight="bold">Address</Typography>
                 <Typography>
@@ -186,9 +186,9 @@ const ContactUs = () => {
               sx={{
                 mb: 2,
                 textAlign: "center",
-                color: "orange",
+                color: "red",
                 fontSize: 30,
-                border: "2px solid orange",
+                border: "2px solid red",
               }}
             >
               Send Message
@@ -296,8 +296,8 @@ const ContactUs = () => {
               variant="contained"
               sx={{
                 mt: 2,
-                backgroundColor: "orange",
-                "&:hover": { backgroundColor: "green" },
+                backgroundColor: "rgb(91, 0, 0)",
+                "&:hover": { backgroundColor: "rgb(160, 43, 43)"},
               }}
               onClick={handleAddQuery}
             >
