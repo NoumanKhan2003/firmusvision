@@ -33,7 +33,7 @@ const OurWorksSection = () => {
       sx={{
         padding: { md: "4rem 3rem", xs: "2rem 1rem" },
         minHeight: "100vh",
-        backgroundColor: "#f9f9f9",
+        backgroundColor: "black",
       }}
     >
       {/* Title Section */}
@@ -49,18 +49,18 @@ const OurWorksSection = () => {
           variant="h3"
           sx={{
             fontWeight: "bold",
-            color: "black",
+            color: "white",
             fontSize: { md: "3.5rem", xs: "2.5rem" },
             textTransform: "uppercase",
           }}
         >
-         <span style={{color:"orange"}}>OUR</span>  WORKS
+         <span style={{color:"red"}}>OUR</span>  WORKS
         </Typography>
         <Box
           sx={{
             width: "80px",
             height: "4px",
-            backgroundColor: "orange",
+            backgroundColor: "red",
             margin: "0rem auto",
           }}
         />
@@ -87,12 +87,13 @@ const OurWorksSection = () => {
               position: "relative",
               height: { md: "330px", xs: "300px" },
               overflow: "hidden",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+              boxShadow: "0 4px 12px rgba(60, 60, 60, 0.61)",
               transition: "transform 0.3s ease",
               borderBottomRightRadius: "6rem",
               borderTopLeftRadius: "6rem",
               "&:hover": {
                 transform: "translateY(-5px)",
+                cursor:"pointer",
                 "& .image-container": {
                   transform: "scale(1.1)",
                 },
@@ -120,7 +121,7 @@ const OurWorksSection = () => {
               }}
             />
             
-            {/* Orange Overlay */}
+            {/* red Overlay */}
             <Box
               className="overlay"
               sx={{
@@ -129,7 +130,7 @@ const OurWorksSection = () => {
                 left: 0,
                 width: "100%",
                 height: "100%",
-                backgroundColor: "rgba(179, 119, 9, 0.8)",
+                backgroundColor: "rgba(50, 0, 0, 0.7)",
                 transition: "opacity 0.3s ease",
                 borderBottomRightRadius: "6rem",
                 borderTopLeftRadius: "6rem",
@@ -181,10 +182,10 @@ const OurWorksSection = () => {
         <Button
           variant="outlined"
           sx={{
-            borderColor: "orange",
-            color: "orange",
+            borderColor: "red",
+            color: "red",
             "&:hover": {
-              backgroundColor: "orange",
+              backgroundColor: "red",
               color: "white",
             },
             width: { md: "15rem", xs: "80%" },

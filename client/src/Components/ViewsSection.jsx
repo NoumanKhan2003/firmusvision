@@ -62,8 +62,7 @@ const CounterSection = () => {
     <Box
       ref={sectionRef}
       sx={{
-        background: "orange",
-        color: "white",
+        background: "#0b0b0b",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -84,10 +83,10 @@ const CounterSection = () => {
             margin: "1rem",
           }}
         >
-          <Typography variant="h3" color="black" sx={{ fontWeight: "bold" }}>
+          <Typography variant="h3" color="red" sx={{ fontWeight: "bold" }}>
             {counters[index]}+
           </Typography>
-          <Typography variant="body1" color="black" fontWeight={"bold"}>{stat.label}</Typography>
+          <Typography variant="body1" color="white" fontWeight={"bold"}>{stat.label}</Typography>
         </Box>
       ))}
     </Box>

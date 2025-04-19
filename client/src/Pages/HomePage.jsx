@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import PrMarketingSection from "../Components/PrMarketingSection";
 import MainSection from "../Components/MainSection";
 import ClientsSection from "../Components/ClientsSection";
-import ContactSection from "../Components/ContactSection";
 import ServicesSection from "../Components/ServicesSection";
 import WhyChooseUsSection from "../Components/WhyChooseUsSection";
 import ViewsSection from "../Components/ViewsSection";

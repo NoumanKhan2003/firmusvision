@@ -14,7 +14,8 @@ const ServicesSection = () => {
       sx={{
         padding: { md: "2rem 3rem", xs: "2rem 1rem" },
         minHeight: "100vh",
-        mb:{md:2,xs:3}
+        pb: { md: 4, xs: 3 },
+        backgroundColor: "#070707",
       }}
     >
       {/* Title */}
@@ -30,17 +31,17 @@ const ServicesSection = () => {
           variant="h3"
           sx={{
             fontWeight: "bold",
-            color: "black",
+            color: "white",
             fontSize: { md: "3.5rem", xs: "2.5rem" },
           }}
         >
-          <span style={{ color: "orange" }}>Our</span> Services
+          <span style={{ color: "red" }}>Our</span> Services
         </Typography>
         <Divider
           sx={{
             width: "80px",
             borderBottomWidth: "5px",
-            borderColor: "orange",
+            borderColor: "red",
             margin: "auto",
             mt: 0,
           }}
@@ -105,7 +106,7 @@ const ServicesSection = () => {
                 flex: 1,
                 width: isMobile ? "90%" : "45%",
                 textAlign: isMobile ? "center" : "left",
-                bgcolor: "black",
+                backgroundColor: "#0c0c0c",
                 px: { md: 5, xs: 2 },
                 py: { md: 4, xs: 4 },
                 borderBottomRightRadius: { md: "4rem", xs: "0" },
@@ -116,7 +117,7 @@ const ServicesSection = () => {
                 variant="h4"
                 sx={{
                   fontWeight: 700,
-                  color: "orange",
+                  color: "red",
                   mb: 2,
                   fontSize: { md: "2rem", xs: "1.75rem" },
                 }}
@@ -143,13 +144,11 @@ const ServicesSection = () => {
         <Button
           variant="outlined"
           sx={{
-            borderColor: "orange",
-            color: "orange",
+            borderColor: "red",
+            color: "red",
             "&:hover": {
-              background: "orange",
-              color: "black",
-              borderColor: "black",
-
+              borderWidth: "2px",
+              backgroundColor: "rgba(255, 0, 0, 0.1)",
             },
             width: { md: "15rem", xs: "80%" },
             py: 1.5,
@@ -160,7 +159,8 @@ const ServicesSection = () => {
           }}
           onClick={() => navigate("/services")}
         >
-          View All Services<MoreIcon sx={{ ml: 1 }}/>
+          View All Services
+          <MoreIcon sx={{ ml: 1 }} />
         </Button>
       </Box>
     </Box>

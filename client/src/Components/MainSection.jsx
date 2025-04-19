@@ -8,7 +8,7 @@ const LandingSection = () => {
     <Box
       sx={{
         minHeight: "100vh",
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${heroImage})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.88)), url(${heroImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -40,7 +40,7 @@ const LandingSection = () => {
             lineHeight: { xs: 1.3, sm: 1.5 },
           }}
         >
-          India’s Leading <span style={{ color: "orange" }}>PR Agency</span>
+          India’s Leading <span style={{ color: "#e6433e" }}>PR Agency</span>
         </Typography>
 
         <Typography

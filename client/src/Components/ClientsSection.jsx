@@ -27,7 +27,7 @@ const ClientsSection = () => {
         justifyContent: "center",
         flexDirection: "column",
         padding: { md: "4rem 3rem", xs: "2rem 1rem" },
-        backgroundColor: "#f9f9f9",
+        backgroundColor: "black",
         fontFamily: "'Poppins', sans-serif",
       }}
     >
@@ -48,18 +48,18 @@ const ClientsSection = () => {
           variant="h3"
           sx={{
             fontSize: { md: "3.5rem", xs: "2.5rem" },
-            color: "black",
+            color: "white",
             fontWeight: "bold",
             fontFamily: "'Playfair Display', serif",
             mb: 0,
           }}
         >
-          <span style={{ color: "orange" }}>Some Of Our</span> Amazing Clients
+          <span style={{ color: "red" }}>Some of Our</span> Amazing Clients
         </Typography>
         <Divider
           sx={{
             borderBottomWidth: "5px",
-            borderColor: "orange",
+            borderColor: "red",
             width: "100px",
             margin: "auto",
             textAlign: "center",
@@ -97,7 +97,7 @@ const ClientsSection = () => {
                   justifyContent: "center",
                   alignItems: "center",
                   padding: "1rem",
-                  backgroundColor: "white",
+                  backgroundColor: "#0b0b0b",
                   borderRadius: "8px",
                 }}
               >
@@ -106,7 +106,7 @@ const ClientsSection = () => {
                   sx={{
                     fontWeight: "bold",
                     fontSize: { md: "2rem", xs: "1.2rem" },
-                    color: "black",
+                    color: "#fed2d2",
                     textTransform: "uppercase",
                     textAlign: "center",
                     letterSpacing: "1.5px",
@@ -124,7 +124,7 @@ const ClientsSection = () => {
       {/* View All Button */}
       <Button
         variant="outlined"
-        color="warning"
+        color="error"
         size="large"
         sx={{
           mt: { md: "4rem", xs: "2rem" },
@@ -137,7 +137,7 @@ const ClientsSection = () => {
           fontFamily: "'Poppins', sans-serif",
           "&:hover": {
             borderWidth: "2px",
-            backgroundColor: "rgba(255, 165, 0, 0.1)",
+            backgroundColor: "rgba(255, 0, 0, 0.1)",
           },
         }}
         onClick={() => navigate("/clients")}

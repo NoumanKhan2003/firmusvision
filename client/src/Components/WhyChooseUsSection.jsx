@@ -12,8 +12,8 @@ const WhyChooseUs = () => {
   return (
     <Box
       sx={{
-        padding: { md: "2rem 3rem", xs: "0rem 2rem" },
-        background: "#fff",
+        padding: { md: "2.5rem 3rem", xs: "0rem 2rem" },
+        background: "black",
       }}
     >
       {/* Title */}
@@ -22,12 +22,12 @@ const WhyChooseUs = () => {
         sx={{
           fontWeight: "bold",
           fontSize: { md: "3rem", xs: "2rem" },
-          color: "black",
+          color: "white",
           mb: { md: 2, xs: 2 },
           ml: 0,
         }}
       >
-        Why <span style={{color:"orange"}}>Choose Us</span>
+        Why <span style={{color:"red"}}>Choose Us</span>
       </Typography>
 
       {/* Content Wrapper */}
@@ -42,9 +42,9 @@ const WhyChooseUs = () => {
         {/* Left Section */}
         <Box sx={{ flex: 1, maxWidth: "500px", textAlign: "left" }}>
           <Box
-            sx={{ borderLeft: "3px solid black", paddingLeft: "1rem", ml: 4 }}
+            sx={{ borderLeft: "3px solid red", paddingLeft: "1rem", ml: 4 ,color:"white"}}
           >
-            <Typography variant="body1" color="text.secondary">
+            <Typography variant="body1" color="#dfdfdf">
               Branding Area has the best talented team with many years of
               experience in the PR and Digital Marketing domain. We are
               result-oriented and will help your brand grow with the fastest
@@ -53,7 +53,7 @@ const WhyChooseUs = () => {
           </Box>
           <Button
             variant="text"
-            sx={{ mt: 3, color: "orangeRed", fontWeight: "bold" }}
+            sx={{ mt: 3, color: "red", fontWeight: "bold" }}
             onClick={()=>navigate("/about")}
           >
             See More →
@@ -62,7 +62,7 @@ const WhyChooseUs = () => {
             <img
               src={prImage}
               alt="Team Illustration"
-              style={{ width: "100%", maxWidth: "300px" }}
+              style={{ width: "100%", maxWidth: "300px",mixBlendMode:"hard-light" }}
             />
           </Box>
         </Box>
@@ -78,9 +78,10 @@ const WhyChooseUs = () => {
                 display: "flex",
                 alignItems: "center",
                 mb: 3,
+                color:"white"
               }}
             >
-              {/* Perfectly Round Percentage Circle */}
+              {/* Round Percentage Circle */}
               <Box
                 component={motion.div}
                 whileHover={{ scale: 1.1 }}
@@ -88,25 +89,25 @@ const WhyChooseUs = () => {
                   width: "70px",
                   height: "70px",
                   borderRadius: "50%",
-                  border: "3px solid black",
+                  border: "3px solid red",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   fontWeight: "bold",
                   fontSize: "1.2rem",
                   mr: 3,
-                  flexShrink: 0, // Prevents shrinking on small screens
+                  flexShrink: 0, 
                 }}
               >
                 {stat.percentage}
               </Box>
 
-              {/* Text Content */}
+              {/* Text Right */}
               <Box>
-                <Typography variant="h6" fontWeight="bold">
+                <Typography variant="h6" fontWeight="bold" color="red">
                   {stat.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="#c8c8c8">
                   {stat.description}
                 </Typography>
               </Box>

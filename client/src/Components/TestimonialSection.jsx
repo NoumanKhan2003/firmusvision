@@ -6,7 +6,7 @@ import testimonials from "../Assets/TestimonialData.js";
 
 const TestimonialSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const isSmallScreen = useMediaQuery("(max-width: 600px)"); // Detect small screens
+  const isSmallScreen = useMediaQuery("(max-width: 600px)"); 
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,16 +30,16 @@ const TestimonialSlider = () => {
       sx={{
         textAlign: "center",
         py: 5,
-        backgroundColor: "white",
+        backgroundColor: "rgb(11, 11, 11)",
       }}
     >
       <Typography
         variant="h4"
         fontWeight="bold"
         mb={5}
-        sx={{ color: "black", fontSize: "3rem" }}
+        sx={{ color: "white", fontSize: "3rem" }}
       >
-        What People Think <span style={{ color: "orange" }}>About Us</span>
+        What People Think <span style={{ color: "red" }}>About Us</span>
       </Typography>
 
       <Box
@@ -58,7 +58,7 @@ const TestimonialSlider = () => {
             sx={{
               position: "absolute",
               left: 30,
-              color: "orange",
+              color: "red",
               backgroundColor: "rgba(255, 255, 255, 0.1)",
               "&:hover": { backgroundColor: "rgba(255, 246, 73, 0.2)" },
             }}
@@ -68,7 +68,7 @@ const TestimonialSlider = () => {
         )}
 
         {/* Testimonial Content */}
-        <Box sx={{ maxWidth: 800, textAlign: "center", px: 3 }}>
+        <Box sx={{ maxWidth: 800, textAlign: "center", px: 3,color:"rgba(249, 249, 249, 0.86)"}}>
           <Avatar
             src={testimonials[currentIndex].image}
             sx={{ width: 100, height: 100, mx: "auto", mb: 2 }}
@@ -81,7 +81,7 @@ const TestimonialSlider = () => {
           >
             "{testimonials[currentIndex].text}"
           </Typography>
-          <Typography variant="body2" color="orange" fontWeight="bold" mt={2}>
+          <Typography variant="body2" color="red" fontWeight="bold" mt={2}>
             - {testimonials[currentIndex].author},{" "}
             {testimonials[currentIndex].designation}
           </Typography>
@@ -94,7 +94,7 @@ const TestimonialSlider = () => {
             sx={{
               position: "absolute",
               right: 30,
-              color: "orange",
+              color: "red",
               backgroundColor: "rgba(255, 255, 255, 0.1)",
               "&:hover": { backgroundColor: "rgba(255, 246, 73, 0.2)" },
             }}

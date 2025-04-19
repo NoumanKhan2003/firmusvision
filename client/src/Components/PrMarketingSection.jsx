@@ -71,15 +71,15 @@ const PRMarketingSection = () => {
             minHeight: { xs: "auto", md: "400px" },
           }}
         >
-          <Typography variant="h4" fontWeight="bold" sx={{ fontSize: { xs: "1.5rem", md: "2rem" } }}>
-            WHO WE ARE
+          <Typography variant="h4" fontWeight="bold" sx={{ fontSize: { xs: "1.5rem", md: "3rem"} }}>
+            WHO <span style={{color:"red"}}>WE </span> ARE
           </Typography>
           <Box
             sx={{
-              width: "50px",
+              width: "70px",
               height: "3px",
-              backgroundColor: "#007bff",
-              margin: { xs: "8px auto", md: "8px 0 16px 0" },
+              backgroundColor: "red",
+              margin: { xs: "8px auto", md: "2px 0 16px 0" },
             }}
           />
           <Typography
@@ -110,7 +110,7 @@ const PRMarketingSection = () => {
           <Button
             variant="text"
             sx={{
-              color: "#007bff",
+              color: "red",
               marginTop: "1.5rem",
               textTransform: "none",
               fontWeight: "bold",
