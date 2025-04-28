@@ -2,8 +2,9 @@ import React from "react";
 import { Box, Typography, Button } from "@mui/material";
 import heroImage from "../Assets/img1.jpg";
 import { motion } from "framer-motion";
-
+import { useNavigate } from "react-router-dom";
 const LandingSection = () => {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -54,7 +55,7 @@ const LandingSection = () => {
             px: { xs: 0, md: 0 },
           }}
         >
-          Column Inches is a leading PR agency based in Delhi that helps
+          Firmus Vision is a leading PR agency based in Delhi that helps
           ambitious brands succeed through strategic media and marketing
           communications. We leverage our expertise to create brand value,
           enabling you to win clients, engage stakeholders, and, most
@@ -85,6 +86,9 @@ const LandingSection = () => {
               width: { xs: "100%", sm: "auto" },
               "&:hover": { backgroundColor: "darkred" },
             }}
+            onClick={()=>{
+              navigate("/services")
+            }}
           >
             OUR SERVICES &gt;
           </Button>
@@ -102,6 +106,9 @@ const LandingSection = () => {
               fontSize: { xs: "0.85rem", sm: "1rem" },
               width: { xs: "100%", sm: "auto" },
               "&:hover": { backgroundColor: "#1c2833" },
+            }}
+            onClick={()=>{
+              navigate("/contact")
             }}
           >
             CONTACT US &gt;
