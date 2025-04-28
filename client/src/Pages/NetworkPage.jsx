@@ -29,6 +29,8 @@ const NetworkCoverage = () => {
   const [notFound, setNotFound] = useState(false);
   const [foundMessage, setFoundMessage] = useState("");
   const [highlightedCity, setHighlightedCity] = useState("");
+  const [highlightedState, setHighlightedState] = useState("");
+
   const sectionRefs = useRef({});
 
   const handleToggle = (state) => {
@@ -45,7 +47,7 @@ const NetworkCoverage = () => {
           // If state matches
           setExpanded(state);
           setFoundMessage(`The state (${state}) is serviceable ✅`);
-          setHighlightedCity(""); // No city to highlight
+          setHighlightedState(state);
           found = true;
 
           setTimeout(() => {
@@ -97,6 +99,15 @@ const NetworkCoverage = () => {
       return () => clearTimeout(timer);
     }
   }, [highlightedCity]);
+
+  useEffect(() => {
+    if (highlightedState) {
+      const timer = setTimeout(() => {
+        setHighlightedState("");
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [highlightedState]);
 
   return (
     <Box
@@ -265,7 +276,16 @@ const NetworkCoverage = () => {
                     fontWeight: "bold",
                   }}
                 >
-                  <Typography>{state}</Typography>
+                  <Typography
+                    sx={{
+                      fontWeight:
+                        state === highlightedState ? "bold" : "normal",
+                      color: state === highlightedState ? "yellow" : "inherit",
+                    }}
+                  >
+                    {state}
+                  </Typography>
+
                   <ExpandMoreIcon
                     sx={{
                       transform:
