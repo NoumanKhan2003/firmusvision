@@ -13,6 +13,7 @@ import northimg from "../Assets/bg5.jpg";
 import southimg from "../Assets/bg6.jpg";
 import eastimg from "../Assets/bg7.jpg";
 import westimg from "../Assets/bg8.jpg";
+import indiaMap from "../Assets/img7.png";
 
 // Background images for each region
 const regionBackgrounds = {
@@ -40,11 +41,11 @@ const NetworkCoverage = () => {
 
     Object.entries(NetworkData).forEach(([region, states]) => {
       Object.entries(states).forEach(([state, cities]) => {
-        const matchedCity = cities.find((city) => city.toLowerCase() === query);
-        if (matchedCity) {
+        if (state.toLowerCase() === query) {
+          // If state matches
           setExpanded(state);
-          setFoundMessage(`The city (${matchedCity}) is serviceable ✅`);
-          setHighlightedCity(matchedCity);
+          setFoundMessage(`The state (${state}) is serviceable ✅`);
+          setHighlightedCity(""); // No city to highlight
           found = true;
 
           setTimeout(() => {
@@ -53,6 +54,24 @@ const NetworkCoverage = () => {
               block: "center",
             });
           }, 300);
+        } else {
+          // If city matches
+          const matchedCity = cities.find(
+            (city) => city.toLowerCase() === query
+          );
+          if (matchedCity) {
+            setExpanded(state);
+            setFoundMessage(`The city (${matchedCity}) is serviceable ✅`);
+            setHighlightedCity(matchedCity);
+            found = true;
+
+            setTimeout(() => {
+              sectionRefs.current[state]?.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            }, 300);
+          }
         }
       });
     });
@@ -174,9 +193,26 @@ const NetworkCoverage = () => {
       )}
       {notFound && (
         <Typography align="center" color="red" sx={{ mb: 2 }}>
-          This City is Not Serviceable ❌
+          This City/State is Not Serviceable ❌
         </Typography>
       )}
+
+      {/* map section  */}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          py: "2rem",
+          maxWidth: { md: "70%", xs: "100%" },
+          margin: "auto",
+        }}
+      >
+        <img
+          src={indiaMap}
+          alt="India Map"
+          style={{ height: "100%", width: "100%" }}
+        />
+      </Box>
 
       {/* Region Sections */}
       <Box
