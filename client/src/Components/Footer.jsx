@@ -17,7 +17,6 @@ import {
   Email,
   LocationOn,
 } from "@mui/icons-material";
-import bgImg from "../Assets/bg4.jpg";
 import logo from "../Assets/logoFirmus.jpg";
 
 const Footer = () => {
@@ -28,9 +27,7 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        backgroundImage: `url(${bgImg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundColor: "black",
       }}
     >
       <Box
@@ -39,11 +36,11 @@ const Footer = () => {
           opacity: 0.9,
           color: "white",
           py: 4,
-          px: { xs: 2, md: 4 },
+          px: { xs: 2, md: 3 },
         }}
       >
         {/* upper section */}
-        <Box
+        {/* <Box
           sx={{
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
@@ -52,32 +49,10 @@ const Footer = () => {
             color: "white",
             gap: { xs: 3, md: 0 },
           }}
-        >
-          {/* Logo Section */}
-          <Box
-            sx={{
-              height: { md: "100px", xs: "100%" },
-              width: { md: "100px", xs: "100%" },
-              display: { xs: "flex", md: "unset" },
-              justifyContent: "center",
-            }}
-          >
-            <Box
-              sx={{
-                height: { md: "4.4rem", xs: "5rem" },
-                width: { md: "16rem", xs: "19rem" },
-              }}
-            >
-              <img
-                src={logo}
-                alt="FirmusVision"
-                style={{ height: "100%", width: "100%" }}
-              />
-            </Box>
-          </Box>
+        > */}
 
-          {/* upper right section */}
-          <Box
+        {/* upper right section */}
+        {/* <Box
             sx={{
               display: "flex",
               flexDirection: { xs: "column", sm: "row" },
@@ -85,9 +60,9 @@ const Footer = () => {
               gap: { xs: 2, sm: 4 },
               width: { xs: "100%", md: "auto" },
             }}
-          >
-            {/* Email Section */}
-            <Box sx={{ display: "flex", alignItems: "center" }}>
+          > */}
+        {/* Email Section */}
+        {/* <Box sx={{ display: "flex", alignItems: "center" }}>
               <IconButton
                 sx={{
                   color: "red",
@@ -109,10 +84,10 @@ const Footer = () => {
                 <Typography variant="h6">Send Email</Typography>
                 <Typography variant="body2">nouman@khan.in</Typography>
               </Box>
-            </Box>
+            </Box> */}
 
-            {/* Call Section */}
-            <Box sx={{ display: "flex", alignItems: "center" }}>
+        {/* Call Section */}
+        {/* <Box sx={{ display: "flex", alignItems: "center" }}>
               <IconButton
                 sx={{
                   color: "red",
@@ -134,10 +109,10 @@ const Footer = () => {
                 <Typography variant="h6">Call Us</Typography>
                 <Typography variant="body2">+91 97177 25231</Typography>
               </Box>
-            </Box>
+            </Box> */}
 
-            {/* Location Section */}
-            <Box sx={{ display: "flex", alignItems: "center" }}>
+        {/* Location Section */}
+        {/* <Box sx={{ display: "flex", alignItems: "center" }}>
               <IconButton
                 sx={{
                   color: "red",
@@ -171,18 +146,9 @@ const Footer = () => {
                   )}
                 </Typography>
               </Box>
-            </Box>
-          </Box>
-        </Box>
-
-        <Divider
-          sx={{
-            width: "100%",
-            height: 2,
-            borderColor: "white",
-            my: 3,
-          }}
-        />
+            </Box> */}
+        {/* </Box> */}
+        {/* </Box> */}
 
         <Stack
           direction={{ xs: "column", md: "row" }}
@@ -195,18 +161,50 @@ const Footer = () => {
           <Box
             sx={{
               maxWidth: 300,
+              width:"100%",
               px: { xs: 2, md: 0 },
               textAlign: { xs: "center", md: "left" },
             }}
           >
+            {/* Logo Section */}
+            <Box
+              sx={{
+                height: { md: "100px", xs: "100%" },
+                width: { md: "100px", xs: "100%" },
+                display: { xs: "flex", md: "unset" },
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                sx={{
+                  height: { md: "4.4rem", xs: "5rem" },
+                  width: { md: "16rem", xs: "19rem" },
+                }}
+              >
+                <img
+                  src={logo}
+                  alt="FirmusVision"
+                  style={{ height: "100%", width: "100%" }}
+                />
+              </Box>
+            </Box>
+            {/* About text section */}
             <Typography
               variant="h6"
               gutterBottom
               sx={{ fontWeight: "bold", color: "red" }}
             >
-              About Us
+              WE SIMPLIFY COMMUNICATION{" "}
             </Typography>
-            <Typography variant="body2" sx={{ fontSize: "1rem" }}>
+            <Divider
+              sx={{
+                borderBottomWidth: "5px",
+                borderColor: "red",
+                width: "35%",
+                margin:{xs:"auto",md:"unset"}
+              }}
+            />
+            <Typography variant="body2" sx={{ fontSize: "1rem" , mt:1 }}>
               Firmus Vision is a full-service PR agency in Delhi, driven by
               women. With deep expertise in media and marketing, we create brand
               value across sectors.
@@ -548,7 +546,12 @@ const Footer = () => {
             }}
           >
             Made with ❤️ by{" "}
-            <Link href="http://www.linkedin.com/in/nouman-khan-95923a256" target="_blank" rel="noopener" sx={{textDecoration:"none" , color:"white"}}>
+            <Link
+              href="http://www.linkedin.com/in/nouman-khan-95923a256"
+              target="_blank"
+              rel="noopener"
+              sx={{ textDecoration: "none", color: "white" }}
+            >
               Nouman Khan
             </Link>
           </Typography>
