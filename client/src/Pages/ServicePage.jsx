@@ -15,7 +15,7 @@ const ServicesPage = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <Box sx={{ backgroundColor: "black", pb: 10 }}>     
+    <Box sx={{ backgroundColor: "black", pb: 10 }}>
       <Box
         textAlign="center"
         mb={6}
@@ -30,7 +30,7 @@ const ServicesPage = () => {
             fontWeight: "bold",
             color: "white",
             fontSize: { md: "3.5rem", xs: "2.5rem" },
-            pt:4
+            pt: 4,
           }}
         >
           <span style={{ color: "red" }}>Our</span> Services
@@ -61,13 +61,13 @@ const ServicesPage = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               sx={{
                 display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
                 flexDirection: isMobile
                   ? "column"
                   : index % 2 === 0
                   ? "row"
                   : "row-reverse",
-                alignItems: "center",
-                gap: { md: 6, xs: 0 },
                 mb: 10,
                 "&:last-child": { mb: 0 },
                 px: { md: 4, xs: 0 },
@@ -79,7 +79,7 @@ const ServicesPage = () => {
                 sx={{
                   flex: 1,
                   width: isMobile ? "100%" : "45%",
-                  height: isMobile ? "300px" : "400px",
+                  height: isMobile ? "300px" : "350px",
                   borderRadius: 2,
                   overflow: "hidden",
                 }}
@@ -108,11 +108,18 @@ const ServicesPage = () => {
                   flex: 1,
                   width: isMobile ? "90%" : "45%",
                   textAlign: isMobile ? "center" : "left",
-                  bgcolor: "rgba(22, 22, 22, 0.85)",
+                  backgroundColor: "#111",
                   px: { md: 5, xs: 2 },
                   py: { md: 4, xs: 4 },
                   borderBottomRightRadius: { md: "4rem", xs: "0" },
                   borderTopLeftRadius: { md: "4rem", xs: "0" },
+                  boxShadow: "0 4px 24px 0 rgba(0,0,0,0.25)",
+                  border: "1px solid #222",
+                  zIndex: 2,
+                  position: "relative",
+                  // Overlap effect
+                  ml: !isMobile && index % 2 === 0 ? { md: "-80px" } : 0,
+                  mr: !isMobile && index % 2 !== 0 ? { md: "-80px" } : 0,
                 }}
               >
                 <Typography
@@ -122,6 +129,8 @@ const ServicesPage = () => {
                     color: "red",
                     mb: 2,
                     fontSize: { md: "2rem", xs: "1.75rem" },
+                    fontFamily: "noto-serif",
+                    letterSpacing: 1,
                   }}
                 >
                   {service.title}
@@ -131,7 +140,7 @@ const ServicesPage = () => {
                   sx={{
                     lineHeight: 1.8,
                     fontSize: { md: "1.1rem", xs: "1rem" },
-                    color: "white",
+                    color: "#eee",
                   }}
                 >
                   {service.longDescription}
