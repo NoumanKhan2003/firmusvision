@@ -13,27 +13,28 @@ import {
 } from "@mui/material";
 import { LinkedIn } from "@mui/icons-material";
 import CounterSection from "../Components/ViewsSection";
-import founderImg from "../Assets/img6.webp";
-import aboutImg from "../Assets/bg1.webp";
+import founderImg from "../Assets/founder.webp";
+import exp2 from "../Assets/expertise2.webp";
+import result from "../Assets/resultdriven.webp";
+import result2 from "../Assets/resultdriven2.webp";
+import regional from "../Assets/regionalmastery.webp";
+import AboutUsVideo from "../Assets/AboutUs.mp4";
 
 const quotes = [
   {
-    title: "We are Credible",
-    text: "At the core of Media Mantra Group's credibility is a very strong leadership team with over 100 plus years of experience in communications consulting. With a deep understanding of the media landscape, communication trends, and consumer behavior, the firm exudes professionalism in every facet of its operations, ensuring that clients receive top-notch strategic counsel and execution.",
-    image:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    title: "Result Driven",
+    text: "At Firmus Vision, we believe in actions over words. We don’t just make promises—we consistently exceed them by delivering measurable, impactful results. Our commitment to strategic execution, deep media expertise, and a results-driven approach ensures that every campaign we undertake creates meaningful impact and lasting value for our clients. With a relentless focus on performance and precision, we turn visions into reality and promises into tangible success.",
+    image: result,
   },
   {
-    title: "We Value Integrity",
-    text: "Our team operates with the highest level of integrity, ensuring that our clients' best interests are always at the forefront. Transparency, trust, and ethics guide every decision we make.",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    title: "Expertise & Experience",
+    text: "With 15+ years of excellence in regional PR, we bring a wealth of knowledge and a proven track record of success to the table. From national publications to regional newsrooms, we know how to navigate the complexities of local and mainstream media, ensuring that your brand’s story gets the visibility and credibility it deserves.",
+    image: exp2,
   },
   {
-    title: "Our Commitment is Unmatched",
-    text: "We are committed to delivering excellence and measurable results. Our strategic approach is built on deep industry knowledge and a passion for success.",
-    image:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+    title: "Regional Mastery",
+    text: "We understand the operational realities, ground realities, modus operandi and modus vivendi of media in non-metro or Tier II and Tier III towns and act as per the requirements of corporates and PR agencies. We interact with regional media, advise them with our sphere of interests and help our clients get the desired results.",
+    image: regional,
   },
 ];
 
@@ -64,21 +65,43 @@ const AboutPage = () => {
       {/* Hero Section */}
       <Box
         sx={{
+          position: "relative",
           height: "100vh",
           minHeight: "600px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${aboutImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "white",
           textAlign: "center",
           px: 3,
           py: 0,
+          overflow: "hidden",
         }}
       >
-        <Container maxWidth="md">
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: -1,
+          }}
+        >
+          <source src={AboutUsVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Foreground Content */}
+        <Container maxWidth="md" sx={{ zIndex: 1 }}>
           <Typography
             variant={isMobile ? "h3" : "h2"}
             component="h1"
@@ -87,29 +110,33 @@ const AboutPage = () => {
               mb: 3,
               lineHeight: 1.2,
               textTransform: "uppercase",
+              textAlign:"center"
             }}
           >
-            Your <span style={{ color: "red" }}>Idea</span> Partner
+            Connecting <span style={{ color: "red" }}>Brands</span> to Bharat
           </Typography>
 
           <Typography
             variant={isMobile ? "h6" : "h5"}
             sx={{
-              mb: 4,
+              mb: 8,
+              fontWeight: 900,
               lineHeight: 1.6,
-              maxWidth: "800px",
+              maxWidth: "100px",
               mx: "auto",
+              color: "white",
             }}
-          >
-            Success driven and built to keep pace, we are a proudly independent
-            full-service public relations and marketing agency with one towering
-            purpose: elevate your business brand above all others.
-          </Typography>
+          ></Typography>
         </Container>
       </Box>
 
       {/* Industries Section */}
-      <Box sx={{ backgroundColor: "rgb(0, 0, 0)", py: 8 }}>
+      <Box
+        sx={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.88)), url(${result2})`,
+          py: 8,
+        }}
+      >
         <Container maxWidth="lg">
           <Typography
             variant="h4"
@@ -129,6 +156,8 @@ const AboutPage = () => {
               display: "flex",
               flexWrap: "wrap",
               gap: 2,
+              // bgcolor: "red",
+
               justifyContent: "center",
             }}
           >
@@ -151,7 +180,7 @@ const AboutPage = () => {
                   textAlign: "center",
                   minWidth: "120px",
                   flex: "1 0 auto",
-                  bgcolor: "rgba(30, 30, 30, 0.65)",
+                  bgcolor: "red",
                   color: "white",
                 }}
               >
@@ -167,7 +196,7 @@ const AboutPage = () => {
         sx={{
           minHeight: "50vh",
           position: "relative",
-          backgroundColor: "rgb(0, 0, 0)",
+          backgroundColor: "white",
           color: "white",
           display: "flex",
           alignItems: "center",
@@ -185,7 +214,7 @@ const AboutPage = () => {
             height: "100%",
             borderTopRightRadius: "50%",
             borderBottomRightRadius: "50%",
-            backgroundColor: "rgb(30, 30, 30)",
+            backgroundColor: "white",
             zIndex: 0,
           }}
         />
@@ -245,10 +274,11 @@ const AboutPage = () => {
                   fontWeight="bold"
                   mb={2}
                   color="red"
+                  fontFamily="noto-serif"
                 >
                   {quotes[index].title}
                 </Typography>
-                <Typography variant={isMobile ? "body1" : "h6"} color="#8e8e8e">
+                <Typography variant={isMobile ? "body1" : "h6"} color="black">
                   {quotes[index].text}
                 </Typography>
               </motion.div>
@@ -262,9 +292,9 @@ const AboutPage = () => {
               >
                 <IconButton
                   sx={{
-                    backgroundColor: "white",
-                    color: "#E87E1C",
-                    "&:hover": { backgroundColor: "rgba(255,255,255,0.8)" },
+                    backgroundColor: "black",
+                    color: "red",
+                    "&:hover": { backgroundColor: "black" },
                     boxShadow: "2px 2px 8px rgba(0,0,0,0.2)",
                   }}
                   onClick={prevSlide}
@@ -273,9 +303,9 @@ const AboutPage = () => {
                 </IconButton>
                 <IconButton
                   sx={{
-                    backgroundColor: "rgba(255,255,255,0.3)",
-                    color: "white",
-                    "&:hover": { backgroundColor: "rgba(255,255,255,0.5)" },
+                    backgroundColor: "black",
+                    color: "red",
+                    "&:hover": { backgroundColor: "black" },
                     boxShadow: "2px 2px 8px rgba(0,0,0,0.2)",
                   }}
                   onClick={nextSlide}
@@ -307,44 +337,40 @@ const AboutPage = () => {
                   mb: 3,
                   color: "white",
                   textTransform: "uppercase",
-                  
                 }}
               >
                 <span style={{ color: "red" }}> MEET THE</span> FOUNDER
               </Typography>
               <Typography variant="body1" sx={{ mb: 2 }} color="#acacac">
-                Nouman Khan has been in the Indian PR industry for a decade. She
-                is the Founder and CEO of Column Inches – a PR agency in Delhi
-                specializing in Corporate Public Relations. She is a seasoned
-                communications professional with expertise in traditional and
-                digital media and formulates highly influential PR strategies.
-              </Typography>
-              <Typography variant="body1" sx={{ mb: 2 }} color="#acacac">
-                With an in-depth understanding of the industry, the agency under
-                Nouman Khan's leadership delivers integrated communications
-                programs for clients from across all sectors. Nouman Khan
-                started Column Inches with a core proposition of helping
-                startups and businesses to establish a distinguished identity in
-                the Indian market.
-              </Typography>
-              <Typography variant="body1" sx={{ mb: 2 }} color="#acacac">
-                To help clients scale faster, Nouman Khan delivers strategic
-                Public Relations, Media Relations, Digital Media Promotion,
-                Crisis Communication, Brand Promotion, Startup PR, Event PR,
-                Influencer Marketing campaigns.
-              </Typography>
-              <Typography variant="body1" sx={{ mb: 2 }} color="#acacac">
-                Nouman Khan has been in the Indian PR industry for a decade. She
-                is the Founder and CEO of Column Inches – a PR agency in Delhi
-                specializing in Corporate Public Relations. She is a seasoned
-                communications professional with expertise in traditional and
-                digital media and formulates highly influential PR strategies.
+                Sunil Singh is the visionary founder of Firmus Vision, a leading
+                public relations and brand strategy firm committed to reshaping
+                how brands engage with India’s diverse and dynamic regional
+                markets. With over 10 years of experience in strategic
+                communication, media relations, and storytelling, Sunil has
+                carved a niche by championing Bharat-centric campaigns that
+                resonate beyond urban centers. His deep-rooted understanding of
+                India’s linguistic, cultural, and geographic diversity has
+                allowed him to build a powerful network that spans 250+ cities
+                and 29 states. Sunil believes that successful communication must
+                be authentic, hyper-local, and emotionally intelligent — values
+                that are at the core of every campaign crafted by Firmus Vision.
+                Under his leadership, the firm has executed high-impact regional
+                PR strategies, managed complex crises, launched innovative brand
+                campaigns, and built influential media relationships. Known for
+                his practical approach, result-oriented mindset, and
+                integrity-driven leadership, Sunil continues to mentor a team of
+                young professionals, encouraging creativity and precision. His
+                mission remains clear — to give every brand a meaningful voice
+                in the heart of India. With a bold vision and a deep passion for
+                storytelling, Sunil Singh is not just leading Firmus Vision,
+                he’s shaping the future of public relations in India.
               </Typography>
             </Box>
             <Box
               sx={{
                 flex: 1,
                 display: "flex",
+
                 flexDirection: "column",
                 alignItems: "center",
                 gap: 2,
@@ -353,7 +379,7 @@ const AboutPage = () => {
               <Box
                 component="img"
                 src={founderImg}
-                alt="Nouman Khan"
+                alt="Sunil singh"
                 sx={{
                   width: "100%",
                   maxWidth: "400px",
@@ -362,19 +388,19 @@ const AboutPage = () => {
                 }}
               />
               <Box sx={{ textAlign: "center" }}>
-                <Typography variant="h4" sx={{ fontWeight: "bold" ,color:"white"}}>
-                  Nouman Khan
-                </Typography>
                 <Typography
-                  variant="subtitle1"
-                  sx={{ color: "grey", mb: 1 }}
+                  variant="h4"
+                  sx={{ fontWeight: "bold", color: "white",fontFamily: "noto-serif" }}
                 >
+                  Sunil Singh
+                </Typography>
+                <Typography variant="subtitle1" sx={{ color: "grey", mb: 1 }}>
                   Founder and CEO
                 </Typography>
                 <Button
                   variant="outlined"
                   size="small"
-                  href="https://www.linkedin.com/in/nouman-khan"
+                  href="https://www.linkedin.com/in/sunil-singh-a1a93414/"
                   target="_blank"
                   rel="noopener noreferrer"
                   startIcon={<LinkedIn />}
