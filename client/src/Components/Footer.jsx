@@ -161,7 +161,7 @@ const Footer = () => {
           <Box
             sx={{
               maxWidth: 300,
-              width:"100%",
+              width: "100%",
               px: { xs: 2, md: 0 },
               textAlign: { xs: "center", md: "left" },
             }}
@@ -194,20 +194,21 @@ const Footer = () => {
               gutterBottom
               sx={{ fontWeight: "bold", color: "red" }}
             >
-              WE SIMPLIFY COMMUNICATION{" "}
+              Connecting Brands to Bharat{" "}
             </Typography>
             <Divider
               sx={{
                 borderBottomWidth: "5px",
                 borderColor: "red",
                 width: "35%",
-                margin:{xs:"auto",md:"unset"}
+                margin: { xs: "auto", md: "unset" },
               }}
             />
-            <Typography variant="body2" sx={{ fontSize: "1rem" , mt:1 }}>
-              Firmus Vision is a full-service PR agency in Delhi, driven by
-              women. With deep expertise in media and marketing, we create brand
-              value across sectors.
+            <Typography variant="body2" sx={{ fontSize: "1rem", mt: 1 }}>
+              At the heart of our mission lies a deep understanding of India
+              beyond its metros. With a strong network across 250+ cities and 29
+              states, we specialize in regional PR that resonates with local
+              audiences.
             </Typography>
           </Box>
 
@@ -240,7 +241,7 @@ const Footer = () => {
                   },
                 }}
               >
-                <Typography variant="body2">Media Relations</Typography>
+                <Typography variant="body2">PR & Media Activities</Typography>
               </Link>
               <Link
                 href="/services"
@@ -256,7 +257,7 @@ const Footer = () => {
                   },
                 }}
               >
-                <Typography variant="body2">Content Creation</Typography>
+                <Typography variant="body2">Influencer Marketing</Typography>
               </Link>
               <Link
                 href="/services"
@@ -272,7 +273,7 @@ const Footer = () => {
                   },
                 }}
               >
-                <Typography variant="body2">Crisis Management</Typography>
+                <Typography variant="body2">Translation Services</Typography>
               </Link>
               <Link
                 href="/services"
@@ -288,7 +289,25 @@ const Footer = () => {
                   },
                 }}
               >
-                <Typography variant="body2">Event PR</Typography>
+                <Typography variant="body2">Social Media Marketing</Typography>
+              </Link>
+              <Link
+                href="/services"
+                sx={{
+                  transition: "transform 0.2s ease",
+                  display: "inline-block",
+                  textDecoration: "none",
+                  color: "white",
+                  "&:hover": {
+                    transform: "translateX(5px)",
+                    color: "red",
+                    textDecoration: "underline",
+                  },
+                }}
+              >
+                <Typography variant="body2">
+                  Crisis & Issues Management
+                </Typography>
               </Link>
               <Link
                 href="/services"
@@ -426,7 +445,7 @@ const Footer = () => {
                   justifyContent: { xs: "center", md: "flex-start" },
                 }}
               >
-                <Phone fontSize="small" sx={{ mr: 1 }} /> +91 97177 25231
+                <Phone fontSize="small" sx={{ mr: 1 }} /> +91 79885 45077
               </Typography>
               <Typography
                 variant="body2"
@@ -436,7 +455,7 @@ const Footer = () => {
                   justifyContent: { xs: "center", md: "flex-start" },
                 }}
               >
-                <Email fontSize="small" sx={{ mr: 1 }} /> sanya@columninches.in
+                <Email fontSize="small" sx={{ mr: 1 }} /> info@firmusvision.com
               </Typography>
               <Typography
                 variant="body2"
@@ -448,8 +467,8 @@ const Footer = () => {
               >
                 <LocationOn fontSize="small" sx={{ mr: 1 }} />
                 {isSmallScreen
-                  ? "Gurugram, Haryana"
-                  : "Gurugram, Haryana 122002"}
+                  ? "Ghaziabad, Uttar Pradesh"
+                  : "Ghaziabad, Uttar Pradesh 201012"}
               </Typography>
             </Stack>
 
@@ -545,15 +564,13 @@ const Footer = () => {
               pt: { xs: 1 },
             }}
           >
-            Made with ❤️ by{" "}
-            <Link
-              href="http://www.linkedin.com/in/nouman-khan-95923a256"
-              target="_blank"
-              rel="noopener"
-              sx={{ textDecoration: "none", color: "white" }}
+            Managed by{" "}
+            <a
+              href="https://www.linkedin.com/in/nouman-khan-95923a256/"
+              style={{ textDecoration: "none", color: "red" }}
             >
-              Nouman Khan
-            </Link>
+              Techspie
+            </a>
           </Typography>
         </Box>
       </Box>
