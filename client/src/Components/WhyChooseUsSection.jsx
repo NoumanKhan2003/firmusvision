@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
-import WhyChooseUsData from "../Assets/WhyChooseUsData.js"
+import WhyChooseUsData from "../Assets/WhyChooseUsData.js";
 import { useNavigate } from "react-router-dom";
 import prImage from "../Assets/img5.webp";
 
@@ -27,7 +27,7 @@ const WhyChooseUs = () => {
           ml: 0,
         }}
       >
-        Why <span style={{color:"red"}}>Choose Us</span>
+        Why <span style={{ color: "red" }}>Choose Us</span>
       </Typography>
 
       {/* Content Wrapper */}
@@ -42,19 +42,27 @@ const WhyChooseUs = () => {
         {/* Left Section */}
         <Box sx={{ flex: 1, maxWidth: "500px", textAlign: "left" }}>
           <Box
-            sx={{ borderLeft: "3px solid red", paddingLeft: "1rem", ml: 4 ,color:"white"}}
+            sx={{
+              borderLeft: "3px solid red",
+              paddingLeft: "1rem",
+              ml: 4,
+              color: "white",
+            }}
           >
             <Typography variant="body1" color="#dfdfdf">
-              Branding Area has the best talented team with many years of
-              experience in the PR and Digital Marketing domain. We are
-              result-oriented and will help your brand grow with the fastest
-              possible speed. We deliver what we promise!
+              We understand the operational and ground realities of media across
+              both metro and non-metro India, especially in Tier II and Tier III
+              towns. With deep insights into the modus operandi of regional
+              outlets, we align our approach to meet the unique needs of
+              corporates and PR agencies. By engaging directly with local media
+              and guiding them within our sphere of expertise, we ensure our
+              clients achieve impactful and desired outcomes.
             </Typography>
           </Box>
           <Button
             variant="text"
             sx={{ mt: 3, color: "red", fontWeight: "bold" }}
-            onClick={()=>navigate("/about")}
+            onClick={() => navigate("/about")}
           >
             See More →
           </Button>
@@ -62,7 +70,11 @@ const WhyChooseUs = () => {
             <img
               src={prImage}
               alt="Team Illustration"
-              style={{ width: "100%", maxWidth: "300px",mixBlendMode:"hard-light" }}
+              style={{
+                width: "100%",
+                maxWidth: "300px",
+                mixBlendMode: "hard-light",
+              }}
             />
           </Box>
         </Box>
@@ -78,10 +90,10 @@ const WhyChooseUs = () => {
                 display: "flex",
                 alignItems: "center",
                 mb: 3,
-                color:"white"
+                color: "white",
               }}
             >
-              {/* Round Percentage Circle */}
+              {/* Round Percentage Circle
               <Box
                 component={motion.div}
                 whileHover={{ scale: 1.1 }}
@@ -100,7 +112,7 @@ const WhyChooseUs = () => {
                 }}
               >
                 {stat.percentage}
-              </Box>
+              </Box> */}
 
               {/* Text Right */}
               <Box>
