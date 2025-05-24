@@ -62,12 +62,12 @@ const CounterSection = () => {
     <Box
       ref={sectionRef}
       sx={{
-        background: "#0b0b0b",
+        background: "rgb(17, 17, 17) ",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexWrap: "wrap",
-        padding: "3rem 2rem",
+        padding: "0rem 2rem",
         textAlign: "center",
       }}
     >
