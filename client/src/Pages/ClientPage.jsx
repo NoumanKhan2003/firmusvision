@@ -5,9 +5,12 @@ import {
   Container,
   useTheme,
   useMediaQuery,
+  Divider,
 } from "@mui/material";
 import ClientsData from "../Assets/ClientsData.js";
-import clientpic from "../Assets/img4.webp";
+// import clientpic from "../Assets/img4.jpg";
+// import client1 from "../Assets/clientele1.jpg";
+import client2 from "../Assets/clientele2.webp";
 import MoreIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import LessIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 
@@ -21,11 +24,11 @@ const ClientsPage = () => {
   }, []);
 
   return (
-    <Box sx={{ backgroundColor:"rgb(0, 0, 0)" }}>
+    <Box>
       <Box
         sx={{
           height: isMobile ? "180px" : "300px",
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${clientpic})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${client2})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "flex",
@@ -49,7 +52,7 @@ const ClientsPage = () => {
           sx={{
             color: "white",
             fontWeight: "bold",
-            fontSize:isMobile ? "2.4rem": "4rem",
+            fontSize: isMobile ? "2.4rem" : "4rem",
             position: "relative",
             zIndex: 1,
             textAlign: "center",
@@ -58,94 +61,93 @@ const ClientsPage = () => {
             fontFamily: "'Playfair Display', serif",
           }}
         >
-          OUR <span style={{color:"red"}}>CLIENTS</span>
+          <span style={{ color: "red" }}>CLIENTELE</span>
         </Typography>
       </Box>
 
       <Container maxWidth="lg" sx={{ pb: 6, px: isMobile ? 1 : 4 }}>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexWrap: "wrap",
-            pb: 4,
-            mx: 0,
-            textAlign: "center",
-          }}
-        >
-          <LessIcon
-            sx={{ fontSize: "3rem", display: isMobile ? "none" : "block" }}
-          />
+        {/* Title Section */}
+        <Box sx={{ textAlign: "center", mb: { md: 6, xs: 3 } }}>
           <Typography
-            variant={isMobile ? "h5" : "h4"}
+            variant={isMobile ? "h4" : "h3"}
             sx={{
               fontWeight: "bold",
-              color: "white",
+              color: "black",
               fontFamily: "'Playfair Display', serif",
-              mx: { md: 2, xs: 0 },
+              mb: 0,
+              fontSize: {md:"4rem",xs:"3rem"},
             }}
           >
-            Trusted by <span style={{color:"red"}}>Industry Leaders</span>
+            All Our <span style={{ color: "red" }}>Clients</span>
           </Typography>
-          <MoreIcon
-            sx={{ fontSize: "3rem", display: isMobile ? "none" : "block" }}
+          <Divider
+            sx={{
+              borderBottomWidth: "5px",
+              borderColor: "red",
+              width: "100px",
+              margin: "0px auto 0 auto",
+              textAlign: "center",
+            }}
           />
         </Box>
 
+        {/* Responsive Logo Grid */}
         <Box
           sx={{
-            display: "grid",
-            gridTemplateColumns: isMobile
-              ? "repeat(2, 1fr)"
-              : isTablet
-              ? "repeat(3, 1fr)"
-              : "repeat(4, 1fr)",
-            gap: isMobile ? 1 : 3,
-            alignItems: "center",
-            justifyItems: "center",
-            px: isMobile ? 0 : 1,
+            display: "flex",
+            flexDirection: "column",
+            gap: { md: "2rem", xs: "2rem" },
+            width: "100%",
           }}
         >
-          {ClientsData.map((client) => (
+          {/* Group clients into rows of 4 (desktop) or 2 (mobile) */}
+          {Array.from({
+            length: Math.ceil(ClientsData.length / (isMobile ? 2 : 4)),
+          }).map((_, rowIdx) => (
             <Box
-              key={client.name}
+              key={rowIdx}
               sx={{
                 display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
+                flexWrap: "wrap",
                 justifyContent: "center",
-                width: isMobile ? "80%" : "100%",
-                height: "100%",
-                p: isMobile ? 1 : 2,
-                textAlign: "center",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  boxShadow: '0px 4px 12px rgba(255, 255, 255, 0.26)'
-                },
+                alignItems: "center",
+                gap: { md: "3rem", xs: "1.5rem" },
               }}
             >
-              <Typography
-                variant={isMobile ? "body2" : isTablet ? "h6" : "h5"}
-                sx={{
-                  fontWeight: "bold",
-                  color: "#fed2d2",
-                  fontFamily: "'Playfair Display', serif",
-                  letterSpacing: "0.5px",
-                  textTransform: "uppercase",
-                  whiteSpace: isMobile ? "normal" : "normal",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  maxWidth: isMobile ? "100%" : "90%",
-                  textAlign: "center",
-                  fontSize: isMobile ? "1.2rem" : "1.5rem",
-                }}
-                title={client.name}
-              >
-                {client.name}
-              </Typography>
+              {ClientsData.slice(
+                rowIdx * (isMobile ? 2 : 4),
+                rowIdx * (isMobile ? 2 : 4) + (isMobile ? 2 : 4)
+              ).map((client, idx) => (
+                <Box
+                  key={client.name + idx}
+                  sx={{
+                    height: { md: "120px", xs: "100px" },
+                    width: { md: "200px", xs: "140px" },
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: "1rem",
+                    borderRadius: "8px",
+                    background: "transparent",
+                    transition: "transform 0.3s, box-shadow 0.3s",
+                    "&:hover": {
+                      transform: "scale(1.06)",
+                      boxShadow: "0px 8px 24px rgba(255,0,0,0.10)",
+                    },
+                  }}
+                >
+                  <img
+                    src={client.image}
+                    alt={client.name}
+                    style={{
+                      height: "100%",
+                      width: "100%",
+                      objectFit: "contain",
+                      background: "transparent",
+                    }}
+                  />
+                </Box>
+              ))}
             </Box>
           ))}
         </Box>
