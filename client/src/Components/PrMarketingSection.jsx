@@ -1,5 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
 import img1 from "../Assets/img2.webp";
+// import whoweare2 from "../Assets/whoweare2.webp";
 import { useNavigate } from "react-router-dom";
 
 const PRMarketingSection = () => {
@@ -8,13 +9,13 @@ const PRMarketingSection = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#090909",
+        backgroundColor: "rgb(0,0,0)",
         minHeight: { xs: "auto", md: "100vh" },
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         padding: { xs: "2rem 1rem", md: "0rem 6rem" },
-        py: { xs: "3rem", md: "2rem" },
+        py: { xs: "3rem", md: "3rem" },
       }}
     >
       <Box
@@ -32,12 +33,15 @@ const PRMarketingSection = () => {
         <Box
           sx={{
             width: { xs: "100%", md: "50%" },
-            height: { xs: "300px", md: "auto" },
-            minHeight: { xs: "300px", md: "400px" },
+            height: { xs: "300px", md: "25rem" },
+            minHeight: { xs: "300px", md: "300px" },
+            margin:"auto",
             display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             order: { xs: 1, md: 1 },
             overflow: "hidden",
-            borderRadius: { xs: "8px", md: "0" },
+            borderRadius: { xs: "8px", md: "1rem" },
           }}
         >
           <img
@@ -57,9 +61,9 @@ const PRMarketingSection = () => {
           sx={{
             backgroundColor: "#000",
             color: "white",
-            padding: { xs: "1.5rem", md: "2.5rem" },
+            padding: { xs: "1.5rem", md: "2rem" },
             borderRadius: "8px",
-            boxShadow: "5px 5px 15px rgba(255, 255, 255, 0.1)",
+            boxShadow: "2px 2px 15px rgba(255, 255, 255, 0.36)",
             width: { xs: "80%", md: "40%" },
             maxWidth: { xs: "100%", md: "500px" },
             textAlign: { xs: "center", md: "left" },
@@ -90,9 +94,8 @@ const PRMarketingSection = () => {
               textAlign: { xs: "center", md: "left" }
             }}
           >
-            Welcome to Firmus Vision, your partner in strategic communication
-            excellence. We specialize in crafting compelling narratives,
-            building media relationships, and delivering measurable results.
+           At Firmus Vision, we don’t just tell stories—we ensure they resonate effectively 
+           and positively across every region through meaningful conversations and strategic communication.
           </Typography>
           <Typography
             variant="body1"
@@ -103,15 +106,16 @@ const PRMarketingSection = () => {
               textAlign: { xs: "center", md: "left" }
             }}
           >
-            Our team of industry experts customizes PR solutions that align
-            seamlessly with your unique goals. With global reach and local
-            expertise, we work round-the-clock for your success.
+            As a powerhouse in Public Relations, we have an unparalleled reach across 200+ cities in
+             29 states of India, making us pioneers in regional PR. We bridge the gap between brands
+              and diverse local markets, ensuring your message goes beyond metro cities and connects
+               authentically with audiences across urban and rural landscapes.
           </Typography>
           <Button
             variant="text"
             sx={{
               color: "red",
-              marginTop: "1.5rem",
+              marginTop: "1rem",
               textTransform: "none",
               fontWeight: "bold",
               fontSize: { xs: "0.9rem", md: "1rem" },
