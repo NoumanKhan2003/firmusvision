@@ -2,11 +2,12 @@ import Joi from "joi";
 
 function contactAddValidation(req, res, next) {
   const schema = Joi.object({
-    firstName: Joi.string().required(),
-    lastName:Joi.string(),
+    name: Joi.string().required(),
     email: Joi.string().required(),
+    company: Joi.string(),
     phone: Joi.string().required(),
-    message: Joi.string().required(),
+    website: Joi.string(),
+    message: Joi.string(),
   });
 
   const { error } = schema.validate(req.body, { abortEarly: false });

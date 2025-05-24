@@ -2,12 +2,13 @@ import queriesModel from "../models/queriesModel.js";
 
 const queriesPostController = async (req, res) => {
   try {
-    const { firstName, lastName, email, phone, message } = req.body;
+    const { name, email, company, phone, website, message } = req.body;
     const newQuery = new queriesModel({
-      firstName,
-      lastName,
+      name,
       email,
+      company,
       phone,
+      website,
       message,
     });
     await newQuery.save();

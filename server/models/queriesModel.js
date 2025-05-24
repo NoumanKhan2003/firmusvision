@@ -2,10 +2,11 @@ import mongoose from "mongoose";
 
 const QueriesSchema = new mongoose.Schema(
   {
-    firstName:{type:String , required:true},
-    lastName:{type:String , required:true},
+    name: { type: String, required: true },
     email: { type: String, required: true },
-    phone: { type: Number, required: true },
+    company: { type: String },
+    phone: { type: String, required: true },
+    website: { type: String },
     message: { type: String, required: true },
   },
   { timestamps: true }

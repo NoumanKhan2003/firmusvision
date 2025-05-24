@@ -38,13 +38,7 @@ const ContactUs = () => {
 
   const handleAddQuery = async (e) => {
     e.preventDefault();
-    if (
-      !queries.name ||
-      !queries.lastName ||
-      !queries.email ||
-      !queries.phone ||
-      !queries.message
-    ) {
+    if (!queries.name || !queries.email || !queries.phone) {
       handleWarning(" All fields are required.");
       return;
     }
@@ -59,7 +53,6 @@ const ContactUs = () => {
           },
           body: JSON.stringify({
             name: queries.name,
-            lastName: queries.lastName,
             email: queries.email,
             phone: queries.phone,
             company: queries.company,
@@ -72,7 +65,6 @@ const ContactUs = () => {
         handleSuccess("Message Sent Successfully");
         setqueries({
           name: "",
-          lastName: "",
           email: "",
           phone: "",
           company: "",
