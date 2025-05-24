@@ -1,6 +1,9 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
 import heroImage from "../Assets/img1.webp";
+import frontimg2 from "../Assets/frontimg2.webp";
+import frontimg1 from "../Assets/frontimg1.webp";
+
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 const LandingSection = () => {
@@ -9,7 +12,7 @@ const LandingSection = () => {
     <Box
       sx={{
         minHeight: "100vh",
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.88)), url(${heroImage})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.88)), url(${frontimg1})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -39,27 +42,25 @@ const LandingSection = () => {
             whiteSpace: "normal",
             wordWrap: "break-word",
             lineHeight: { xs: 1.3, sm: 1.5 },
+            fontFamily: "noto-serif",
           }}
         >
-          India’s Leading <span style={{ color: "#e6433e" }}>PR Agency</span>
+          India’s Leading <span style={{ color: "rgb(185, 12, 12)" }}>PR Agency</span>
         </Typography>
 
         <Typography
           variant="body1"
           sx={{
             mt: 2,
-            fontSize: { xs: "1rem", md: "1.2rem" },
+            fontFamily:"noto-serif",
+            fontSize: { xs: "1.5rem", md: "1.9rem" },
             lineHeight: 1.6,
             width: "100%",
-            textAlign: "justify",
+            textAlign: "center",
             px: { xs: 0, md: 0 },
           }}
         >
-          Firmus Vision is a leading PR agency based in Delhi that helps
-          ambitious brands succeed through strategic media and marketing
-          communications. We leverage our expertise to create brand value,
-          enabling you to win clients, engage stakeholders, and, most
-          importantly, build trust.
+         We reach where India lives
         </Typography>
 
         <Box
@@ -117,6 +118,6 @@ const LandingSection = () => {
       </Box>
     </Box>
   );
-};
+};  
 
 export default LandingSection;
