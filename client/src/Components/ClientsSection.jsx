@@ -27,7 +27,7 @@ const ClientsSection = () => {
         justifyContent: "center",
         flexDirection: "column",
         padding: { md: "4rem 3rem", xs: "2rem 1rem" },
-        backgroundColor: "black",
+        backgroundColor: "rgb(255, 255, 255)",
         fontFamily: "'Poppins', sans-serif",
       }}
     >
@@ -48,7 +48,7 @@ const ClientsSection = () => {
           variant="h3"
           sx={{
             fontSize: { md: "3.5rem", xs: "2.5rem" },
-            color: "white",
+            color: "black",
             fontWeight: "bold",
             fontFamily: "'Playfair Display', serif",
             mb: 0,
@@ -97,24 +97,13 @@ const ClientsSection = () => {
                   justifyContent: "center",
                   alignItems: "center",
                   padding: "1rem",
-                  backgroundColor: "#0b0b0b",
+                  // backgroundColor: "#fff",
                   borderRadius: "8px",
                 }}
               >
-                <Typography
-                  variant="h6"
-                  sx={{
-                    fontWeight: "bold",
-                    fontSize: { md: "2rem", xs: "1.2rem" },
-                    color: "#fed2d2",
-                    textTransform: "uppercase",
-                    textAlign: "center",
-                    letterSpacing: "1.5px",
-                    fontFamily: "'Playfair Display', serif",
-                  }}
-                >
-                  {client.name}
-                </Typography>
+                <img src={client.image} alt={client.name} style={{
+                  height: "100%", width: "100%",background:"transparent"
+                  }}/> 
               </Box>
             ))}
           </Box>
