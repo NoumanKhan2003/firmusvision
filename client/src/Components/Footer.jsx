@@ -17,7 +17,7 @@ import {
   Email,
   LocationOn,
 } from "@mui/icons-material";
-import logo from "../Assets/logoFirmus.jpg";
+import logo from "../Assets/logoFirmus.webp";
 
 const Footer = () => {
   const theme = useTheme();

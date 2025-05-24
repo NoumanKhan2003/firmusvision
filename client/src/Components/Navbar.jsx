@@ -21,7 +21,7 @@ import {
   HomeRepairService as ServicesIcon,
   PermContactCalendar as ContactIcon,
 } from "@mui/icons-material";
-import logo from "../Assets/logoFirmus.jpg";
+import logo from "../Assets/logoFirmus.webp";
 
 const Navbar = () => {
   const [state, setState] = React.useState({ right: false });

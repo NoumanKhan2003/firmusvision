@@ -1,4 +1,4 @@
- import img from './img6.jpg';
+ import img from './img6.webp';
 
 const servicesData= [
   {

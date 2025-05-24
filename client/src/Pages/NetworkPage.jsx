@@ -9,11 +9,11 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import NetworkData from "../Assets/NetworkData.js";
-import northimg from "../Assets/bg5.jpg";
-import southimg from "../Assets/bg6.jpg";
-import eastimg from "../Assets/bg7.jpg";
-import westimg from "../Assets/bg8.jpg";
-import indiaMap from "../Assets/img7.png";
+import northimg from "../Assets/bg5.webp";
+import southimg from "../Assets/bg6.webp";
+import eastimg from "../Assets/bg7.webp";
+import westimg from "../Assets/bg8.webp";
+import indiaMap from "../Assets/img7.webp";
 
 // Background images for each region
 const regionBackgrounds = {

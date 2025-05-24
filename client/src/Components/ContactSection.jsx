@@ -8,7 +8,7 @@ import {
   handleWarning,
 } from "../Components/handleUtils.js";
 import LoaderComponent from "./Loader.jsx";
-import img from "../Assets/bg4.jpg";
+import img from "../Assets/bg4.webp";
 
 const ContactUs = () => {
   const [loading, setLoading] = useState(false);

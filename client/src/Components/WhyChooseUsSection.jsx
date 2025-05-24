@@ -3,7 +3,7 @@ import { Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import WhyChooseUsData from "../Assets/WhyChooseUsData.js"
 import { useNavigate } from "react-router-dom";
-import prImage from "../Assets/img5.jpg";
+import prImage from "../Assets/img5.webp";
 
 const WhyChooseUs = () => {
   const isSmallScreen = useMediaQuery("(max-width: 900px)");

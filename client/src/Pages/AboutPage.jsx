@@ -13,8 +13,8 @@ import {
 } from "@mui/material";
 import { LinkedIn } from "@mui/icons-material";
 import CounterSection from "../Components/ViewsSection";
-import founderImg from "../Assets/img6.jpg";
-import aboutImg from "../Assets/bg1.jpeg";
+import founderImg from "../Assets/img6.webp";
+import aboutImg from "../Assets/bg1.webp";
 
 const quotes = [
   {

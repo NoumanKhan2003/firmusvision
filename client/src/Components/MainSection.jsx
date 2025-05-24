@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
-import heroImage from "../Assets/img1.jpg";
+import heroImage from "../Assets/img1.webp";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 const LandingSection = () => {

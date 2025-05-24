@@ -7,7 +7,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import ClientsData from "../Assets/ClientsData.js";
-import clientpic from "../Assets/img4.jpg";
+import clientpic from "../Assets/img4.webp";
 import MoreIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import LessIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 

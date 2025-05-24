@@ -2,9 +2,9 @@ import React from "react";
 import { Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import emotoradImage from "../Assets/bg4.jpg";
-import indiaAcceleratorImage from "../Assets/bg4.jpg";
-import listedCompaniesImage from "../Assets/bg4.jpg";
+import emotoradImage from "../Assets/bg4.webp";
+import indiaAcceleratorImage from "../Assets/bg4.webp";
+import listedCompaniesImage from "../Assets/bg4.webp";
 
 const OurWorksSection = () => {
   const isMobile = useMediaQuery("(max-width:900px)");
