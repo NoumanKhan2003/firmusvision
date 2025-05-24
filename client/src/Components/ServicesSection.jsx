@@ -15,7 +15,7 @@ const ServicesSection = () => {
         padding: { md: "2rem 3rem", xs: "2rem 1rem" },
         minHeight: "100vh",
         pb: { md: 4, xs: 3 },
-        backgroundColor: "#070707",
+        backgroundColor: "rgb(0,0,0)",
       }}
     >
       {/* Title */}
@@ -33,6 +33,7 @@ const ServicesSection = () => {
             fontWeight: "bold",
             color: "white",
             fontSize: { md: "3.5rem", xs: "2.5rem" },
+            fontFamily: "noto-serif",
           }}
         >
           <span style={{ color: "red" }}>Our</span> Services
@@ -49,7 +50,7 @@ const ServicesSection = () => {
       </Box>
 
       {/* Services Grid */}
-      <Box sx={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <Box sx={{ maxWidth: "1200px", margin: "0 auto"}}>
         {servicesData.slice(0, 3).map((service, index) => (
           <Box
             key={index}
@@ -59,13 +60,14 @@ const ServicesSection = () => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             sx={{
               display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
               flexDirection: isMobile
                 ? "column"
                 : index % 2 === 0
                 ? "row"
                 : "row-reverse",
-              alignItems: "center",
-              gap: { md: 6, xs: 0 },
+              // gap: { md: 6, xs: 0 },
               mb: 10,
               "&:last-child": { mb: 0 },
               px: { md: 4, xs: 0 },
@@ -77,7 +79,7 @@ const ServicesSection = () => {
               sx={{
                 flex: 1,
                 width: isMobile ? "100%" : "45%",
-                height: isMobile ? "300px" : "400px",
+                height: isMobile ? "300px" : "350px",
                 borderRadius: 2,
                 overflow: "hidden",
               }}
@@ -106,11 +108,20 @@ const ServicesSection = () => {
                 flex: 1,
                 width: isMobile ? "90%" : "45%",
                 textAlign: isMobile ? "center" : "left",
-                backgroundColor: "#0c0c0c",
+                backgroundColor: "#111", // Deep black
                 px: { md: 5, xs: 2 },
                 py: { md: 4, xs: 4 },
                 borderBottomRightRadius: { md: "4rem", xs: "0" },
                 borderTopLeftRadius: { md: "4rem", xs: "0" },
+                boxShadow: "0 4px 24px 0 rgba(0,0,0,0.25)",
+                border: "1px solid #222",
+                left: index % 2 === 0 ? { md: "100%" } : "auto",
+                right: index % 2 !== 0 ? { md: "100%" } : "auto",
+                transform:
+                  index % 2 === 0
+                    ? { md: "translateX(-30%)" } // shift left by 20%
+                    : { md: "translateX(30%)" }, // shift right by 20%
+                zIndex: 2,
               }}
             >
               <Typography
@@ -120,6 +131,8 @@ const ServicesSection = () => {
                   color: "red",
                   mb: 2,
                   fontSize: { md: "2rem", xs: "1.75rem" },
+                  fontFamily: "noto-serif",
+                  letterSpacing: 1,
                 }}
               >
                 {service.title}
@@ -129,7 +142,7 @@ const ServicesSection = () => {
                 sx={{
                   lineHeight: 1.8,
                   fontSize: { md: "1.1rem", xs: "1rem" },
-                  color: "white",
+                  color: "#eee", // Softer white for readability
                 }}
               >
                 {service.longDescription}
@@ -138,7 +151,6 @@ const ServicesSection = () => {
           </Box>
         ))}
       </Box>
-
       {/* View All Button */}
       <Box textAlign="center" mt={2}>
         <Button
